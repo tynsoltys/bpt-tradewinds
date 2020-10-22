@@ -1,0 +1,41 @@
+{
+    "name": "@aedontanner/lodgepole",
+    "version": "0.1.0",
+    "author": "Aedon Tanner <bearwebes@gmail.com>",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "bootstrap": "wpackio-scripts bootstrap",
+        "build": "wpackio-scripts build",
+        "start": "wpackio-scripts start",
+        "archive": "wpackio-scripts pack",
+        "lint": "yarn run lint-js && yarn run lint-css",
+        "lint-js": "eslint assets --ext .js,.ts --no-error-on-unmatched-pattern",
+        "lint-css": "stylelint \"assets/**/*.{css,less,sass,scss}\" --allow-empty-input"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,ts}": [
+            "eslint",
+            "prettier"
+        ],
+        "*.{css,less,sass,scss}": "stylelint"
+    },
+    "dependencies": {
+        "@wpackio/entrypoint": "^5.0.0"
+    },
+    "devDependencies": {
+        "@wpackio/cli": "^5.0.0",
+        "@wpackio/scripts": "^5.0.0",
+        "eslint": "^7.11.0",
+        "husky": "^4.3.0",
+        "lint-staged": ">=10",
+        "prettier": "^2.1.2",
+        "stylelint": "^13.7.2",
+        "stylelint-config-standard": "^20.0.0"
+    }
+}

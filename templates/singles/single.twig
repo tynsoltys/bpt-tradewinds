@@ -1,0 +1,22 @@
+{% extends 'base.twig' %}
+
+{% block body %}
+    <article>
+        <div>
+            <img src="{{ post.thumbnail.src }}"
+                 alt="{{ post.thumbnail.alt }}">
+
+            <h2>{{ post.title }}</h2>
+
+            <p>
+                {{ __('Posted on %s by ', 'lodgepole') | format(post.date) }}
+
+                <a href="{{ post.author.link }}">{{ post.author.name }}</a>
+            </p>
+        </div>
+
+        <div>
+            {{ post.content }}
+        </div>
+    </article>
+{% endblock body %}

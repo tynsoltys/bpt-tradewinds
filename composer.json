@@ -1,0 +1,23 @@
+{
+    "name": "aedontanner/lodgepole",
+    "type": "wordpress-theme",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aedon Tanner",
+            "email": "bearwebes@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "timber/timber": "2.x",
+        "wpackio/enqueue": "^2.2"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
