@@ -8,7 +8,7 @@
         "bootstrap": "wpackio-scripts bootstrap",
         "build": "wpackio-scripts build",
         "start": "wpackio-scripts start",
-        "archive": "wpackio-scripts pack",
+        "archive": "wpackio-scripts build && wpackio-scripts pack",
         "lint": "yarn run lint-js && yarn run lint-css",
         "lint-js": "eslint assets --ext .js,.ts --no-error-on-unmatched-pattern",
         "lint-css": "stylelint \"assets/**/*.{css,less,sass,scss}\" --allow-empty-input"
