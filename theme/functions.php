@@ -4,7 +4,7 @@
  * Lodgepole
  *
  * Based on the Timber starter theme.
- * Huge thanks to the folks who built the tools that Lodgepole is founded on.
+ * Huge thanks to the folks who made the tools that Lodgepole is built on.
  *
  * @package WordPress
  * @subpackage Lodgepole
