@@ -7,13 +7,13 @@
     {{ function('wp_head') }}
 </head>
 <body class="{{ body_class }}">
-{{ include('partials/header.twig') }}
+{% include 'partials/header.twig' %}
 
 <main>
     {% block body %}{% endblock body %}
 </main>
 
-{{ include('partials/footer.twig') }}
+{% include 'partials/footer.twig' %}
 
 {{ function('wp_footer') }}
 </body>
