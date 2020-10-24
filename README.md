@@ -1,10 +1,10 @@
 # Lodgepole
 
-**This project is pretty bare-bones at the moment.  
-  Its main goal is to test some new features before they make it into Jackpine.**
-
 Lodgepole is an offshoot of the Jackpine starter theme for WordPress.  
-Changes made here will be likely integrated into Jackpine in the future.
+Changes made here will be integrated into Jackpine in the future.
+
+**Most templates from Jackpine haven't been added yet.  
+  The main goal of this repo is to test some new features before they make it into Jackpine.**
 
 Please report any bugs you encounter, and leave any suggestions in the issues.
 
