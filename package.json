@@ -6,6 +6,7 @@
         "Dylan Layne Tanner <dylan.tanner@45northventures.com>",
         "Aedon Tanner <aedon.tanner@45northventures.com>"
     ],
+    "homepage": "https://github.com/45-North-Ventures-LLC/jackpine",
     "license": "MIT",
     "private": true,
     "scripts": {

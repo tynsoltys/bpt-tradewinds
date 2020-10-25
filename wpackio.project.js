@@ -10,8 +10,7 @@ module.exports = {
         license: packageJson.license,
         link: packageJson.homepage,
         version: packageJson.version,
-        copyrightText: `This software is released under the ${this.license} License\n
-                        https://opensource.org/licenses/${this.license}`,
+        copyrightText: `This software is released under the ${packageJson.license} License (https://opensource.org/licenses/${packageJson.license})`,
         credit: true,
     },
     files: [
