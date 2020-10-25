@@ -1,4 +1,4 @@
-{% extends 'base.twig' %}
+{% extends 'layouts/base.twig' %}
 
 {% block body %}
     <article>
@@ -11,7 +11,7 @@
             <h2>{{ post.title }}</h2>
         </div>
 
-        <div>
+        <div class="prose">
             {{ post.content }}
         </div>
     </article>

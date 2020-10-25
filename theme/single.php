@@ -13,10 +13,10 @@ $context = Timber::context();
 $post = Timber::get_post();
 
 $templates = [
-    'singles/single-' . $post->ID . '.twig',
-    'singles/single-' . $post->slug . '.twig',
-    'singles/single-' . $post->post_type . '.twig',
-    'singles/single.twig',
+    'posts/single-' . $post->ID . '.twig',
+    'posts/single-' . $post->slug . '.twig',
+    'posts/single-' . $post->post_type . '.twig',
+    'posts/single.twig',
 ];
 
 if ( post_password_required() ) {
