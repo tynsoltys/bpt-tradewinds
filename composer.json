@@ -1,11 +1,15 @@
 {
-    "name": "aedontanner/lodgepole",
+    "name": "45northventures/jackpine",
     "type": "wordpress-theme",
     "license": "MIT",
     "authors": [
         {
+            "name": "Dylan Layne Tanner",
+            "email": "dylan.tanner@45northventures.com"
+        },
+        {
             "name": "Aedon Tanner",
-            "email": "bearwebes@gmail.com"
+            "email": "aedon.tanner@45northventures.com"
         }
     ],
     "require": {

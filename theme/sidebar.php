@@ -1,13 +1,13 @@
 <?php
 
 /**
- * The template for displaying 404 pages (not found)
+ * The sidebar containing the main widget area
  *
  * @package WordPress
  * @subpackage Jackpine
  * @since Jackpine 0.1.0
  */
 
-$templates = [ '404.twig' ];
+$templates = [ 'sidebar.twig' ];
 
 Timber::render( $templates, Timber::context() );

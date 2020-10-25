@@ -1,7 +1,13 @@
 {% extends 'base.twig' %}
 
 {% block body %}
-    {% for post in posts %}
-        {% include 'partials/preview.twig' %}
-    {% endfor %}
+    <section>
+        {% for post in posts %}
+            {% include 'partials/preview.twig' %}
+        {% endfor %}
+
+        {% if posts.pagination.pages is not empty %}
+            {% include 'partials/pagination.twig' %}
+        {% endif %}
+    </section>
 {% endblock body %}

@@ -9,10 +9,14 @@
  * E.g., it puts together the home page when no home.php file exists.
  *
  * @package WordPress
- * @subpackage Lodgepole
- * @since Lodgepole 0.1.0
+ * @subpackage Jackpine
+ * @since Jackpine 0.1.0
  */
 
 $templates = [ 'index.twig' ];
+
+if ( is_home() ) {
+    array_unshift( $templates, 'home.twig' );
+}
 
 Timber::render( $templates, Timber::context() );

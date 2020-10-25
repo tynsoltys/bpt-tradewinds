@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Lodgepole
+ * Jackpine
  *
  * Based on the Timber starter theme.
- * Huge thanks to the folks who made the tools that Lodgepole is built on.
+ * Huge thanks to the folks who made the tools that Jackpine is built on.
  *
  * @package WordPress
- * @subpackage Lodgepole
- * @since Lodgepole 0.1.0
+ * @subpackage Jackpine
+ * @since Jackpine 0.1.0
  */
 
 require_once dirname( __DIR__ ) . '/vendor/autoload.php';
@@ -18,40 +18,50 @@ use Timber\Timber;
 use Twig\Environment;
 use WPackio\Enqueue;
 
-class LodgepoleSite extends Site {
-    public Timber $timber;
+class JackpineSite extends Site {
     public Enqueue $enqueue;
+    public Timber $timber;
 
     public function __construct() {
-        $this->timber = new Timber();
-
-        Timber::$dirname = [ '../templates' ];
-
         $this->enqueue = new Enqueue(
-            'lodgepole',
+            'jackpine',
             '../dist',
             '0.1.0',
             'theme',
             false
         );
 
+        $this->timber = new Timber();
+
+        Timber::$dirname = [ '../templates' ];
+
         add_action( 'after_setup_theme', [ $this, 'theme_support' ] );
+        add_action( 'after_setup_theme', [ $this, 'load_text_domain' ] );
+        add_action( 'init', [ $this, 'custom_taxonomies' ] );
+        add_action( 'init', [ $this, 'custom_post_types' ] );
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
         add_filter( 'timber/context', [ $this, 'custom_context' ] );
         add_filter( 'timber/twig', [ $this, 'custom_twig' ] );
-        add_action( 'init', [ $this, 'custom_post_types' ] );
-        add_action( 'init', [ $this, 'custom_taxonomies' ] );
 
         parent::__construct();
     }
 
     /**
-     * Enqueues WPackIO scripts.
+     * Registers custom taxonomies.
      *
      * @return void
      */
-    public function enqueue_scripts() {
-        $this->enqueue->enqueue( 'app', 'main', [] );
+    public function custom_taxonomies() {
+        //
+    }
+
+    /**
+     * Registers custom post types.
+     *
+     * @return void
+     */
+    public function custom_post_types() {
+        //
     }
 
     /**
@@ -85,6 +95,24 @@ class LodgepoleSite extends Site {
     }
 
     /**
+     * Sets localization files location.
+     *
+     * @return void
+     */
+    public function load_text_domain() {
+        load_theme_textdomain( 'jackpine', get_template_directory() . '/languages' );
+    }
+
+    /**
+     * Enqueues scripts.
+     *
+     * @return void
+     */
+    public function enqueue_scripts() {
+        $this->enqueue->enqueue( 'app', 'main', [] );
+    }
+
+    /**
      * Registers global context variables.
      *
      * @param  array  $context  Timber global context
@@ -107,25 +135,6 @@ class LodgepoleSite extends Site {
     public function custom_twig( Environment $twig ) {
         return $twig;
     }
-
-    /**
-     * Registers custom post types.
-     *
-     * @return void
-     */
-    public function custom_post_types() {
-        //
-    }
-
-
-    /**
-     * Registers custom taxonomies.
-     *
-     * @return void
-     */
-    public function custom_taxonomies() {
-        //
-    }
 }
 
-new LodgepoleSite();
+new JackpineSite();

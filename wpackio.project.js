@@ -1,9 +1,9 @@
 const packageJson = require('./package.json')
 
 module.exports = {
-    appName: 'lodgepole',
+    appName: 'jackpine',
     type: 'theme',
-    slug: 'lodgepole',
+    slug: 'jackpine',
     bannerConfig: {
         name: packageJson.name,
         author: packageJson.author,
@@ -18,7 +18,7 @@ module.exports = {
         {
             name: 'app',
             entry: {
-                main: ['./assets/js/app.js', './assets/css/app.css'],
+                main: ['./assets/js/app.js', './assets/sass/app.scss'],
             },
             webpackConfig: undefined,
         },
@@ -26,7 +26,7 @@ module.exports = {
     outputPath: 'dist',
     hasReact: false,
     disableReactRefresh: false,
-    hasSass: false,
+    hasSass: true,
     hasLess: false,
     hasFlow: false,
     externals: {},
