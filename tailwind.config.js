@@ -6,4 +6,5 @@ module.exports = {
         standardFontWeights: true,
     },
     purge: ['templates/**/*.twig'],
+    plugins: [require('@tailwindcss/typography')],
 }
