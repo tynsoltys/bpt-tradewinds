@@ -22,6 +22,11 @@ class JackpineSite extends Site {
     public Enqueue $enqueue;
     public Timber $timber;
 
+    /**
+     * Jackpine constructor
+     *
+     * Here we initialize our dependencies and register our hooks.
+     */
     public function __construct() {
         $this->enqueue = new Enqueue(
             'jackpine',
