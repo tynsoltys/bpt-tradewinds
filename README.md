@@ -30,7 +30,7 @@ Jackpine is a great starting point for any WordPress developer or team who is lo
 
 Installing and configuring Jackpine for local development is pretty straightforward:
 
-1. Clone the repository (or download the zip and extract it) into your `wp-content/themes` directory. Feel free to rename the folder to whatever you want for your site. *Note:* If you rename the theme folder, make sure to also change the slug option in the wpack.io config to match.
+1. Clone the repository (or download the zip and extract it) into your `wp-content/themes` directory. Feel free to rename the folder to whatever you want for your site. ***Note:** If you rename the theme folder, make sure to also change the slug option in the wpack.io config to match.*
 2. In the console, run `composer install` and `yarn install` to install your dependencies.
 4. Configure the wpack.io server by running `yarn run bootstrap` and answering the questions.
 5. Activate your theme in the WordPress admin panel by going to Appearance > Themes.
