@@ -19,14 +19,16 @@ use Twig\Environment;
 use WPackio\Enqueue;
 
 class JackpineSite extends Site {
-    public Enqueue $enqueue;
-    public Timber $timber;
+    /**
+     * @var Enqueue
+     */
+    public $enqueue;
 
     /**
-     * Jackpine constructor
-     *
-     * Here we initialize our dependencies and register our hooks.
+     * @var Timber
      */
+    public $timber;
+
     public function __construct() {
         $this->enqueue = new Enqueue(
             'jackpine',
@@ -40,7 +42,7 @@ class JackpineSite extends Site {
 
         Timber::$dirname = [ '../templates' ];
 
-        add_action( 'after_setup_theme', [ $this, 'theme_support' ] );
+        add_action( 'after_setup_theme', [ $this, 'theme_supports' ] );
         add_action( 'after_setup_theme', [ $this, 'load_text_domain' ] );
         add_action( 'init', [ $this, 'custom_taxonomies' ] );
         add_action( 'init', [ $this, 'custom_post_types' ] );
@@ -74,7 +76,7 @@ class JackpineSite extends Site {
      *
      * @return void
      */
-    public function theme_support() {
+    public function theme_supports() {
         // Enables RSS feeds for posts and comments
         add_theme_support( 'automatic-feed-links' );
 
