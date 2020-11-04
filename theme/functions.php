@@ -46,9 +46,9 @@ class JackpineSite extends Site {
         add_action( 'after_setup_theme', [ $this, 'load_text_domain' ] );
         add_action( 'init', [ $this, 'custom_taxonomies' ] );
         add_action( 'init', [ $this, 'custom_post_types' ] );
+        add_filter( 'timber/context', [ $this, 'add_to_context' ] );
+        add_filter( 'timber/twig', [ $this, 'add_to_twig' ] );
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-        add_filter( 'timber/context', [ $this, 'custom_context' ] );
-        add_filter( 'timber/twig', [ $this, 'custom_twig' ] );
 
         parent::__construct();
     }
@@ -126,7 +126,7 @@ class JackpineSite extends Site {
      *
      * @return array
      */
-    public function custom_context( array $context ) {
+    public function add_to_context( array $context ) {
         $context['site'] = $this;
 
         return $context;
@@ -139,7 +139,7 @@ class JackpineSite extends Site {
      *
      * @return Environment
      */
-    public function custom_twig( Environment $twig ) {
+    public function add_to_twig( Environment $twig ) {
         return $twig;
     }
 }
