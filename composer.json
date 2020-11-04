@@ -13,8 +13,8 @@
         }
     ],
     "require": {
-        "php": "^7.4",
-        "timber/timber": "2.x",
+        "php": "^7.3",
+        "timber/timber": "dev-2.x-term-factories",
         "wpackio/enqueue": "^2.2"
     },
     "config": {

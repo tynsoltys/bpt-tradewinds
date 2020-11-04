@@ -13,6 +13,7 @@
 
 require_once dirname( __DIR__ ) . '/vendor/autoload.php';
 
+use Timber\Menu;
 use Timber\Site;
 use Timber\Timber;
 use Twig\Environment;
@@ -22,12 +23,12 @@ class JackpineSite extends Site {
     /**
      * @var Enqueue
      */
-    public $enqueue;
+    protected $enqueue;
 
     /**
      * @var Timber
      */
-    public $timber;
+    protected $timber;
 
     public function __construct() {
         $this->enqueue = new Enqueue(
@@ -99,6 +100,9 @@ class JackpineSite extends Site {
                 'script',
             ]
         );
+
+        // Enables menus
+        add_theme_support( 'menus' );
     }
 
     /**
@@ -107,7 +111,8 @@ class JackpineSite extends Site {
      * @return void
      */
     public function load_text_domain() {
-        load_theme_textdomain( 'jackpine', get_template_directory() . '/languages' );
+        load_theme_textdomain( 'jackpine',
+            get_template_directory() . '/languages' );
     }
 
     /**
@@ -127,6 +132,7 @@ class JackpineSite extends Site {
      * @return array
      */
     public function add_to_context( array $context ) {
+        $context['menu'] = new Menu();
         $context['site'] = $this;
 
         return $context;
