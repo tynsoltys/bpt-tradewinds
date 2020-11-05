@@ -64,7 +64,7 @@ Browsersync will expose an IP address that can be used by other devices on your 
 To package your finished theme for deployment:
 
 1. Build your production assets bundle by running `yarn run build`.
-2. Run `yarn run package` to create a zip file of your theme.
+2. Run `yarn run archive` to create a zip file of your theme.
 3. Locate the zip file in the `package` directory and upload it to your server.
 
 **Advanced:**
