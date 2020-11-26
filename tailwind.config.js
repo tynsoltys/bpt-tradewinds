@@ -1,10 +1,11 @@
 module.exports = {
-    future: {
-        removeDeprecatedGapUtilities: true,
-        purgeLayersByDefault: true,
-        defaultLineHeights: true,
-        standardFontWeights: true,
-    },
-    purge: ['templates/**/*.twig'],
-    plugins: [require('@tailwindcss/typography')],
+    darkMode: 'media',
+    purge: [
+        'templates/**/*.twig',
+        'theme/**/*.php',
+    ],
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/typography'),
+    ],
 }
