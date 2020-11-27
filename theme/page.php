@@ -13,13 +13,17 @@
  * @since Jackpine 0.1.0
  */
 
+use Timber\Post;
+use Timber\Timber;
+
 $context = Timber::context();
 
-$post = Timber::get_post();
+$post = new Post();
 
 $templates = [
-    'pages/page' . $post->ID . '',
-    'pages/page' . $post->slug . '',
+    'pages/page-' . $post->ID . '.twig',
+    'pages/page-' . $post->slug . '.twig',
+    'pages/page-' . $post->post_type . '.twig',
     'pages/page.twig',
 ];
 

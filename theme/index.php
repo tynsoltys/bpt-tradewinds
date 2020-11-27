@@ -13,9 +13,12 @@
  * @since Jackpine 0.1.0
  */
 
+use Timber\Timber;
+
 $templates = [ 'index.twig' ];
 
 if ( is_home() ) {
+    // Push special home template to the front of the array
     array_unshift( $templates, 'home.twig' );
 }
 

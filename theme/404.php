@@ -8,6 +8,6 @@
  * @since Jackpine 0.1.0
  */
 
-$templates = [ '404.twig' ];
+use Timber\Timber;
 
-Timber::render( $templates, Timber::context() );
+Timber::render( '404.twig', Timber::context() );
