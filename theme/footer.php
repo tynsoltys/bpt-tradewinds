@@ -11,12 +11,12 @@
  * @since Jackpine 0.1.0
  */
 
-$context = Timber::context();
+use Timber\Timber;
 
-$templates = [ 'plugin.twig' ];
+$context = Timber::context();
 
 $context['content'] = ob_get_contents();
 
 ob_end_clean();
 
-Timber::render( $templates, $context );
+Timber::render( 'plugin.twig', $context );

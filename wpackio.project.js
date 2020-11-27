@@ -32,10 +32,14 @@ module.exports = {
     alias: undefined,
     errorOverlay: true,
     optimizeSplitChunks: true,
-    watch: ['templates/**/*.twig', 'theme/**/*.php'],
+    watch: [
+        'assets/templates/**/*.twig',
+        'src/**/*.php',
+        'theme/**/*.php',
+    ],
     packageFiles: [
         'dist/**',
-        'templates/**',
+        'assets/templates/**',
         'theme/**',
         'vendor/**',
         '*.md',

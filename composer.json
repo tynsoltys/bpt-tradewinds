@@ -17,6 +17,11 @@
         "timber/timber": "dev-2.x-term-factories",
         "wpackio/enqueue": "^2.2"
     },
+    "autoload": {
+        "psr-4": {
+            "Jackpine\\": "src/"
+        }
+    },
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",

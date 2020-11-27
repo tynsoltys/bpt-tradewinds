@@ -8,9 +8,11 @@
  * @since Jackpine 0.1.0
  */
 
-$context = Timber::context();
+use Timber\Timber;
 
 $templates = [ 'archive.twig', 'index.twig' ];
+
+$context = Timber::context();
 
 $context['title'] = __( 'Archive', 'jackpine' );
 

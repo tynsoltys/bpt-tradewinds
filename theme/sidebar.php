@@ -8,6 +8,6 @@
  * @since Jackpine 0.1.0
  */
 
-$templates = [ 'sidebar.twig' ];
+use Timber\Timber;
 
-Timber::render( $templates, Timber::context() );
+Timber::render( 'sidebar.twig', Timber::context() );

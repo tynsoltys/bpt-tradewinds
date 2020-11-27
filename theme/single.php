@@ -8,9 +8,12 @@
  * @since Jackpine 0.1.0
  */
 
+use Timber\Post;
+use Timber\Timber;
+
 $context = Timber::context();
 
-$post = Timber::get_post();
+$post = new Post();
 
 $templates = [
     'posts/single-' . $post->ID . '.twig',
