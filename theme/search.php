@@ -8,9 +8,11 @@
  * @since Jackpine 0.1.0
  */
 
-$context = Timber::context();
+use Timber\Timber;
 
 $templates = [ 'search.twig', 'archive.twig', 'index.twig' ];
+
+$context = Timber::context();
 
 $context['title'] = sprintf( __( 'Search results for "%s"', 'jackpine' ), get_search_query() );
 

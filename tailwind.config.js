@@ -1,8 +1,7 @@
 module.exports = {
     darkMode: 'media',
     purge: [
-        'templates/**/*.twig',
-        'theme/**/*.php',
+        'assets/templates/**/*.twig',
     ],
     plugins: [
         require('@tailwindcss/forms'),
