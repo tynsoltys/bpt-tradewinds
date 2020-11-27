@@ -4,7 +4,7 @@
 
 [![Release](https://badgen.net/github/release/45-North-Ventures-LLC/jackpine)](https://github.com/45-North-Ventures-LLC/jackpine/releases)
 [![License](https://badgen.net/github/license/45-North-Ventures-LLC/jackpine)](https://github.com/45-North-Ventures-LLC/jackpine/blob/master/LICENSE)
-[![Last Commit](https://badgen.net/github/last-commit/45-North-Ventures-LLC/jackpine/next?cache=300)](https://github.com/45-North-Ventures-LLC/jackpine/commits/master)
+[![Last Commit](https://badgen.net/github/last-commit/45-North-Ventures-LLC/jackpine/main?cache=300)](https://github.com/45-North-Ventures-LLC/jackpine/commits/main)
 [![Issues](https://badgen.net/github/open-issues/45-North-Ventures-LLC/jackpine?cache=300)](https://github.com/45-North-Ventures-LLC/jackpine/issues)
 [![Gitter](https://badges.gitter.im/jackpine-wp/community.svg)](https://gitter.im/jackpine-wp/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
