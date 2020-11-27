@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Jackpine\\": "src/Jackpine"
+            "Jackpine\\": "src/"
         }
     },
     "config": {
