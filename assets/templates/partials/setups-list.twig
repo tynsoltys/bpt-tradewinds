@@ -1,0 +1,125 @@
+
+
+<ul class="">
+    {% for trade in trades %}
+    <article class="trade-card rounded-lg shadow-lg p-4 mb-4 bg-brand-white">
+
+        <div class="setup-details grid grid-rows-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-2 p-2">
+            <div class="row-span-2 ">
+                <h4 class="pill text-brand-white bg-{{trade.trade_flag.color_code}}"><i class="fas fa-{{trade.trade_flag.icon_code}}"></i> {{trade.trade_flag}}</h4>
+                <h2 class="mt-2"><a href="" class="symbol text-4xl font-black tracking-wide">{{trade.ticker_symbol}}</a></h2>
+                <h3 class="sentence text-lg">{{trade.underlying_name}}</h3>
+
+                {# <h4 class="text-xs uppercase tracking-wide mt-1">LAST ACTIVITY</h4>
+                <p class="meta">{{trade.latest_update_date}}</p> #}
+            </div>
+    
+            <div class="">
+                <h4 class="subheading">{{trade.trade_type.name}}</h4>
+                <p class="meta">{{trade.trade_strategy}}</p>
+            </div>
+    
+            <div class="">
+                <h4 class="subheading">outlook</h4>
+                <p class="meta text-{{trade.outlook.color_code}}"><i class="fas fa-{{trade.outlook.icon_code}}"></i> {{trade.outlook}}</p>
+            </div>
+    
+            <div class="">
+                <h4 class="subheading">last activity</h4>
+                <p class="meta">{{trade.latest_update_date}}</p>
+            </div>
+    
+            <div class="">
+                <h4 class="pill text-brand-white bg-{{trade.trade_flag.color_code}}"><i class="fas fa-{{trade.trade_flag.icon_code}}"></i> {{trade.trade_flag}}</h4>
+                {# <h4>{{trade.trade_status}}</h4> #}
+            </div>
+
+    
+            <div class="col-span-3">
+                <p class="caption">{{trade.trade_description}}</p>
+            </div>
+    
+            <div class="">
+                <p class="subheading">acb at update</p>
+                <p class="meta">${{trade.acb_at_update}}</p>
+            </div>
+        </div>
+        
+
+    
+
+
+
+
+        <div class="current-legs legs block text-center uppercase text-sm">
+            <h3 class="font-bold border-b-1 border-accent-green mt-3">CURRENT POSITIONS</h3>
+            <div class="leg-headings bg-gray-light grid grid-rows-1 grid-cols-2 md:grid-cols-5 lg:grid-cols-9 gap-2 rounded text-xs p-2">
+                <p class="entry-date">ENTRY DATE</p>
+                <p class="leg-name">NAME</p>
+                <p class="leg-strategy">STRATEGY</p>
+                <p class="leg-strategy">UNIT RATIO</p>
+                <p class="leg-strategy">ACTION</p>
+                <p class="leg-strategy">STRIKE</p>
+                <p class="leg-strategy">EXPIRY</p>
+                <p class="leg-strategy">ENTRY PRICE</p>
+            </div>
+            <ul>
+                {% for leg in trade.setup_legs %}
+                <li class="leg">
+
+                    <div class="leg-main grid grid-rows-1 grid-cols-2 md:grid-cols-5 lg:grid-cols-9 gap-2 p-2">
+                        <p class="entry-date">{{leg.entry_date}}</p>
+                        <p class="leg-name">{{leg.leg_name}}</p>
+                        <p class="leg-strategy">{{leg.leg_strategy}}</p>
+                        <p class="leg-strategy">{{leg.unit_ratio}}</p>
+                        <p class="leg-strategy">{{leg.action}}</p>
+                        <p class="leg-strategy">{{leg.strike}}</p>
+                        <p class="leg-strategy">{{leg.expiry}}</p>
+                        <p class="leg-strategy">{{leg.entry_price}}</p>
+                    </div>
+                    <div class="leg-exit">
+                        
+                    </div>
+                    <div class="leg-detail">
+
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+
+
+        </div>
+
+    </article>
+
+
+    {% endfor %}
+
+    {% for trade in bots %}
+    <article class="trade-card rounded-lg shadow-xl p-4 grid grid-rows-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+
+        <a href="" class="symbol text-2xl col-span-1">{{trade.ticker_symbol}}</a>
+        <p class="text-xl col-span-1">{{trade.underlying_name}}</p>
+        <div class="">
+            <p class="col-span-1">{{trade.trade_strategy}}</p>
+        </div>
+        
+
+
+
+
+        <p class="col-span-1">{{trade.last_update_date}}</p>
+        <a href="" class="pill pill-fill pill-bot">BOT</a>
+        <p class="col-span-1">{{trade.acb_at_update}}</p>
+        <p class="col-span-1">{{trade.outlook}}</p>
+        <p class="col-span-1">{{trade.trade_status}}</p>
+        <p class="col-span-1">{{trade.trade_flag}}</p>
+
+        <p class="col-span-3">{{trade.trade_description}}</p>
+
+        <p class="col-span-1">{{trade.trade_image.url}}</p>
+
+    </article>
+    {% endfor %}
+
+</ul>

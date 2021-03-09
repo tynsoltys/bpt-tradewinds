@@ -1,9 +1,9 @@
 const packageJson = require('./package.json')
 
 module.exports = {
-    appName: 'jackpine',
+    appName: 'tradewinds',
     type: 'theme',
-    slug: 'jackpine',
+    slug: 'tradewinds',
     bannerConfig: {
         name: packageJson.name,
         author: packageJson.author,

@@ -1,0 +1,16 @@
+* {
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+
+
+.subheading {
+    @apply uppercase text-sm text-gray-dark tracking-wide;
+}
+
+.caption {
+    @apply text-xs text-gray-dark;
+}
+
+.meta {
+    @apply uppercase font-bold tracking-wide
+}

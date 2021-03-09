@@ -6,12 +6,28 @@
     <meta name="description" content="{{ site.description }}">
     {{ function('wp_head') }}
 </head>
-<body>
+<body class="bg-background-main">
+
 {% include 'partials/header.twig' %}
 
-<main>
-    {% block body %}{% endblock body %}
-</main>
+ <!-- Breadcrumb -->
+<nav class="hidden bg-white  lg:flex" aria-label="Breadcrumb">
+    <div class="max-w-screen-xl w-full mx-auto mb-6 px-4 flex lg:space-between sm:px-6 lg:px-8 py-3 items-center border-b border-gray-200">
+        <h1 class="flex-1 text-2xl font-bold tracking-wide mr-2"><i class="fas fa-bell mr-2 "></i>TRADE UPDATES</h1>
+        <select name="" id="" aria-label="menu of trade types" class=" flex uppercase rounded-full px-6">
+            <option value="rec">all recent trades</option>
+            <option value="bot">breakout trades</option> 
+            <option value="tac">tactical portfolio</option>
+            <option value="lto">long term options</option>
+            <option value="ofi">options for income</option>
+        </select>
+    </div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 ">
+    {% block body %}   
+    {% endblock body %}
+    </main>
 
 {% include 'partials/footer.twig' %}
 

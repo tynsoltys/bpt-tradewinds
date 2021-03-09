@@ -1,3 +1,12 @@
+// Import components
+@import 'components/buttons';
+@import 'components/pills';
+@import 'components/outlook';
+@import 'components/flags';
+@import 'components/typography';
+
+
+// Import Tailwind.css core
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";

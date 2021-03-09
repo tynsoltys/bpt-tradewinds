@@ -18,6 +18,12 @@ use Timber\Timber;
 
 $context = Timber::context();
 
+$trades = array('post_type' => 'trade-setup');
+$bots = array('post_type' => 'trade-bot');
+
+$context['trades'] = Timber::get_posts($trades);
+$context['bots'] = Timber::get_posts($bots);
+
 $post = new Post();
 
 $templates = [
