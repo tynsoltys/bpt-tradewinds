@@ -40,6 +40,7 @@ module.exports = {
     packageFiles: [
         'dist/**',
         'assets/templates/**',
+        'assets/images/**',
         'theme/**',
         'vendor/**',
         '*.md',

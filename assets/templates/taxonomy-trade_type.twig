@@ -1,0 +1,15 @@
+{% extends 'index.twig' %}
+
+
+{% block body %}
+{{ include ('partials/menu-trade-types-select.twig') }}
+<pre>taxonomy-trade_type.twig</pre>
+
+    <h2 class="text-2xl uppercase text-brand-primary p-4 tracking-widest font-semibold"><i class="fas fa-bell"></i> {{ title }}</h2>
+    
+    {% for trade in posts %} 
+        {{ include ('partials/setups/setup-card_concise.twig') }}
+    {% endfor %}
+
+    {{ parent() }}
+{% endblock body %}

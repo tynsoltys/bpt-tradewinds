@@ -1,0 +1,23 @@
+
+
+<nav id="nav-main" class="flex flex-row bg-white p-4 uppercase center text-sm justify-between " role="navigation">
+    {% if items|default(trade_types_select.items) %}
+        {% for item in items|default(trade_types_select.items) %}
+            {% if item.children %}
+                <div x-data="{ hover: false }" class="relative ">
+                    <a id="menu-item-{{ item.id }}" href="{{ item.link }}" class="  mx-4 flex items-center" @mouseenter="{hover=true}" @mouseleave="{hover=false}">{{ item.name }}</a>
+                    <ul id="menu-item-list-{{ item.id }}" class="absolute ml-4 flex flex-col whitespace-no-wrap" x-show="hover" @mouseenter="{hover=true}" @mouseleave="{hover=false}">
+                        {% for child in item.children %}
+                            <li id="menu-item-child-{{ child.id }}">
+                                <a href="{{ child.link }}" class="">{{ child.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {%  else %}
+                <a id="menu-item-{{ item.id }}" href="{{ item.link }}" class="{{item.current}} mx-4">{{ item.name }}</a>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</nav>
+

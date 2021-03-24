@@ -32,6 +32,17 @@ module.exports = {
             'gray-medium': '#bdbdbd',
             'gray-light': '#f4f6f8',
             'background-main': '#f7f8fa',
+        },
+        extend: {
+            gridTemplateColumns: {
+              // Complex site-specific column configuration
+             'concise': '200px 1fr 1fr 1fr 1fr 1fr 50px',
+             'full': '250px 1fr 1fr 1fr 1fr 1fr',
+            },
+            gridTemplateRows: {
+             'full': '60px auto auto',
+            }
         }
-    }
+    },
+
 }

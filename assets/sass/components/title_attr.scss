@@ -1,0 +1,9 @@
+
+  
+  a {
+      position: relative;
+  }
+  *[title]:hover::after {
+    content: attr(title);
+    @apply bg-brand-white border px-2 rounded-full text-xs shadow-xl absolute;
+  }

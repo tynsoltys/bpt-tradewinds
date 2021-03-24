@@ -10,7 +10,7 @@
 
 use Timber\Timber;
 
-$templates = [ 'archive.twig', 'index.twig' ];
+$templates = [ 'taxonomy-trade_type.twig', 'archive.twig', 'index.twig' ];
 
 $context = Timber::context();
 

@@ -17,7 +17,21 @@ use Jackpine\JackpineSite;
 
 new JackpineSite( 'jackpine', '0.11.0', '../dist', '../assets/templates' );
 
+// GOOGLE FONTS
+
 function google_fonts() {
     wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap', false );
 }
 add_action( 'wp_enqueue_scripts', 'google_fonts' );
+
+// MENUS
+
+add_filter( 'timber/context', 'add_to_context' );
+
+function add_to_context( $context ) {
+
+    // Now, in similar fashion, you add a Timber Menu and send it along to the context.
+    $context['trade_types_select'] = new \Timber\Menu( 'Trade Types Select' );
+
+    return $context;
+}

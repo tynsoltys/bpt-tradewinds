@@ -1,7 +1,14 @@
 .pill {
-    @apply rounded-full text-xs py-1 px-2 font-bold tracking-wide inline uppercase font-medium;
+    @apply rounded-full py-1 px-2 font-bold tracking-wide inline uppercase font-medium;
 }
 
-.symbol {
+.pill_small {
 
+    @apply rounded-full text-xs py-1 px-2 font-bold tracking-wide inline uppercase font-medium;
+    padding: 3px 5px;
+    line-height: 0.6rem;
+}
+
+.bullet {
+    @apply p-2 m-auto rounded-full;
 }

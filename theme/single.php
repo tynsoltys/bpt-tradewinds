@@ -13,7 +13,12 @@ use Timber\Timber;
 
 $context = Timber::context();
 
+
+$context['trade'] = $post;
+
 $post = new Post();
+
+
 
 $templates = [
     'posts/single-' . $post->ID . '.twig',
