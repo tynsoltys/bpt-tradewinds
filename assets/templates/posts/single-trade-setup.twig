@@ -6,7 +6,7 @@
 {% block body %}
 {{ include ('partials/menu-trade-types-select.twig') }}
 
-<pre>single-trade-setup.twig</pre>
+<pre>single-trade-setup.twig for {{ post.type }}</pre>
 
 <p class="">{{ post.trade_type.slug }}</p>
     {% if post.trade_type.slug == 'trade-type-bot' %}

@@ -1,8 +1,22 @@
 
 {{ include ('partials/menu-trade-types-select.twig') }}
 <h2 class="text-2xl uppercase text-brand-primary p-4 tracking-widest font-semibold"><i class="fas fa-bell"></i> Recent Activity</h2>
+
 <ul class="">
+
+
+
     {% for trade in trades %}
-        {{ include ('partials/setups/setup-card_concise.twig') }}
+        {% if trade.post_type == ('trade-setup-tac') %}
+            {{ include ('partials/setups/setup-card_concise-tac--forupdates.twig') }}
+
+        {% else %}
+            {{ include ('partials/setups/setup-card_concise.twig') }}
+    {% endif %}
+
     {% endfor %}
+
+
+
+
 </ul>

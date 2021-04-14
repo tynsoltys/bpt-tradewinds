@@ -1,0 +1,30 @@
+
+
+    <article class="trade-card rounded-lg shadow p-2 px-5 mb-4 bg-brand-white grid grid-cols-concisetac text-left">
+        <div class="col-span-1 flex justify-start items-center">
+            <h4 class="mr-2 symbol text-3xl font-black text-gray-dark tracking-wide">{{trade.allocation}}<span class="font-semibold">%</span>  </h4>
+        </div>
+        <div class="setup-details col-span-1 flex items-center">
+            <h2 class="flex items-center" title="{{trade.underlying_name}}"><a href="" class="mr-2 symbol text-3xl font-black tracking-wide">{{trade.ticker_symbol}}</a>
+        </div>
+        <div class="col-span-1">
+            <h4 class="subheading">outlook</h4>
+            <p class="meta text-{{trade.outlook.color_code}}"><i class="fas fa-{{trade.outlook.icon_code}}"></i> {{trade.outlook}}</p>
+        </div>
+        <div class="">
+            <h4 class=" subheading">strategy</h4>
+            <p class="meta">{{trade.trade_strategy}}</p>
+        </div>
+        <div class="">
+            {# <h4 class=" subheading">strategy</h4>
+            <p class="meta">{{trade.trade_strategy}}</p> #}
+        </div>
+
+
+        <div class="col-span-1 flex justify-end items-center">
+            <h4 class="">{{ include ('partials/trade-flags/trade-flag-pill_medium.twig') }}</h4>
+        </div>
+        <a href="{{trade.link}}" target="_blank" title="Go To Trade Details" aria-label="Go to Trade Details" class="col-span-1 block ml-5 flex items-center text-gray-medium hover:text-gray-dark">
+            <i class="fas fa-ellipsis-h"></i>
+        </a>
+</article>

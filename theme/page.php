@@ -20,7 +20,17 @@ $context = Timber::context();
 
 //ALL TRADES
 $trades = array(
-    'post_type' => 'trade-setup',
+    'post_type' => array('trade-setup','trade-setup-tac'),
+    'posts_per_page'	=> -1,
+    'order'          => 'DESC',
+    'orderby'        => 'meta_value',
+    'meta_key'       => 'latest_update_date',
+    'meta_type'      => 'DATETIME',
+);
+
+//TAC
+$tac = array(
+    'post_type' => 'trade-setup-tac',
     'posts_per_page'	=> -1,
     'order'          => 'DESC',
     'orderby'        => 'meta_value',
@@ -29,6 +39,7 @@ $trades = array(
 );
 
 $context['trades'] = Timber::get_posts($trades);
+$context['tac'] = Timber::get_posts($tac);
 
 $post = new Post();
 

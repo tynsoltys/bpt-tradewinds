@@ -4,7 +4,9 @@
     <article class="trade-card rounded-lg shadow-lg p-3 px-5 mb-4 bg-brand-white grid grid-cols-concise">
 
             <div class="setup-details col-span-1 flex items-center">
-                <h2 class="flex items-center" title="{{trade.underlying_name}}"><a href="" class="mr-2 symbol text-3xl font-black tracking-wide">{{trade.ticker_symbol}}</a>  {{ include ('partials/trade-types/trade-type-pill_small.twig') }}</h2>
+                <h2 class="flex items-center" title="{{trade.underlying_name}}"><a href="" class="mr-2 symbol text-3xl font-black tracking-wide">{{trade.ticker_symbol}}</a>
+                    <span class="pill pill_small text-accent-red border border-accent-red flex">  TAC</span>
+                </h2>
             </div>
             <div class="col-span-1">
                 <p class="subheading">LAST ACTIVITY</p>
@@ -20,8 +22,8 @@
                 <p class="meta">{{trade.trade_strategy}}</p>
             </div>
             <div class="col-span-1">
-                <p class="subheading">acb at update</p>
-                <p class="meta">${{trade.acb_at_update}}</p>
+                <p class="subheading">asset class</p>
+                <p class="meta">{{trade.asset_class}}</p>
             </div>
             <div class="col-span-1 flex justify-end items-center">
                 <h4 class="">{{ include ('partials/trade-flags/trade-flag-pill_medium.twig') }}</h4>

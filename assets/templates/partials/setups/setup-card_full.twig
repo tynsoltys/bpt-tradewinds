@@ -44,76 +44,58 @@
             <p class="meta text-sm normal-case font-normal mt-2">{{trade.trade_description}}</p>
         </div>
     </div>
-    
-    <div class="legs mt-6 col-span-12 ">
-        <div class="mt-3 uppercase leg-headings font-semibold tracking-wider text-gray-dark bg-gray-light text-center grid grid-rows-1 grid-cols-4 gap-x-2 md:grid-cols-5 lg:grid-cols-12 px-2 rounded text-xs p-2 mt-2">
-    
-            <p class="col-span-2 entry-date">ENTRY DATE</p>
-            <p class="col-span-1 leg-name">NAME</p>
-            <p class="col-span-2 leg-strategy">STRATEGY</p>
-            <p class="col-span-1 leg-strategy">UNIT RATIO</p>
-            <p class="col-span-2 leg-strategy">ACTION</p>
-            <p class="col-span-1 leg-strategy">STRIKE</p>
-            <p class="col-span-1 leg-strategy">EXPIRY</p>
-            <p class="col-span-1 leg-strategy">PRICE</p>
-            <div class="col-span-1 dropdowner"><i class=" fas fa-ellipsis-h"></i></div>
+
+
+       {# CURRENT LEGS  #}
+
+        <div class="legs mt-6 col-span-12 ">
+            <h3 class="text-lg uppercase mt-6 text-brand-primary font-semibold tracking-widest">current legs</h3>
+            {{ include ('partials/legs/legs-headers.twig') }}
+            <ul class="">
+                {% for leg in trade.legs %}
+                    {% if leg.display == ('current') %}
+                        {% if leg.type_of_update.value == ('update') %}
+                            {{ include ('partials/legs/leg--update.twig') }}
+                        {% else %}
+                            {{ include ('partials/legs/leg--default.twig') }}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </ul>
         </div>
-        <ul class="">
-            {% for leg in trade.legs %}
-            <li class="leg leg{{leg.index}} border-b border-gray-light bg-brand-secondary-fade" x-data="{selected:null}">
-    
-                <div class="uppercase text-center font-medium tracking-wide leg-main grid grid-rows-1 grid-cols-2 md:grid-cols-5 lg:grid-cols-12 gap-x-2 p-2 text-sm">
-    
-                    <p class="col-span-2 entry-date">{{leg.entry_date}}</p>
-                    <p class="col-span-1 leg-name">{{leg.leg_name}}</p>
-                    <p class="col-span-2 leg-strategy">{{leg.leg_strategy}}</p>
-                    <p class="col-span-1 leg-strategy">{{leg.unit_ratio}}</p>
-                    <p class="col-span-2 leg-strategy">{{leg.action}}</p>
-                    <p class="col-span-1 leg-strategy">{{leg.strike}}</p>
-                    <p class="col-span-1 leg-strategy">{{leg.expiry}}</p>
-                    <p class="col-span-1 leg-strategy">{{leg.entry_price}}</p>
-                    <div class="col-span-1 dropdowner" @click="selected !== 1 ? selected = 1 : selected = null" ><div class="" x-ref="toggle-icon " x-bind:class="selected == 1 ? 'rotate-180 transition-all duration-700' : ''"><i class="fas fa-chevron-down " ></i></div></div>
-                </div>
-                {% if leg.exit_date %}
-                    <div class="uppercase text-center leg-exit grid grid-rows-1 grid-cols-2 md:grid-cols-5 lg:grid-cols-12 gap-x-2 p-2 text-xs">
-                        <p class="col-span-1 leg-strategy">EXIT</p>
-                        <p class="col-span-1 leg-strategy">{{leg.exit_date}}</p>s
-                        <p class="col-span-1 leg-strategy">{{leg.exit_price}}</p>
+
+
+
+{# PAST POSITIONS #}
+
+            {% if trade.legs is not empty %}
+
+
+                <div class="legs mt-6 col-span-12 " x-data="{ open: false }">
+                    <div class="flex justify-between legs-header" @click="open = !open">
+                        <h3 class="text-md uppercase text-gray-dark font-semibold tracking-widest">past positions</h3>
+
+                        {# //  THIS CONTROLS THE VISIBILITY #}
+                        <div aria-label="expand list" class="" >
+                            <i class="rotate-0 fas fa-chevron-down " x-bind:class="open == 1 ? 'rotate-180 transition-all duration-100 rotate-180 transform' : ''"></i>
+                        </div>
                     </div>
-                {% endif %}
-                <div class="leg-detail grid grid-rows-1 grid-cols-2 md:grid-cols-5 gap-x-2 p-0 text-sm overflow-hidden transition-all max-h-0 duration-700" x-ref="leg1" x-bind:style="selected == 1 ? 'max-height: ' + $refs.leg1.scrollHeight + 'px' : ''" x-bind:style="selected == 1 ? 'p-6' : ''">
-                    <div class="col-span-2 leg-description " >
-                        <p class="">
-                            {{leg.leg_description}}
-                        </p>
-                    </div>
-                    <div class="col-span-1 leg-chart m-4">
-                        <a href="{{leg.chart.url}}" target="_blank" class="">
-                            <img src="{{ leg.chart.url|resize(200) }}" class="chart-leg-thumb shadow-xl" alt="Chart image for {{ leg.leg_name }}" />
-                        </a>
-                    </div>
-                    <div class="col-span-1 leg-witt ">
-                        <a href="{{leg.witt_link.url}}" target="_blank" class="btn btn-accent p-4 btn-big">
-                            <i class="fas fa-video mr-1"></i> WITT SEGMENT
-                        </a>
-                    </div>
-                    <div class="col-span-1 leg-description ">
-    
-                        <ul class="list-disc">
-                            {% for link in leg.learn_links %}
-                            <li class="underline tracking-wide text-brand-primary-medium text-xs leading-5">
-                                <a href="{{link.learn_link_url.url}}" class="learn-link"> {{link.learn_link_url.title}} ...</a>
-                            </li>
+                    <div class="legs-section" x-show="open" >
+                        {{ include ('partials/legs/legs-headers_past.twig') }}
+                        <ul class="">
+                            {% for leg in trade.legs %}
+                                {% if leg.display == ('past') %}
+                                    {% if leg.type_of_update.value == ('update') %}
+                                        {{ include ('partials/legs/leg--update.twig') }}
+                                    {% else %}
+                                        {{ include ('partials/legs/leg--default.twig') }}
+                                    {% endif %}
+                                {% endif %}
                             {% endfor %}
                         </ul>
                     </div>
                 </div>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-
-    
+            {% endif %}
 
 
 
