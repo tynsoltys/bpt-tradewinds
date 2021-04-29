@@ -36,9 +36,7 @@
 
     <div class="grid grid-cols-full col-span-12 mt-4">
         <div class="col-span-1">
-            <a href="{{trade.setup_chart.url}}" target="_blank" class="block">
-                <img src="{{ trade.setup_chart.url|resize(200) }}" class="chart-leg-thumb shadow-xl" alt="Chart image for {{ leg.leg_name }}" />
-            </a>
+            {{ include ('partials/elements/lightbox.twig') }}
         </div>
         <div class="col-span-5 flex items-start ">
             <p class="meta text-sm normal-case font-normal mt-2">{{trade.trade_description}}</p>
@@ -71,9 +69,9 @@
             {% if trade.legs is not empty %}
 
 
-                <div class="legs mt-6 col-span-12 " x-data="{ open: false }">
+                <div class="legs mt-6 col-span-12 p-2 px-4 bg-background-main rounded-lg" x-data="{ open: false }">
                     <div class="flex justify-between legs-header" @click="open = !open">
-                        <h3 class="text-md uppercase text-gray-dark font-semibold tracking-widest">past positions</h3>
+                        <h3 class="text-md uppercase text-gray-dark font-semibold tracking-widest">previous legs</h3>
 
                         {# //  THIS CONTROLS THE VISIBILITY #}
                         <div aria-label="expand list" class="" >

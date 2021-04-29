@@ -10,9 +10,17 @@
 
 use Timber\Timber;
 
+
+
+
+
+
+
 $templates = [ 'search.twig', 'archive.twig', 'index.twig' ];
 
 $context = Timber::context();
+$context['posts'] = Timber::get_posts();
+$context['trades'] = $context['posts'];
 
 $context['title'] = sprintf( __( 'Search results for "%s"', 'jackpine' ), get_search_query() );
 

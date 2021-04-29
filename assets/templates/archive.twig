@@ -1,10 +1,9 @@
 {% extends 'index.twig' %}
 
 {% block body %}
-<pre>archive.twig</pre>
-    <h2>{{ category }}</h2>
-    
-    {% for trade in posts %} 
+    {{ include ('partials/page-header.twig') }}
+
+    {% for trade in posts %}
         {{ include ('partials/setups/setup-card_concise.twig') }}
     {% endfor %}
 

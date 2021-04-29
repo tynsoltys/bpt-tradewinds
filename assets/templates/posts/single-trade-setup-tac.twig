@@ -4,9 +4,11 @@
 
 
 {% block body %}
-{{ include ('partials/menu-trade-types-select.twig') }}
-
+{{ include ('partials/page-header.twig') }}
+<main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex flex-wrap ">
+    <section class="w-full pt-24">
         {{ include ('partials/setups/setup-card_full--tac.twig') }}
-
+    </section>
+</main>
 
 {% endblock body %}

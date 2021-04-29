@@ -14,6 +14,8 @@ $templates = [ 'taxonomy-trade_type.twig', 'archive.twig', 'index.twig' ];
 
 $context = Timber::context();
 
+$context['trades'] = $posts;
+
 $context['title'] = __( 'Archive', 'jackpine' );
 
 $titlePartial = __( 'Archive for ', 'jackpine' );

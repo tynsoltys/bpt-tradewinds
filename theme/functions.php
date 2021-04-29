@@ -35,3 +35,12 @@ function add_to_context( $context ) {
 
     return $context;
 }
+
+// SEARCH CAPABILITIES
+
+function trade_search_results( $query ) {
+    if ( $query->is_main_query() && $query->is_search() && ! is_admin() ) {
+        $query->set( 'post_type', array( 'trade-setup', 'trade-setup-tac' ) );
+    }
+}
+add_action( 'pre_get_posts', 'trade_search_results' );

@@ -2,14 +2,26 @@
 
 
 {% block body %}
-{{ include ('partials/menu-trade-types-select.twig') }}
-<pre>taxonomy-trade_type.twig</pre>
 
-    <h2 class="text-2xl uppercase text-brand-primary p-4 tracking-widest font-semibold"><i class="fas fa-bell"></i> {{ title }}</h2>
-    
-    {% for trade in posts %} 
-        {{ include ('partials/setups/setup-card_concise.twig') }}
-    {% endfor %}
+    {{ include ('partials/page-header.twig') }}
+    <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex ">
+        <section class="w-full pt-24 pl-8">
+            {% for trade in posts %}
+
+                {{ include ('partials/setups/setup-card_concise.twig') }}
+
+            {% endfor %}
+        </section>
+    </main>
+
+
+
+
+
+
+
+
+
 
     {{ parent() }}
 {% endblock body %}

@@ -17,13 +17,13 @@
                 <h4 class="subheading">outlook</h4>
                 <p class="meta text-{{trade.outlook.color_code}}"><i class="fas fa-{{trade.outlook.icon_code}}"></i> {{trade.outlook}}</p>
             </div>
-            <div class="">
-                <h4 class=" subheading">strategy</h4>
-                <p class="meta">{{trade.trade_strategy}}</p>
-            </div>
             <div class="col-span-1">
                 <p class="subheading">asset class</p>
                 <p class="meta">{{trade.asset_class}}</p>
+            </div>
+            <div class="col-span-1">
+                <p class="subheading">allocation</p>
+                <p class="meta">{{trade.allocation}}%</p>
             </div>
             <div class="col-span-1 flex justify-end items-center">
                 <h4 class="">{{ include ('partials/trade-flags/trade-flag-pill_medium.twig') }}</h4>

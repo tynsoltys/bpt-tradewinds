@@ -39,7 +39,7 @@ module.exports = {
         extend: {
             gridTemplateColumns: {
               // Complex site-specific column configuration
-             'concise': '200px 1fr 1fr 1fr 1fr 1fr 50px',
+             'concise': '180px 1fr 1fr 1fr 1fr 1fr 50px',
              'concisetac': '100px 1fr 1fr 1fr 1fr 1fr 30px',
              'full': '250px 1fr 1fr 1fr 1fr 1fr',
              'bot': '250px 1fr 1fr 1fr 1fr 1fr 1fr',

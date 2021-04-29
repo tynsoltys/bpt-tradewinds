@@ -1,11 +1,16 @@
 
 
-    <article class="trade-card rounded-lg shadow p-2 px-5 mb-4 bg-brand-white grid grid-cols-concisetac text-left">
-        <div class="col-span-1 flex justify-start items-center">
-            <h4 class="mr-2 symbol text-3xl font-black text-gray-dark tracking-wide">{{trade.allocation}}<span class="font-semibold">%</span>  </h4>
-        </div>
+    <article class="trade-card rounded-lg shadow p-2 px-5 mb-4 bg-brand-white grid grid-cols-concise text-left">
+
         <div class="setup-details col-span-1 flex items-center">
             <h2 class="flex items-center" title="{{trade.underlying_name}}"><a href="" class="mr-2 symbol text-3xl font-black tracking-wide">{{trade.ticker_symbol}}</a>
+                <span class="pill pill_small text-accent-red border border-accent-red flex">  TAC</span>
+            </h2>
+        </div>
+
+        <div class="">
+            <h4 class=" subheading">allocation</h4>
+            <p class="meta">{{trade.allocation}}%</p>
         </div>
         <div class="col-span-1">
             <h4 class="subheading">outlook</h4>
@@ -19,6 +24,7 @@
             {# <h4 class=" subheading">strategy</h4>
             <p class="meta">{{trade.trade_strategy}}</p> #}
         </div>
+
 
 
         <div class="col-span-1 flex justify-end items-center">

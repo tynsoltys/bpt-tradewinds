@@ -4,17 +4,16 @@
 
 
 {% block body %}
-{{ include ('partials/menu-trade-types-select.twig') }}
+{{ include ('partials/page-header.twig') }}
+<main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex flex-wrap ">
+    <section class="w-full pt-24">
+        {% if post.trade_type.slug == 'trade-type-bot' %}
+            {{ include ('partials/setups/setup-card_full--bot.twig') }}
+        {% else %}
+            {{ include ('partials/setups/setup-card_full.twig') }}
+        {% endif %}
 
-<pre>single-trade-setup.twig for {{ post.type }}</pre>
-
-<p class="">{{ post.trade_type.slug }}</p>
-    {% if post.trade_type.slug == 'trade-type-bot' %}
-        {{ include ('partials/setups/setup-card_full--bot.twig') }}
-    {% elseif post.trade_type == 'trade-type-tac' %}
-        {{ include ('partials/setups/setup-card_full--tac.twig') }}
-    {% else %}
-        {{ include ('partials/setups/setup-card_full.twig') }}
-    {% endif %}
+    </section>
+</main>
 
 {% endblock body %}
