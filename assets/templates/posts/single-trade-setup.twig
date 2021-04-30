@@ -6,7 +6,7 @@
 {% block body %}
 {{ include ('partials/page-header.twig') }}
 <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex flex-wrap ">
-    <section class="w-full pt-24">
+    <section class="w-full pt-24 ml-8">
         {% if post.trade_type.slug == 'trade-type-bot' %}
             {{ include ('partials/setups/setup-card_full--bot.twig') }}
         {% else %}

@@ -21,6 +21,15 @@ $context = Timber::context();
 //ALL TRADES
 $trades = array(
     'post_type' => array('trade-setup','trade-setup-tac'),
+    'posts_per_page'	=> 20,
+    'order'          => 'DESC',
+    'orderby'        => 'meta_value',
+    'meta_key'       => 'latest_update_date',
+    'meta_type'      => 'DATETIME',
+);
+
+$opentrades = array(
+    'post_type' => array('trade-setup','trade-setup-tac'),
     'posts_per_page'	=> -1,
     'order'          => 'DESC',
     'orderby'        => 'meta_value',
