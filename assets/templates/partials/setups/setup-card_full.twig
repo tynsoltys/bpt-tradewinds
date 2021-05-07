@@ -6,30 +6,30 @@
 
     <div class="grid grid-cols-full col-span-12 ">
         <div class="setup-details col-span-1 row-span-2 flex flex-wrap items-center">
-            <h2 class="flex items-center" title="{{trade.underlying_name}}"><a href="" class="mr-2 symbol text-5xl font-black tracking-wide">{{trade.ticker_symbol}}</a>  {{ include ('partials/trade-types/trade-type-pill_small.twig') }}</h2>
-            <p class="w-full text-xl font-semibold block">{{trade.underlying_name}}</p>
+            <h2 class="flex items-center" title="{{trade.ticker_symbol.underlying_name}}"><a href="" class="mr-2 symbol text-5xl font-black tracking-wide">{{trade.ticker_symbol}}</a>  {{ include ('partials/trade-types/trade-type-pill_small.twig') }}</h2>
+            <p class="w-full text-xl font-semibold block">{{trade.ticker_symbol.underlying_name}}</p>
 
         </div>
-        <div class="col-span-1">
+        <div class="col-span-1 ellipsis">
             <p class="subheading">LAST ACTIVITY</p>
             <p class="meta">{{trade.latest_update_date}}</p>
         </div>
 
-        <div class="col-span-1">
+        <div class="col-span-1 ellipsis">
             <h4 class="subheading">outlook</h4>
             <p class="meta text-{{trade.outlook.color_code}}"><i class="fas fa-{{trade.outlook.icon_code}}"></i> {{trade.outlook}}</p>
 
         </div>
-        <div class="col-span-1">
+        <div class="col-span-1 ellipsis">
             <p class="subheading">acb at update</p>
             <p class="meta">${{trade.acb_at_update}}</p>
         </div>
-        <div class="">
+        <div class="ellipsis">
             <h4 class="col-span-1 subheading">STRATEGY</h4>
             <p class="meta">{{trade.trade_strategy}}</p>
         </div>
 
-        <div class="col-span-1 flex justify-end items-center">
+        <div class="col-span-1 flex justify-end items-center ellipsis">
             <h4 class="">{{ include ('partials/trade-flags/trade-flag-pill_medium.twig') }}</h4>
         </div>
     </div>

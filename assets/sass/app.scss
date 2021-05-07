@@ -53,6 +53,21 @@
     box-sizing: border-box;
   }
 
+  body {
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  .footer-container {
+      margin-bottom: 0px ;
+  }
+
 
   .asset-container {
     scroll-margin-top: 162px;
@@ -73,8 +88,10 @@
 
   }
 
+
 @import 'lsop_footer';
 @import 'lsop_nav';
+
 
 // Import Tailwind.css core
 @import "tailwindcss/base";

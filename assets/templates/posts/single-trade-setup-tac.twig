@@ -4,11 +4,16 @@
 
 
 {% block body %}
-{{ include ('partials/page-header.twig') }}
-<main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex flex-wrap">
-    <section class="w-full pt-24 ml-8">
+{{ include ('partials/header-secondary-single.twig') }}
 
-      {{ include ('partials/setups/setup-card_full--tac.twig') }}
+
+<main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex relative justify-between pt-24">
+    <section class="w-full">
+        {% if post.post_type == 'bot' %}
+            {{ include ('partials/setups/setup-card_full--bot.twig') }}
+        {% else %}
+            {{ include ('partials/setups/setup-card_full.twig') }}
+        {% endif %}
     </section>
 </main>
 

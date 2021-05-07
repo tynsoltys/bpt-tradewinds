@@ -3,15 +3,27 @@
 
 {% block body %}
 
-    {{ include ('partials/page-header.twig') }}
+    {{ include ('partials/header-secondary-trades.twig') }}
     <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex ">
         <section class="w-full pt-24 pl-8">
-            {% for trade in posts %}
-
-                {{ include ('partials/setups/setup-card_concise.twig') }}
-
-            {% endfor %}
+            <div class="open-trades">
+                <h2>open trades</h2>
+                {% for trade in posts %}
+                    {% if (trade.trade_status.slug == 'trade-status-open') %}
+                        {{ include ('partials/setups/setup-card_concise.twig') }}
+                    {% endif %}
+                 {% endfor %}
+            </div>
+            <div class="closed-trades">
+                <h2>closed trades</h2>
+                {% for trade in posts %}
+                    {% if (trade.trade_status.slug == 'trade-status-closed') %}
+                        {{ include ('partials/setups/setup-card_concise.twig') }}
+                    {% endif %}
+                 {% endfor %}
+            </div>
         </section>
+
     </main>
 
 

@@ -1,6 +1,32 @@
-{% extends 'layouts/base.twig' %}
+{% extends 'index.twig' %}
+
 
 {% block body %}
-    {{ include ('partials/page-header.twig') }}
-    <p class="text-red-500">404 Not Found</p>
+
+    <header class="page-header w-full bg-brand-white border-b border-gray-medium shadow fixed z-30">
+        <div class='flex-grow w-full max-w-7xl mx-auto  lg:flex items-center justify-between'>
+            <h2 class=" flex items-center text-2xl uppercase text-brand-primary p-4 px-10 items-center tracking-widest font-semibold flex-shrink"><i class="fas fa-bell mr-3"></i>404 <i class="far fa-chevron-double-right m-2 text-sm"> </i>
+                PAGE NOT FOUND
+                </h2>
+            {{ include ('partials/searchform.twig') }}
+        </div>
+
+    </header>
+    <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex ">
+        <section class="w-full pt-24 pl-8">
+
+        </section>
+
+    </main>
+
+
+
+
+
+
+
+
+
+
+    {{ parent() }}
 {% endblock body %}

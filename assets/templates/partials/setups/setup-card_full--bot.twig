@@ -2,27 +2,31 @@
     {# TRADE SETUP  #}
     <div class="grid grid-cols-12">
         <div class="setup-details col-span-2 row-span-1 ">
-            <h2 class="flex items-center" title="{{trade.underlying_name}}"><a href="" class="mr-2 symbol text-5xl font-black tracking-wide">{{trade.ticker_symbol}}</a>  {{ include ('partials/trade-types/trade-type-pill_small.twig') }}</h2>
-            <p class="text-xl font-semibold block flex-none pr-3">{{trade.underlying_name}}</p>
+            <h2 class="flex items-center" title="{{trade.symbol.underlying_name}}"><a href="" class="mr-2 symbol text-5xl font-black tracking-wide">{{trade.ticker_symbol}}</a>  {{ include ('partials/trade-types/trade-type-pill_small.twig') }}</h2>
+            <p class="text-xl font-semibold block flex-none pr-3">{{trade.ticker_symbol.underlying_name}}</p>
 
         </div>
 
         <div class="col-span-4 flex flex-wrap flex-row">
             <div class="w-1/2">
-                <p class="subheading">ENTERED ON</p>
+                <p class="subheading">POSTED ON</p>
                 <p class="meta">{{trade.latest_update_date}}</p>
             </div>
             <div class="w-1/2">
-                <p class="subheading">ENTERED AT</p>
+                <p class="subheading">LAST TRADED</p>
                 <p class="meta">${{trade.acb_at_update}}</p>
 
             </div>
             <div class="w-1/2 mt-3">
-                <h4 class="subheading">first target</h4>
-                <p class="meta block">${{trade.bot_fields.first_target}}</p>
-
+                <h4 class="subheading">outlook</h4>
+                <p class="meta text-{{trade.outlook.color_code}}"><i class="fas fa-{{trade.outlook.icon_code}}"></i> {{trade.outlook}}</p>
             </div>
 
+            <div class="w-1/2 mt-3">
+                <h4 class="subheading">first target</h4>
+                <p class="meta block">${{trade.first_target}}</p>
+
+            </div>
             <div class="w-1/2 mt-3">
                 <h4 class="subheading">STRATEGY</h4>
                 <p class="meta">{{trade.trade_strategy}}</p>
@@ -30,14 +34,12 @@
 
 
 
-            <div class="w-1/2 mt-3">
-                <h4 class="subheading">outlook</h4>
-                <p class="meta text-{{trade.outlook.color_code}}"><i class="fas fa-{{trade.outlook.icon_code}}"></i> {{trade.outlook}}</p>
-            </div>
+
+
 
             <div class="w-1/2 mt-3">
                 <h4 class="subheading">Profit taking Zone</h4>
-                <p class="meta block">${{trade.bot_fields.profit_zone_start}}
+                <p class="meta block">${{trade.profit_zone_start}}
                     {% if trade.outlook.slug == 'bullish' %}
                     <i class="far fa-arrow-right" style="transform: rotate(45deg)"></i>
                 {% elseif trade.outlook.slug == 'bearish' %}
@@ -48,7 +50,7 @@
                     <i class="far fa-arrow-right"></i>
                 {% endif %}
 
-                ${{trade.bot_fields.profit_zone_end}}
+                ${{trade.profit_zone_end}}
             </p>
             </div>
 

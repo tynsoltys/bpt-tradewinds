@@ -1,42 +1,42 @@
-{% if trade.post_type == ('trade-setup-tac') %}
+{% if ptype == ('trade-setup-tac') %}
     <span
     class="
-        pill pill_small mr-1 bg-gray-light
+        pill mr-1 bg-gray-light
         text-accent-red
         border
         border-accent-red"
     >
     TAC
     </span>
-{% elseif trade.post_type == ('bot') %}
+{% elseif ptype == ('bot') %}
     <span
         class="
-            pill pill_small mr-1 bg-accent-blue-fade
+            pill mr-1 bg-accent-blue-fade
             text-accent-blue
             border
             border-accent-blue"
         >
-    {{trade.post_type}}
+    {{ptype}}
     </span>
-{% elseif trade.post_type == ('lto') %}
+{% elseif ptype == ('lto') %}
     <span
     class="
-    pill pill_small mr-1 bg-gray-light
+    pill mr-1 bg-gray-light
     text-gray-dark
     border
-    border-gray-dark"
+    border-gray-dark "
     >
-    {{trade.post_type}}
+    {{ptype}}
     </span>
-{% elseif trade.post_type == ('ofi') %}
+{% elseif ptype == ('ofi') %}
     <span
     class="
-        pill pill_small mr-1 accent-gold-light
+        pill mr-1 accent-gold-light
         text-accent-gold
         border
         border-accent-gold"
     >
-    {{trade.post_type}}
+    {{ptype}}
     </span>
 {% else %}
 

@@ -1,1 +1,12 @@
-<span class="pill text-brand-white bg-{{trade.trade_flag.color_code}}"><i class="fas fa-{{trade.trade_flag.icon_code}}"></i> {{trade.trade_flag}}</span>
+{% if (trade.trade_status.slug == 'closed') %}
+    <span class="pill text-brand-white bg-accent-red"><i class="fas fa-door-closed"></i> CLOSED</span>
+{% else %}
+    {% if (trade.trade_flag.slug == 'trade-flag-blank') %}
+
+    {% else %}
+        <span class="pill text-brand-white bg-{{trade.trade_flag.color_code}}"><i class="fas fa-{{trade.trade_flag.icon_code}}"></i> {{trade.trade_flag}}</span>
+    {% endif %}
+
+
+
+{% endif %}

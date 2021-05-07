@@ -1,73 +1,73 @@
-<nav>
-    <ul>
+<nav class="w-full">
+    <ul class="w-full flex justify-between uppercase">
         {# First #}
 
-        {% set firstString = __('First', 'jackpine') %}
+        <!-- {% set firstString = __('First', 'jackpine') %}
 
         {% if posts.pagination.pages | first and posts.pagination.pages | first.current != true %}
             <li>
                 <a href="{{ posts.pagination.pages | first.link }}">{{ firstString }}</a>
             </li>
         {% else %}
-            <li>
+            <li class="text-gray-medium">
                 <span>{{ firstString }}</span>
             </li>
-        {% endif %}
+        {% endif %} -->
 
         {# Previous #}
 
-        {% set previousString = __('Previous', 'jackpine') %}
+        {% set previousString = __('Older', 'jackpine') %}
 
         {% if posts.pagination.prev %}
             <li>
-                <a href="{{ posts.pagination.prev.link }}">{{ previousString }}</a>
+                <a class="text-brand-secondary" href="{{ posts.pagination.prev.link }}">{{ previousString }}</a>
             </li>
         {% else %}
-            <li>
+            <li class="text-gray-medium">
                 <span>{{ previousString }}</span>
             </li>
         {% endif %}
 
         {# Pages #}
-
+        <ul class="flex">
         {% for page in posts.pagination.pages %}
             {% if page.link %}
-                <li>
-                    <a href="{{ page.link }}">{{ page.title }}</a>
+                <li class="m-1 ">
+                    <a class="text-brand-secondary" href="{{ page.link }}">{{ page.title }}</a>
                 </li>
             {% else %}
-                <li>
+                <li class="m-1 text-gray-medium">
                     <span>{{ page.title }}</span>
                 </li>
             {% endif %}
         {% endfor %}
-
+        </ul>
         {# Next #}
 
-        {% set nextString = __('Next', 'jackpine') %}
+        {% set nextString = __('Newer', 'jackpine') %}
 
         {% if posts.pagination.next %}
             <li>
-                <a href="{{ posts.pagination.next.link }}">{{ nextString }}</a>
+                <a class="text-brand-secondary" href="{{ posts.pagination.next.link }}">{{ nextString }}</a>
             </li>
         {% else %}
-            <li>
+            <li class="text-gray-medium">
                 <span>{{ nextString }}</span>
             </li>
         {% endif %}
 
         {# Last #}
 
-        {% set lastString = __('Last', 'jackpine') %}
+        <!-- {% set lastString = __('Last', 'jackpine') %}
 
         {% if posts.pagination.pages | last and posts.pagination.pages | last.current != true %}
             <li>
                 <a href="{{ posts.pagination.pages | last.link }}">{{ lastString }}</a>
             </li>
         {% else %}
-            <li>
+            <li class="text-gray-medium">
                 <span>{{ lastString }}</span>
             </li>
-        {% endif %}
+        {% endif %} -->
     </ul>
 </nav>

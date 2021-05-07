@@ -22,14 +22,19 @@ $context['trade'] = $post;
 $GLOBALS['pasta'] = false;
 // var_dump($GLOBALS['pasta']);
 
-$tradetype = $post->terms( 'trade_type' );
-$tradetypearray = $tradetype['0'];
-$GLOBALS['ttype'] = $tradetypearray->slug;
-// var_dump($GLOBALS['ttype']);
+// $ticker = $post->terms( 'symbol' );
+// $tickerarray = $ticker->ID;
+// // $GLOBALS['underlying_name'] = ;
+// $GLOBALS['ticker'] = $post.underlying_name;
 
 $posttype = $post->post_type;
 $GLOBALS['ptype'] = $posttype;
 // var_dump($GLOBALS['ptype']);
+// var_dump($GLOBALS['ptype']);
+// var_dump($GLOBALS['ptype']);
+// var_dump($GLOBALS['ptype']);
+// var_dump($GLOBALS['ticker']);
+// var_dump($GLOBALS['underlying_name']);
 
 
 
@@ -47,10 +52,15 @@ $GLOBALS['legs'] = $legs;
 if ( $GLOBALS['ptype'] == "trade-setup-tac" ) {
     // var_dump($GLOBALS['ptype']);
     $linked_post = get_field('linked_trade')[0];
+    // var_dump($linked_post);
     $tac_id = $linked_post->ID;
     $tac_legs = get_field('legs', $tac_id);
+    $tac_url = get_permalink($tac_id);
+    $GLOBALS['linked'] = [];
     $GLOBALS['legs'] = [];
-    // var_dump($GLOBALS['legs']);
+    $GLOBALS['tac_url'] = $tac_url;
+    // var_dump($tac_id);
+    // var_dump($tac_url);
     function hasPast( $arr ) {
         foreach ($arr as $l ) {
             $context['testvar'] = $l['display'];
@@ -105,16 +115,24 @@ if ( $GLOBALS['ptype'] == "trade-setup-tac" ) {
                 }
             }
         }
-        if ( count($GLOBALS['legs']) > 0 ) {
-            hasPast( $GLOBALS['legs'] );
-            $context['haspast'] = $GLOBALS['pasta'];
+        if ( $GLOBALS['legs'] ) {
+
+            if ( count($GLOBALS['legs']) > 0 ) {
+                hasPast( $GLOBALS['legs'] );
+                $context['haspast'] = $GLOBALS['pasta'];
+            } else {
+                $context['haspast'] = false;
+            }
         } else {
-            $context['haspast'] = false;
+
         }
+
 
     }
 
 }
+
+$context['tac_url'] = $GLOBALS['tac_url'];
 
 $templates = [
     'posts/single-' . $post->ID . '.twig',

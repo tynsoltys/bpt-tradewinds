@@ -6,7 +6,7 @@
 
     <div class="grid grid-cols-full col-span-12 ">
         <div class="setup-details col-span-1 flex flex-wrap items-start">
-            <h2 class="flex items-center" title="{{trade.underlying_name}}"><a href="" class="mr-2 symbol text-5xl font-black tracking-wide">{{trade.ticker_symbol}}</a>  <span title="{{trade.trade_type.name}}"
+            <h2 class="flex items-center" title="{{trade.ticker_symbol.underlying_name}}"><a href="" class="mr-2 symbol text-5xl font-black tracking-wide">{{trade.ticker_symbol}}</a>  <span title="{{trade.trade_type.name}}"
                 class="
                     pill mr-1 pill_small bg-gray-light
                     text-accent-red
@@ -14,7 +14,7 @@
                     border-accent-red"
                 >
                 tac</span></h2>
-            <p class="text-xl font-semibold block w-full">{{trade.underlying_name}}</p>
+            <p class="text-xl font-semibold block w-full">{{trade.ticker_symbol.underlying_name}}</p>
             {# {{ include ('partials/elements/lightbox.twig') }} #}
         </div>
 
@@ -45,11 +45,23 @@
         <div class="col-span-4 flex items-start col-start-2">
             <p class="meta text-sm normal-case font-normal mt-2">{{trade.trade_description}}</p>
         </div>
-        <div class="col-span-4 flex items-start col-start-2">
-            {% if trade.alternatives is not empty %}
-            {{ include ('partials/alternatives/alternatives.twig') }}
+        <div class="col-span-4 flex items-start col-start-2 flex-wrap">
+            <p class="meta text-sm normal-case font-normal mt-2">{{trade.trade_description}}</p>
+
+            {% if tac_url is not empty %}
+                <div class="w-full">
+                    <a href="{{tac_url}} " class="mt-8 right btn uppercase rounded shadow text-white bg-accent-blue"> See Full Position</a>
+                </div>
             {% endif %}
+
+            {% if trade.alternatives is not empty %}
+                <div class="col-span-4 flex items-start col-start-2">
+                    {{ include ('partials/alternatives/alternatives.twig') }}
+                </div>
+            {% endif %}
+
         </div>
+
     </div>
 
 

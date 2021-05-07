@@ -4,26 +4,27 @@
     <article class="trade-card rounded-lg shadow-lg p-3 px-5 mb-4 bg-brand-white grid grid-cols-concise">
 
             <div class="setup-details col-span-1 flex items-center">
-                <h2 class="flex items-center" title="{{trade.underlying_name}}"><a href="" class="mr-2 symbol text-3xl font-black tracking-wide">{{trade.ticker_symbol}}</a>  {{ include ('partials/trade-types/trade-type-pill_small.twig') }}</h2>
+                <h2 class="flex items-center" title="{{trade.symbol.underlying_name}}"><a href="" class="mr-2 symbol text-3xl font-black tracking-wide">{{trade.ticker_symbol}}</a>{{ include ('partials/trade-types/trade-type-pill_small.twig') }}</h2>
             </div>
-            <div class="col-span-1">
+            <div class="col-span-1 ellipsis">
                 <p class="subheading">LAST ACTIVITY</p>
                 <p class="meta">{{trade.latest_update_date}}</p>
             </div>
 
-            <div class="col-span-1">
+            <div class="col-span-1 ellipsis">
                 <h4 class="subheading">outlook</h4>
                 <p class="meta text-{{trade.outlook.color_code}}"><i class="fas fa-{{trade.outlook.icon_code}}"></i> {{trade.outlook}}</p>
             </div>
-            <div class="">
+            <div class=" ellipsis">
                 <h4 class=" subheading">strategy</h4>
-                <p class="meta">{{trade.trade_strategy}}</p>
+                <p class="meta ellipsis">{{trade.trade_strategy}}</p>
             </div>
-            <div class="col-span-1">
+            <div class="col-span-1 ellipsis">
                 <p class="subheading">acb at update</p>
                 <p class="meta">${{trade.acb_at_update}}</p>
             </div>
-            <div class="col-span-1 flex justify-end items-center">
+            <div class="col-span-1 ellipsis flex justify-end items-center">
+
                 <h4 class="">{{ include ('partials/trade-flags/trade-flag-pill_medium.twig') }}</h4>
             </div>
             <a href="{{trade.link}}" target="_blank" title="Go To Trade Details" aria-label="Go to Trade Details" class="col-span-1 block ml-5 flex items-center text-gray-medium hover:text-gray-dark">

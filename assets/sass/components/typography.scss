@@ -12,5 +12,15 @@
 }
 
 .meta {
-    @apply uppercase font-bold tracking-wide
+    @apply uppercase font-bold tracking-wide pr-3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

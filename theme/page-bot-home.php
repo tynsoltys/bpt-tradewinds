@@ -14,26 +14,13 @@
  */
 
 use Timber\Post;
-use Timber\PostQuery;
-use Timber\URLHelper;
 use Timber\Timber;
 
 
-global $page, $paged;
-
-
-$page = get_query_var('page');
-var_dump($page);
-var_dump($page);
-var_dump($page);
-var_dump($page);
-var_dump($page);
-
-if ( empty($page) ) {
-    $page = 1;
+global $paged;
+if (!isset($paged) || !$paged){
+    $paged = 1;
 }
-
-$paged = $page;
 
 $context = Timber::context();
 
@@ -45,42 +32,26 @@ $alltrades = array(
     'orderby'        => 'meta_value',
     'meta_key'       => 'latest_update_date',
     'meta_type'      => 'DATETIME',
-    'paged'          =>  $paged,
+    'paged'          => $paged,
 );
 
 //TAC
 $tac = array(
     'post_type' => 'trade-setup-tac',
-
     'posts_per_page'	=> -1,
     'order'          => 'DESC',
     'orderby'        => 'meta_value',
     'meta_key'       => 'latest_update_date',
-    'meta_type'      => 'DATETIME',
-    'paged'          =>  $paged,
-    // 'date_query' => array(
-    //     array(
-    //       'after'   => '-1 month',
-    //     ),
-    //   ),
+    'meta_type'      => 'DATETIME'
 );
 
-$context['posts'] = Timber\PostQuery($alltrades);
-
-
-
-
-// var_dump($context['trades']);
+$context['trades'] = Timber::get_posts($alltrades);
 $context['tac'] = Timber::get_posts($tac);
-$context['pagination'] = Timber::get_pagination($posts);
-var_dump($context['pagination']);
-
+$post = new Post();
 
 $templates = [
-    'pages/page-' . $post->ID . '.twig',
-    'pages/page-' . $post->slug . '.twig',
-    'pages/page-' . $post->post_type . '.twig',
-    'pages/page.twig',
+
+    'pages/page-bot-home.twig',
 ];
 
 if ( post_password_required() ) {

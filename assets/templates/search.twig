@@ -2,9 +2,13 @@
 
 {% block body %}
 
-{{ include ('partials/page-header.twig') }}
-<main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex pt-24">
-    <section class="w-full pl-8">
+{{ include ('partials/header-secondary-trades.twig') }}
+
+<main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex relative justify-between">
+    <aside class=" pt-16 pl-1 fixed">
+        {{ include ('partials/menu-trade-updates-sidebar.twig') }}
+    </aside>
+    <section class="w-full pt-24 ml-48 pl-48">
         {% include 'partials/setups-list.twig' %}
     </section>
 </main>
