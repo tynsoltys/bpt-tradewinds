@@ -84,6 +84,18 @@ if ( is_post_type_archive() ) {
 
 $context['pagination'] = Timber::get_pagination($posts);
 
+
+
+// TESTING MERGING
+$orderbyupdate = array(
+    'order'          => 'DESC',
+    'orderby'        => 'meta_value',
+    'meta_key'       => 'latest_update_date',
+    'meta_type'      => 'DATETIME',
+);
+
+
+
 global $paged;
 if (!isset($paged) || !$paged){
     $paged = 5;

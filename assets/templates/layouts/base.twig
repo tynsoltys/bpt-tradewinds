@@ -13,7 +13,11 @@
  <!-- Breadcrumb -->
 
 
-<div class="pt-7">
+<div class=" {% if function( 'is_user_logged_in') %}
+pt-14
+{% else %}
+pt-14
+{% endif %}">
     {% block body %}
     {% endblock body %}
  </div>

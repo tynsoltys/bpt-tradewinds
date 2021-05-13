@@ -58,8 +58,8 @@
                 <p class="meta text-sm normal-case font-normal mt-4 mr-8">{{trade.trade_description}}</p>
 
                 <div class="mt-4">
-                    {% if trade.bot_details.bot_witt_link.url is not empty %}
-                        <a href="{{trade.bot_details.bot_witt_link.url}}" target="_blank" class="btn btn-accent text-right">
+                    {% if trade.bot_witt_link.url is not empty %}
+                        <a href="{{trade.bot_witt_link.url}}" target="_blank" class="btn btn-accent text-right">
                             <i class="fas fa-video ml-1"></i> WITT SEGMENT
                         </a>
                     {% else %}

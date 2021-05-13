@@ -19,72 +19,24 @@ $context = Timber::context();
 $post = new Post();
 
 $context['trade'] = $post;
-$GLOBALS['pasta'] = false;
-// var_dump($GLOBALS['pasta']);
 
-// $ticker = $post->terms( 'symbol' );
-// $tickerarray = $ticker->ID;
-// // $GLOBALS['underlying_name'] = ;
-// $GLOBALS['ticker'] = $post.underlying_name;
-
+// Post Type Variables
 $posttype = $post->post_type;
 $GLOBALS['ptype'] = $posttype;
-// var_dump($GLOBALS['ptype']);
-// var_dump($GLOBALS['ptype']);
-// var_dump($GLOBALS['ptype']);
-// var_dump($GLOBALS['ptype']);
-// var_dump($GLOBALS['ticker']);
-// var_dump($GLOBALS['underlying_name']);
 
 
-
-$permalink = get_permalink( $post->ID );
-// var_dump($permalink);
-$linked_post = get_field('linked_trade')[0];
-$tac_linked = $linked_post->ID;
-// var_dump($GLOBALS['tac_linked']);
-
+// Leg Status Variables
+$GLOBALS['pastLegs'] = false;
+$GLOBALS['currentLegs'] = false;
 $legs = get_field('legs');
 $GLOBALS['legs'] = $legs;
 // var_dump($GLOBALS['legs']);
 
-// DETERMINE POST TYPE
-if ( $GLOBALS['ptype'] == "trade-setup-tac" ) {
-    // var_dump($GLOBALS['ptype']);
-    $linked_post = get_field('linked_trade')[0];
-    // var_dump($linked_post);
-    $tac_id = $linked_post->ID;
-    $tac_legs = get_field('legs', $tac_id);
-    $tac_url = get_permalink($tac_id);
-    $GLOBALS['linked'] = [];
-    $GLOBALS['legs'] = [];
-    $GLOBALS['tac_url'] = $tac_url;
-    // var_dump($tac_id);
-    // var_dump($tac_url);
-    function hasPast( $arr ) {
-        foreach ($arr as $l ) {
-            $context['testvar'] = $l['display'];
-            // var_dump($context['testvar']);
-            // IS RETURNING CORRECTLY!!
-            if ("past" == $l['display']) {
-                // TESTING IF THE IF IS WORKING: IT IS
-                // var_dump($l['display']);
-                //! CLEAR VAR MEMORY IN CASE ITS A WEIRD PHP THING: NOT WORKING
-                unset($GLOBALS['pasta']);
-                //! REASSIGN VALUE
-                $GLOBALS['pasta'] = true;
-                // EXIT UPON SATISFACTION (THIS WORKS FINE, TOO)
-                // break;
-            }
-        }
-    }
-    hasPast( $GLOBALS['legs'] );
-    $context['haspast'] = $GLOBALS['pasta'];
-    // var_dump($GLOBALS['pasta']);
-    // var_dump($GLOBALS['legs']);
-} else {
-    // var_dump($GLOBALS['ptype']);
-    // var_dump($GLOBALS['ttype']);
+// var_dump($GLOBALS['legs']);
+// var_dump($GLOBALS['currentLegs']);
+// var_dump($GLOBALS['pastLegs']);
+
+
     if ( $GLOBALS['ttype'] == "trade-type-bot" ) {
         // no legs no worries
 
@@ -92,36 +44,25 @@ if ( $GLOBALS['ptype'] == "trade-setup-tac" ) {
     } else {
         // var_dump($GLOBALS['ttype']);
         // var_dump( $GLOBALS['legs'] );
-        function hasPast( $arr ) {
-            // var_dump($GLOBALS['legs']);
-            // var_dump($GLOBALS['ttype']);
-            // var_dump($GLOBALS['ptype']);
-            // var_dump($GLOBALS['pasta']);
-            foreach ($arr as $l ) {
-                $context['testvar'] = $l['display'];
-                // var_dump($context['testvar']);
-                // IS RETURNING CORRECTLY!!
-                if ("past" == $l['display']) {
-                    // TESTING IF THE IF IS WORKING: IT IS
-                    // var_dump($l['display']);
-                    // var_dump($context['haspast']);
-                    //! CLEAR VAR MEMORY IN CASE ITS A WEIRD PHP THING: NOT WORKING
-                    unset($GLOBALS['pasta']);
-                    //! REASSIGN VALUE
-                    $context['haspast'] = true;
-                    $GLOBALS['pasta'] = true;
-                    // EXIT UPON SATISFACTION (THIS WORKS FINE, TOO)
-                    // break;
+        function legStatus( $arr ) {
+            foreach ($arr as $leg ) {
+                if ($leg['display'] == "past") {
+                    $GLOBALS['pastLegs'] = true;
+                } elseif ($leg['display'] == "current") {
+                    $GLOBALS['currentLegs'] = true;
                 }
             }
         }
-        if ( $GLOBALS['legs'] ) {
 
+
+        if ( $GLOBALS['legs'] ) {
             if ( count($GLOBALS['legs']) > 0 ) {
-                hasPast( $GLOBALS['legs'] );
-                $context['haspast'] = $GLOBALS['pasta'];
+                legStatus( $GLOBALS['legs'] );
+                $context['hasPast'] = $GLOBALS['pastLegs'];
+                $context['hasCurrent'] = $GLOBALS['currentLegs'];
             } else {
-                $context['haspast'] = false;
+                $context['hasPast'] = false;
+                $context['hasCurrent'] = false;
             }
         } else {
 
@@ -130,7 +71,7 @@ if ( $GLOBALS['ptype'] == "trade-setup-tac" ) {
 
     }
 
-}
+
 
 $context['tac_url'] = $GLOBALS['tac_url'];
 

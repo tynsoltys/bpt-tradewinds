@@ -1,3 +1,9 @@
+{% if posts.pagination.pages|length <= 0 %}
+
+{% else %}
+
+
+
 <nav class="w-full">
     <ul class="w-full flex justify-between uppercase">
         {# First #}
@@ -71,3 +77,5 @@
         {% endif %} -->
     </ul>
 </nav>
+
+{% endif %}

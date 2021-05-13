@@ -12,21 +12,16 @@
                 <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
                 <a id="menu-item-{{ item.id }}" href="{{ item.link }}" class="{{item.current}} mx-4 uppercase font-semibold tracking-wide py-2 block hover:text-brand-primary-medium flex items-center" aria-controls="sub-menu-1" aria-expanded="false">
                     {# <i class="fal fa-bell text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6" aria-hidden="true"></i> #}
-                    <div class="bg-brand-primary h-10 w-10 block rounded-full hover:bg-brand-primary-medium mr-3 flex items-center justify-center">
-
-                        <i class="fas fa-bell text-brand-white text-xl"></i>
-
-                    </div>
                     <p>{{ item.name }}</p>
                 </a>
 
-                <ul id="menu-item-list-{{ item.id }}" class="absolute ml-2 flex flex-col whitespace-no-wrap" x-show="hover" @mouseenter="{hover=true}" @mouseleave="{hover=false}">
+                {# <ul id="menu-item-list-{{ item.id }}" class="absolute ml-2 flex flex-col whitespace-no-wrap" x-show="hover" @mouseenter="{hover=true}" @mouseleave="{hover=false}">
                     {% for child in item.children %}
                         <li id="menu-item-child-{{ child.id }}">
                             <a href="{{ child.link }}" class="group w-full flex items-center pl-12 pr-2 py-2 text-sm font-medium text-primary-medium rounded-md hover:text-gray-dark uppercase tracking-wider">{{ child.title }}</a>
                         </li>
                     {% endfor %}
-                </ul>
+                </ul> #}
             </div>
 
             {%  else %}
@@ -35,11 +30,7 @@
                 <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
                 <a id="menu-item-{{ item.id }}" href="{{ item.link }}" class="{{item.current}} mx-4 uppercase font-semibold tracking-wide py-2 block hover:text-brand-primary-medium flex items-center" aria-controls="sub-menu-1" aria-expanded="false">
                     {# <i class="fal fa-bell text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6" aria-hidden="true"></i> #}
-                    <div class="bg-brand-primary h-10 w-10 block rounded-full hover:bg-brand-primary-medium mr-3 flex items-center justify-center">
 
-                        <i class="fas fa-bell text-brand-white text-xl"></i>
-
-                    </div>
                     <p>{{ item.name }}</p>
                 </a>
             </div>

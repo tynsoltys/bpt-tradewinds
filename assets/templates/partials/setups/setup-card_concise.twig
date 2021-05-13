@@ -1,10 +1,10 @@
 
 
 
-    <article class="trade-card rounded-lg shadow-lg p-3 px-5 mb-4 bg-brand-white grid grid-cols-concise">
+    <article class="trade-card rounded-lg shadow p-3 px-5 mb-4 bg-brand-white grid grid-cols-concise">
 
             <div class="setup-details col-span-1 flex items-center">
-                <h2 class="flex items-center" title="{{trade.symbol.underlying_name}}"><a href="" class="mr-2 symbol text-3xl font-black tracking-wide">{{trade.ticker_symbol}}</a>{{ include ('partials/trade-types/trade-type-pill_small.twig') }}</h2>
+                <h2 class="flex items-center" title="{{trade.ticker_symbol.underlying_name}}"><a href="" class="mr-2 symbol text-3xl font-black tracking-wide">{{trade.ticker_symbol}}</a>{{ include ('partials/trade-types/trade-type-pill_small.twig') }}</h2>
             </div>
             <div class="col-span-1 ellipsis">
                 <p class="subheading">LAST ACTIVITY</p>
@@ -20,7 +20,7 @@
                 <p class="meta ellipsis">{{trade.trade_strategy}}</p>
             </div>
             <div class="col-span-1 ellipsis">
-                <p class="subheading">acb at update</p>
+                <p class="subheading">av. cost base</p>
                 <p class="meta">${{trade.acb_at_update}}</p>
             </div>
             <div class="col-span-1 ellipsis flex justify-end items-center">
