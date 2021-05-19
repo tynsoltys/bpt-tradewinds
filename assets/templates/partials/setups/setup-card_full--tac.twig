@@ -1,12 +1,12 @@
 
 
 
-<article class="trade-card rounded-lg shadow-lg p-8 mb-4 bg-brand-white grid grow-rows-full grid-cols-12">
+<article class="trade-card rounded-lg shadow-lg p-8 mb-4 bg-brand-white grid grow-rows-full grid-cols-12 grid-cols-2">
     {# TRADE SETUP  #}
 
-    <div class="grid grid-cols-full col-span-12 ">
+    <div class="grid grid-cols-full col-span-12 grid-cols-4 border-4 border-brand-primary md:border-none">
         <div class="setup-details col-span-1 flex flex-wrap items-start">
-            <h2 class="flex items-center" title="{{trade.ticker_symbol.underlying_name}}"><a href="" class="mr-2 symbol text-5xl font-black tracking-wide">{{trade.ticker_symbol}}</a>  <span title="{{trade.trade_type.name}}"
+            <h2 class="flex items-center" title="{{trade.ticker_symbol.underlying_name}}"><a href="" class="mr-2 symbol text-3xl md:text-5xl font-black tracking-wide">{{trade.ticker_symbol}}</a>  <span title="{{trade.trade_type.name}}"
                 class="
                     pill mr-1 pill_small bg-gray-light
                     text-accent-red
@@ -14,40 +14,38 @@
                     border-accent-red"
                 >
                 tac</span></h2>
-            <p class="text-xl font-semibold block w-full">{{trade.ticker_symbol.underlying_name}}</p>
+            <p class="font-semibold block w-full text-base md:text-xl ">{{trade.ticker_symbol.underlying_name}}</p>
             {# {{ include ('partials/elements/lightbox.twig') }} #}
         </div>
 
 
 
-        <div class="col-span-1">
-            <p class="subheading">allocation</p>
-            <p class="meta">{{trade.allocation}}%</p>
+        <div class="col-span-1 ">
+            {{ include ('partials/metabits/meta-allocation.twig') }}
         </div>
         <div class="col-span-1">
             <p class="subheading">asset class</p>
             <p class="meta">{{trade.asset_class}}</p>
         </div>
-        <div class="">
-            <h4 class="col-span-1 subheading">STRATEGY</h4>
-            <p class="meta">{{trade.trade_strategy}}</p>
+        <div class="col-span-1">
+            {{ include ('partials/metabits/meta-asset-class.twig') }}
         </div>
 
         <div class="col-span-1">
-            <h4 class="subheading">outlook</h4>
-            <p class="meta text-{{trade.outlook.color_code}}"><i class="fas fa-{{trade.outlook.icon_code}}"></i> {{trade.outlook}}</p>
+            {{ include ('partials/metabits/meta-outlook.twig') }}
         </div>
         <div class="col-span-1 flex justify-end items-start">
-            <h4 class="">{{ include ('partials/trade-flags/trade-flag-pill_medium.twig') }}</h4>
+            {{ include ('partials/metabits/meta-trade-flag.twig') }}
         </div>
 
 
-        <div class="col-span-4 flex items-start col-start-2">
-            <p class="meta text-sm normal-case font-normal mt-2">{{trade.trade_description}}</p>
+        <div class="col-span-4 flex items-start col-start-2 ">
+            <p class="meta text-sm normal-case font-normal mt-2 ">{{trade.trade_description}}</p>
         </div>
-        <div class="col-span-4 flex items-start col-start-2 flex-wrap">
 
-            {% if tac_url is not empty %}
+        <div class="col-span-4 flex items-start col-start-2 flex-wrap ">
+
+            {% if tac_url.url is not empty %}
                 <div class="w-full">
                     <a href="{{tac_url}} " class="mt-8 right btn uppercase rounded shadow text-white bg-accent-blue"> See Full Position</a>
                 </div>

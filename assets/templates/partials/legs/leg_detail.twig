@@ -1,11 +1,6 @@
 <div class="leg-detail grid grid-rows-1 grid-cols-leg gap-x-2 p-0 text-sm overflow-hidden transform transition-all max-h-0 duration-900 " x-ref="leg1" x-bind:style="selected == 1 ? 'max-height: ' + ($refs.leg1.scrollHeight + 20 ) + 'px' : ''" x-bind:style="selected == 1 ? 'p-6 pb-12' : ''">
 
-    <div class="col-span-2 leg-chart m-4 py-8 pl-4 items-center justify-end flex">
-
-        {{ include ('partials/elements/lightbox-leg.twig') }}
-
-    </div>
-    <div class="col-span-3 m-4 mr-4 ml-4 leg-description flex items-center" >
+    <div class="col-span-4 col-start-2 m-4 mr-4 ml-4 leg-description flex items-center" >
         {# {% if leg.description is not empty %} #}
             <p class="">
                 {{leg.leg_description}}
@@ -17,18 +12,6 @@
 
     </div>
 
-
-    <div class="col-span-2 leg-witt flex items-center">
-
-        {% if leg.witt_link.url is not empty %}
-            <a href="{{leg.witt_link.url}}" target="_blank" class="btn btn-accent text-right">
-                <i class="fas fa-video ml-1"></i> WITT SEGMENT
-            </a>
-        {% else %}
-            <span class="text-gray-medium italic tect-center block">No WITT reference.</span>
-        {% endif %}
-
-    </div>
     <div class="col-span-2 flex items-center">
 
         {% if leg.learn_links is not empty %}
@@ -45,4 +28,16 @@
 
 
     </div>
+    <div class="col-span-2 leg-witt flex items-center">
+
+        {% if leg.witt_link.url is not empty %}
+            <a href="{{leg.witt_link.url}}" target="_blank" class="btn btn-accent text-right">
+                <i class="fas fa-video ml-1"></i> WITT SEGMENT
+            </a>
+        {% else %}
+            <span class="text-gray-medium italic tect-center block">No WITT reference.</span>
+        {% endif %}
+
+    </div>
+
 </div>

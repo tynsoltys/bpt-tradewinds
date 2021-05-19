@@ -1,7 +1,7 @@
 <header class="page-header w-full bg-gray-light border-b border-gray-medium shadow fixed z-20 border-t border-gray-medium mb-1 pr-8">
-    <div class='flex-grow w-full max-w-7xl mx-auto  lg:flex items-center justify-between py-2'>
+    <div class='flex-grow w-full max-w-7xl mx-auto flex items-center justify-between py-2'>
         <div class="trade-status ml-18 ml-12">
-            <label for="" class="text-gray-dark text-sm mr-1 mb-2 inline-block">STATUS </label>
+            <label for="" class="text-gray-dark text-sm mr-1 mb-2 hidden sm:inline-block">STATUS </label>
 
             {% if trade_status == 'active' %}
                 <a class="inline-block uppercase font-semibold rounded-full border py-1 px-2 text-xs py-1 text-brand-white bg-accent-green border-accent-green" href="{{ site.link }}/{{ptype}}/trade_status/active">ACTIVE</a>
@@ -25,7 +25,7 @@
         </div>
 
         <div class="yearly-archives">
-            <label for="" class="text-gray-dark text-sm mr-1  mb-2">ARCHIVES </label>
+            <label for="" class="text-gray-dark text-sm mr-1 mb-2 hidden sm:inline-block">ARCHIVES </label>
             {{ years }}
         </div>
     </div>

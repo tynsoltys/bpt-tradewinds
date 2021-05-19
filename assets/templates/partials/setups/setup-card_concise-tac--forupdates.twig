@@ -9,27 +9,22 @@
                 </h2>
             </div>
             <div class="col-span-1">
-                <p class="subheading">LAST ACTIVITY</p>
-                <p class="meta">{{trade.latest_update_date}}</p>
+                {{ include ('partials/metabits/meta-last-update-date.twig') }}
             </div>
 
             <div class="col-span-1">
-                <h4 class="subheading">outlook</h4>
-                <p class="meta text-{{trade.outlook.color_code}}"><i class="fas fa-{{trade.outlook.icon_code}}"></i> {{trade.outlook}}</p>
+                {{ include ('partials/metabits/meta-outlook.twig') }}
             </div>
             <div class="col-span-1">
-                <p class="subheading">asset class</p>
-                <p class="meta">{{trade.asset_class}}</p>
+                {{ include ('partials/metabits/asset-class.twig') }}
             </div>
             <div class="col-span-1">
-                <p class="subheading">allocation</p>
-                <p class="meta">{{trade.allocation}}%</p>
+                {{ include ('partials/metabits/meta-allocation.twig') }}
             </div>
             <div class="col-span-1 flex justify-end items-center">
-                <h4 class="">{{ include ('partials/trade-flags/trade-flag-pill_medium.twig') }}</h4>
+                {{ include ('partials/metabits/meta-trade-flag.twig') }}
             </div>
             <a href="{{trade.link}}" target="_blank" title="Go To Trade Details" aria-label="Go to Trade Details" class="col-span-1 block ml-5 flex items-center text-gray-medium hover:text-gray-dark">
                 <i class="fas fa-ellipsis-h"></i>
             </a>
     </article>
-

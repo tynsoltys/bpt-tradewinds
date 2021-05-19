@@ -28,11 +28,16 @@ $GLOBALS['ptype'] = $posttype;
 // Leg Status Variables
 $GLOBALS['pastLegs'] = false;
 $GLOBALS['currentLegs'] = false;
+$context['hasPast'] = $GLOBALS['pastLegs'];
+$context['hasCurrent'] = $GLOBALS['currentLegs'];
+
+
+
 $legs = get_field('legs');
 $GLOBALS['legs'] = $legs;
-// var_dump($GLOBALS['legs']);
+$context['legs'] = $GLOBALS['legs'];
+// var_dump($context['legs'][0]['leg_strategy']);
 
-// var_dump($GLOBALS['legs']);
 // var_dump($GLOBALS['currentLegs']);
 // var_dump($GLOBALS['pastLegs']);
 
@@ -42,13 +47,17 @@ $GLOBALS['legs'] = $legs;
 
 
     } else {
-        // var_dump($GLOBALS['ttype']);
+        // var_dump($GLOBALS['ptype']);
         // var_dump( $GLOBALS['legs'] );
         function legStatus( $arr ) {
             foreach ($arr as $leg ) {
-                if ($leg['display'] == "past") {
+                if ($leg['display'] == "Past") {
+                    // var_dump($leg['display']);
                     $GLOBALS['pastLegs'] = true;
-                } elseif ($leg['display'] == "current") {
+                }
+
+                if ($leg['display'] == "Current") {
+                    // var_dump($leg['display']);
                     $GLOBALS['currentLegs'] = true;
                 }
             }

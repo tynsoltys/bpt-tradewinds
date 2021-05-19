@@ -5,38 +5,40 @@
     {# TRADE SETUP  #}
 
     <div class="grid grid-cols-full col-span-12 ">
-        <div class="setup-details col-span-1 row-span-2 flex flex-wrap items-center">
-            <h2 class="flex items-center" title="{{trade.ticker_symbol.underlying_name}}"><a href="" class="mr-2 symbol text-5xl font-black tracking-wide">{{trade.ticker_symbol}}</a>  {{ include ('partials/trade-types/trade-type-pill_small.twig') }}</h2>
-            <p class="w-full text-xl font-semibold block">{{trade.ticker_symbol.underlying_name}}</p>
-            <p class="w-full text-xs tracking-wide uppercase text-gray-dark mr-4 mt-2">{{trade.ticker_symbol.sector}}</p>
 
-        </div>
-        <div class="col-span-1 ellipsis">
-            <p class="subheading">LAST ACTIVITY</p>
-            <p class="meta">{{trade.latest_update_date}}</p>
+        {# SECURITY INFO #}
+        <div class="col-span-1 row-span-2 flex flex-wrap items-center">
+            {{ include ('partials/metabits/meta-security-info.twig') }}
         </div>
 
+        {# LATEST UPDATE DATE #}
         <div class="col-span-1 ellipsis">
-            <h4 class="subheading">outlook</h4>
-            <p class="meta text-{{trade.outlook.color_code}}"><i class="fas fa-{{trade.outlook.icon_code}}"></i> {{trade.outlook}}</p>
+            {{ include ('partials/metabits/meta-latest-update-date.twig') }}
+        </div>
 
-        </div>
+        {# OUTLOOK  #}
         <div class="col-span-1 ellipsis">
-            <p class="subheading">av. cost base</p>
-            <p class="meta">${{trade.acb_at_update}}</p>
+            {{ include ('partials/metabits/meta-outlook.twig') }}
         </div>
+
+        {# AVERAGE COST BASE  #}
+        <div class="col-span-1 ellipsis">
+            {{ include ('partials/metabits/meta-acb.twig') }}
+        </div>
+
+        {# STRATEGY  #}
         <div class="ellipsis">
-            <h4 class="col-span-1 subheading">STRATEGY</h4>
-            <p class="meta">{{trade.trade_strategy}}</p>
+            {{ include ('partials/metabits/meta-strategy.twig') }}
         </div>
 
-
-
+        {# TRADE FLAG #}
         <div class="col-span-1 flex justify-end items-center ellipsis">
-            <h4 class="">{{ include ('partials/trade-flags/trade-flag-pill_medium.twig') }}</h4>
+            {{ include ('partials/metabits/meta-trade-flag.twig') }}
         </div>
+
+        {# DESCRIPTION #}
         <div class="col-start-2 col-span-5 flex items-start ">
-            <p class="meta text-sm normal-case font-normal mt-4">{{trade.trade_description}}</p>
+            <div class="mt-8">{{trade.meta('trade_description')}}</div>
         </div>
     </div>
 
@@ -51,8 +53,8 @@
             <h3 class="text-lg uppercase mt-6 text-brand-primary font-semibold tracking-widest">current legs</h3>
             {{ include ('partials/legs/legs-headers.twig') }}
             <ul class="">
-                {% for leg in trade.legs %}
-                    {% if leg.display == ('current') %}
+                {% for leg in post.legs %}
+                    {% if leg.display == ('Current') %}
                         {% if leg.type_of_update.value == ('update') %}
                             {{ include ('partials/legs/leg--update.twig') }}
                         {% else %}
@@ -76,8 +78,8 @@
                 <div class="legs-section" x-show="open" >
                     {{ include ('partials/legs/legs-headers_past.twig') }}
                     <ul class="">
-                        {% for leg in trade.legs %}
-                            {% if leg.display == ('past') %}
+                        {% for leg in post.legs %}
+                            {% if leg.display == ('Past') %}
                                 {% if leg.type_of_update.value == ('update') %}
                                     {{ include ('partials/legs/leg--update.twig') }}
                                 {% else %}

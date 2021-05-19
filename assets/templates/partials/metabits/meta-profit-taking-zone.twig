@@ -1,0 +1,14 @@
+<h4 class="subheading">Profit taking Zone</h4>
+<p class="meta block">${{trade.profit_zone_start}}
+    {% if trade.outlook.slug == 'bullish' %}
+    <i class="far fa-arrow-right" style="transform: rotate(45deg)"></i>
+{% elseif trade.outlook.slug == 'bearish' %}
+    <i class="far fa-arrow-right" style="transform: rotate(-45deg)"></i>
+{% elseif trade.outlook.slug == 'neutral' %}
+    <i class="far fa-arrow-right"></i>
+{% else %}
+    <i class="far fa-arrow-right"></i>
+{% endif %}
+
+${{trade.profit_zone_end}}
+</p>
