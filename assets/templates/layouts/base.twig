@@ -13,11 +13,26 @@
  <!-- Breadcrumb -->
 
 
-<div class=" {% if function( 'is_user_logged_in') %}
+<div class="relative {% if function( 'is_user_logged_in') %}
 pt-14
 {% else %}
 pt-14
 {% endif %}">
+<div class="absolute xs t-4 l-4 bg-accent-red text-brand-white uppercase rounded-full p-2 px-4 z-50">
+    XSMALL
+</div>
+<div class="absolute hidden sm:block t-4 l-4 bg-accent-gold text-brand-white uppercase rounded-full p-2 px-4 z-50">
+    SMALL
+</div>
+<div class="absolute hidden md:block t-4 l-4 bg-accent-green text-brand-white uppercase rounded-full p-2 px-4 z-50">
+    MEDIUM
+</div>
+<div class="absolute hidden lg:block t-4 l-4 bg-accent-blue text-brand-white uppercase rounded-full p-2 px-4 z-50">
+    LARGE
+</div>
+<div class="absolute hidden xl:block t-4 l-4 bg-brand-black text-brand-white uppercase rounded-full p-2 px-4 z-50">
+    xLARGE
+</div>
     {% block body %}
     {% endblock body %}
  </div>

@@ -2,7 +2,7 @@
     {# TRADE SETUP  #}
     <div class="grid grid-cols-11">
         {# SYMBOL, NAME, AND TYPE  #}
-        <div class="setup-details col-span-10 order-1 lg:col-span-2 mb-8 lg:mb-2">
+        <div class="setup-details col-span-8 order-1 lg:col-span-2 mb-8 lg:mb-2">
             {{ include ('partials/metabits/meta-security-info.twig') }}
         </div>
         {# DESCRIPTION AND DETAILS  #}
@@ -78,19 +78,19 @@
 
         </div>
         {# TRADE FLAG #}
-        <div class="lg:col-span-1 order-2 lg:order-7 flex justify-end mt-2">
+        <div class="col-span-3 lg:col-span-1 order-2 lg:order-7 flex justify-end mt-2">
             <h4 class="">{{ include ('partials/trade-flags/trade-flag-pill_medium.twig') }}</h4>
         </div>
 
-        <div class="col-span-4 col-start-3 order-8">
+        <div class="col-span-11 lg:col-span-4 lg:col-start-3 order-8 pr-4">
 
             <div class="mt-8">{{trade.meta('trade_description')}}</div>
 
 
-            <div class="mt-8 ml-5">
+            <div class="">
 
                 {% if trade.learn_links is not empty %}
-                    <ul class="list-disc">
+                    <ul class="list-disc mt-8 pl-5">
                         {% for link in trade.learn_links %}
                         <li class="underline tracking-wide text-brand-primary-medium text-xs leading-5">
                             <a href="{{link.learn_link_url.url}}" class="learn-link"> {{link.learn_link_url.title}}</a>
@@ -105,7 +105,7 @@
             </div>
 
         </div>
-        <div class="col-span-4 order-9">
+        <div class="col-span-11 lg:col-span-4 order-9">
             {{ include ('partials/witt-trade.twig') }}
         </div>
 

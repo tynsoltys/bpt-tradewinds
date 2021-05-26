@@ -1,12 +1,13 @@
+
 {% extends 'layouts/base.twig' %}
 
 {% block body %}
 
 
-    {{ include ('partials/header-secondary-single.twig') }}
-    <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex relative justify-between pt-12 md:pt-24 ">
-        <section class="w-full mx-2 mr-4 md:mx-8">
-            <div>
+    {{ include ('partials/header-secondary-blog.twig') }}
+    <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex pt-24 ">
+        <section class="w-full pl-8 rounded-lg shadow-lg p-8 mb-4 bg-brand-white ml-8">
+            <article>
                 <div class="flex flex-wrap justify-between items-center">
                     <h2 class="uppercase text-4xl tracking-widest font-bold mb-2 text-accent-blue pr-4">{{ post.title }}</h2>
                     <div class="col-span-1 text-right">
@@ -18,7 +19,7 @@
 
                 <hr class="bg-gray-medium my-4">
 
-            </div>
+            </article>
 
             <div class="prose">
                 <div class="my-8">

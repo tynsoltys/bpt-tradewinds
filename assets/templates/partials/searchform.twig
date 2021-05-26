@@ -1,5 +1,19 @@
-<form method="get" role="search" action="{{ site.url }}" class="flex flex-end justify-end items-center">
-    <input type="text" placeholder="Search..." name="s" class="rounded pl-4 w-1/2 uppercase text-sm tracking-widest">
+<form method="get" role="search" action="{{ site.url }}" class="hidden lg:flex flex-end justify-end items-center">
+    <input type="text" placeholder="Search..." name="s" class="rounded pl-4 uppercase text-sm tracking-widest">
     <input type="submit" value="Search" class="submit btn ml-2 px-2 py-1 text-sm md:py-2 md:px-4 md:text-md bg-accent-blue mt-1 ">
     <input type="hidden" name="post_type" value="post">
-  </form>
+</form>
+
+
+
+
+<form method="get" role="search" action="{{ site.url }}" class="lg:hidden flex flex-end justify-end items-center" x-data="{ search: false }">
+    <i class="fas fa-search ml-2" @click="search = !search"></i>
+    <div class="absolute bg-brand-white w-full hidden flex justify-end items-center" x-bind:style="search == true ? 'block justify-end items-center' : 'border'">
+        <input type="text" placeholder="Search..." name="s" class="rounded  text-sm tracking-widest">
+        <input type="submit" value="Search" class="submit btn ml-2 px-2 py-1 text-sm md:py-2 md:px-4 md:text-md bg-accent-blue mt-1 ">
+        <input type="hidden" name="post_type" value="post">
+        <i class="fas fa-times ml-2 mt-1"></i>
+    </div>
+
+</form>

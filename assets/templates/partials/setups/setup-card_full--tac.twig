@@ -24,11 +24,10 @@
             {{ include ('partials/metabits/meta-allocation.twig') }}
         </div>
         <div class="col-span-1">
-            <p class="subheading">asset class</p>
-            <p class="meta">{{trade.asset_class}}</p>
+            {{ include ('partials/metabits/meta-asset-class.twig') }}
         </div>
         <div class="col-span-1">
-            {{ include ('partials/metabits/meta-asset-class.twig') }}
+            {{ include ('partials/metabits/meta-strategy.twig') }}
         </div>
 
         <div class="col-span-1">
@@ -40,16 +39,17 @@
 
 
         <div class="col-span-4 flex items-start col-start-2 ">
-            <p class="meta text-sm normal-case font-normal mt-2 ">{{trade.trade_description}}</p>
+            <div class="mt-8">{{trade.meta('trade_description')}}</div>
         </div>
 
         <div class="col-span-4 flex items-start col-start-2 flex-wrap ">
-
-            {% if tac_url.url is not empty %}
+            {{include ('partials/witt-trade.twig')}}
+            {% if tac_url is not empty %}
                 <div class="w-full">
-                    <a href="{{tac_url}} " class="mt-8 right btn uppercase rounded shadow text-white bg-accent-blue"> See Full Position</a>
+                    <a href="{{tac_url}} " class="mt-8 right btn uppercase rounded shadow text-white bg-accent-blue"> See ASSOCIATED Position</a>
                 </div>
             {% endif %}
+
 
             {% if trade.alternatives is not empty %}
                 <div class="col-span-4 flex items-start col-start-2">

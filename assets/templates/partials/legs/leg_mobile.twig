@@ -1,5 +1,5 @@
 <li class="leg leg{{leg.index}} border-b border-gray-light even:bg-gray-light rounded" x-data="{selected:null}">
-    <div class="uppercase font-medium tracking-wide leg-main grid grid-rows-1 grid-cols-leg gap-x-2 p-2 text-sm text-center font-semibold">
+    <div class="uppercase font-medium tracking-wide leg-main grid grid-cols-2 gap-x-2 p-2 text-sm text-center font-semibold">
         <div class="leg-indicator">
 
         </div>
@@ -46,41 +46,4 @@
     </div>
     {% endif %}
 
-    <div class="leg-detail grid grid-rows-1 grid-cols-leg gap-x-2 p-0 text-sm overflow-hidden transform transition-all max-h-0 duration-900 " x-ref="leg1" x-bind:style="selected == 1 ? 'max-height: ' + ($refs.leg1.scrollHeight + 20 ) + 'px' : ''" x-bind:style="selected == 1 ? 'p-6 pb-12' : ''">
-
-        <div class="col-span-4 col-start-2 m-4 mr-4 leg-description flex items-center" >
-            {# {% if leg.description is not empty %} #}
-                <p class="">
-                    {{leg.leg_description}}
-                </p>
-            {# {% else %}
-                <span class="text-gray-medium italic tect-center block">No additional details provided.</span>
-            {% endif %} #}
-
-
-        </div>
-
-        <div class="col-span-2 flex items-center">
-
-            {% if leg.learn_links is not empty %}
-                <ul class="list-disc">
-                    {% for link in leg.learn_links %}
-                    <li class="underline tracking-wide text-brand-primary-medium text-xs leading-5">
-                        <a href="{{link.learn_link_url.url}}" class="learn-link"> {{link.learn_link_url.title}}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            {% else %}
-                <span class="text-gray-medium italic tect-center block">--</span>
-            {% endif %}
-
-
-        </div>
-        <div class="col-span-2 leg-witt flex">
-
-            {{include ('partials/witt-leg.twig')}}
-
-        </div>
-
-    </div>
-</li>
+    {{ include ('partials/legs/leg_detail.twig') }}

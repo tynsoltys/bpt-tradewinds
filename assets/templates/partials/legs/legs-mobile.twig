@@ -1,0 +1,50 @@
+
+
+
+
+<div class="legs-mobile">
+
+
+
+
+       {# CURRENT LEGS  #}
+       {% if hasCurrent == true %}
+        <div class="legs mt-6 col-span-12 ">
+            <h3 class="text-lg uppercase mt-6 text-brand-primary font-semibold tracking-widest">current legs</h3>
+            <ul class="">
+                {% for leg in post.legs %}
+                    {% if leg.display == ('Current') %}
+
+                            {{ include ('partials/legs/leg--default.twig') }}
+
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        {% if hasPast == true %}
+            <div class="legs mt-6 col-span-12 p-2 px-4 bg-background-main rounded-lg" x-data="{ open: false }">
+                <div class="flex justify-between legs-header" @click="open = !open">
+                    <h3 class="text-md uppercase text-gray-dark font-semibold tracking-widest">past positions</h3>
+
+                    {# //  THIS CONTROLS THE VISIBILITY #}
+                    <div aria-label="expand list" class="" >
+                        <i class="rotate-0 fas fa-chevron-down " x-bind:class="open == 1 ? 'rotate-180 transition-all duration-100 rotate-180 transform' : ''"></i>
+                    </div>
+                </div>
+                <div class="legs-section" x-show="open" >
+                    <ul class="">
+                        {% for leg in post.legs %}
+                            {% if leg.display == ('Past') %}
+
+                                    {{ include ('partials/legs/leg--default.twig') }}
+
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+
+
+    </div>

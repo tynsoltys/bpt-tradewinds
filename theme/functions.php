@@ -108,3 +108,28 @@ function my_acf_op_init() {
         ));
     }
 }
+
+// PRE GET POSTS FOR ARCHIVES SO THAT THEY ARE ORDERED BY ACF
+
+function sort_by_date_my_cpt( $query ) {
+    if ( is_post_type_archive( 'bot') && $query->is_main_query() ) {
+       $query->set('meta_key', 'latest_update_date');
+       $query->set('orderby', 'meta_value');
+       $query->set('order', 'DESC');
+       return;
+    }
+    if ( is_post_type_archive( 'lto') && $query->is_main_query() ) {
+        $query->set('meta_key', 'latest_update_date');
+        $query->set('orderby', 'meta_value');
+        $query->set('order', 'DESC');
+        return;
+    }
+    if ( is_post_type_archive( 'ofi') && $query->is_main_query() ) {
+        $query->set('meta_key', 'latest_update_date');
+        $query->set('orderby', 'meta_value');
+        $query->set('order', 'DESC');
+        return;
+    }
+ }
+
+ add_filter( 'pre_get_posts', 'sort_by_date_my_cpt', 1);
