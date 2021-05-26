@@ -1,0 +1,59 @@
+        {# ALTERNATE POSITIONS  #}
+
+        <!-- TOGGLE VERSIOn -->
+            <!-- <div class="legs mt-6 col-span-12 p-2 px-4 bg-accent-gold-fade rounded-lg w-full" x-data="{ open: false }" x-bind:class="open == 1 ? 'pb-4' : ''">
+                <div class="flex justify-between legs-header" @click="open = !open">
+                    <h3 class="text-md uppercase text-accent-gold font-semibold tracking-widest">alternative positions</h3>
+
+                    {# //  THIS CONTROLS THE VISIBILITY #}
+                    <div aria-label="expand list" class="" >
+                        <i class="rotate-0 fas fa-chevron-down " x-bind:class="open == 1 ? 'rotate-180 transition-all duration-100 rotate-180 transform' : ''"></i>
+                    </div>
+                </div>
+                <div class="legs-section bg-brand-white rounded-lg" x-show="open" >
+                    <div class="mt-3 uppercase leg-headings font-semibold tracking-wider text-brand-black bg-accent-gold-light grid grid-rows-1 grid-cols-8 p-2 rounded text-xs mt-2 gap-x-2">
+                        <p class="col-span-1" aria-label="">SYMBOL</p>
+                        <p class="col-span-1" aria-label="">LOCALE</p>
+                        <p class="col-span-6" aria-label="">DESCRIPTION</p>
+                        {# <div class="col-span-1 dropdowner" aria-label="additional details"><i class=" fas fa-ellipsis-h"></i></div> #}
+                    </div>
+                    <ul class="text-sm">
+                        {% for position in trade.alternatives %}
+                            <li class="grid grid-cols-8 p-2">
+                                <p class="col-span-1  font-semibold" aria-label="{{position.alt_symbol.ticker_symbol}} entry date">{{position['alt_symbol']}}</p>
+                                <p class="col-span-1  font-semibold" aria-label="{{position.alt_locale}} name">{{position.alt_locale}}</p>
+                                <p class="col-span-6" aria-label="{{position.alt_symbol.ticker_symbol}} name">{{position.alt_description}}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div> -->
+
+
+            <div class="legs mt-6 col-span-12 py-2 w-full" x-data="{ open: true }" x-bind:class="open == 1 ? 'pb-4' : ''">
+                <div class="flex justify-between legs-header" @click="open = !open">
+                    <h3 class="text-md uppercase text-accent-gold font-semibold tracking-widest">alternative positions</h3>
+
+                    {# //  THIS CONTROLS THE VISIBILITY #}
+                    <div aria-label="expand list" class="hidden" >
+                        <i class="rotate-0 fas fa-chevron-down " x-bind:class="open == 1 ? 'rotate-180 transition-all duration-100 rotate-180 transform' : ''"></i>
+                    </div>
+                </div>
+                <div class="legs-section bg-brand-white rounded-lg" x-show="open" >
+                    <div class="mt-2 uppercase leg-headings font-semibold tracking-wider text-gray-medium grid grid-rows-1 grid-cols-8 py-2 rounded text-xs mt-2 gap-x-3">
+                        <p class="col-span-1" aria-label="">SYMBOL</p>
+                        <p class="col-span-1" aria-label="">LOCALE</p>
+                        <p class="col-span-6" aria-label="">DESCRIPTION</p>
+                        {# <div class="col-span-1 dropdowner" aria-label="additional details"><i class=" fas fa-ellipsis-h"></i></div> #}
+                    </div>
+                    <ul class="text-sm">
+                        {% for position in trade.alternatives %}
+                            <li class="grid grid-cols-8 py-1 gap-x-3">
+                                <p class="col-span-1  font-semibold" aria-label="{{position.alt_symbol.ticker_symbol}} entry date">{{position['alt_symbol']}}</p>
+                                <p class="col-span-1  font-semibold" aria-label="{{position.alt_locale}} name">{{position.alt_locale}}</p>
+                                <p class="col-span-6" aria-label="{{position.alt_symbol.ticker_symbol}} name">{{position.alt_description}}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>

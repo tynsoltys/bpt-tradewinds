@@ -1,15 +1,16 @@
 <!-- HEADER/TOP NAV START-->
-<header class="top-header lsop-header bg-brand-primary relative z-40 pr-8 {% if function( 'is_user_logged_in') %}
+<header class="top-header lsop-header bg-brand-primary relative z-40  {% if function( 'is_user_logged_in') %}
 pt-7
 {% else %}
 
 {% endif %}">
     <nav class="top-nav">
-      <div class="top-nav-left">
+      <div class="top-nav-left -ml-5 md:ml-0">
         <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/?" class="logo">
           <img
             src="{{theme.link}}/../assets/images/logo-circle.png"
             alt="big picture trading logo"
+
         /></a>
       </div>
       <div class="hamburger">
@@ -22,7 +23,61 @@ pt-7
               <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/#daily-analytics">Daily Analytics</a>
             </li>
             <li>
-              <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/#trade-updates">Trade Updates</a>
+              <a href="{{ site.url }}/trade-updates">Trade Updates</a>
+            </li>
+            <li class="my-2 mb-4">
+                <a href="{{ site.url }}/bot/trade_status/active/">
+                    <span
+                    class="
+                        mx-1 pill bg-accent-blue-fade
+                        text-accent-blue
+                        border
+                        border-accent-blue"
+                    >
+                BOT
+                </span>
+                </a>
+                <a href="{{ site.url }}/lto/trade_status/active/">
+                    <span
+                    class="
+                    mx-1 pill bg-gray-light
+                    text-gray-dark
+                    border
+                    border-gray-dark"
+                    >
+                    LTO
+                    </span>
+                </a>
+                <a href="{{ site.url }}/ofi/trade_status/active/">
+                    <span
+                    class="
+                        mx-1 pill accent-gold-light
+                        text-accent-gold
+                        border
+                        border-accent-gold"
+                    >
+                    OFI
+                    </span>
+                </a>
+                <a href="{{ site.url }}/tactical-portfolio/">
+                    <span
+                    class="
+                        mx-1 pill bg-gray-light
+                        text-accent-red
+                        border
+                        border-accent-red"
+                    >
+                    TAC
+                    </span>
+                </a>
+
+
+
+
+
+
+
+
             </li>
             <li>
               <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/#master-programs">Master Programs</a>

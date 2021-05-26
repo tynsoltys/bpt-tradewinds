@@ -1,0 +1,17 @@
+{% extends 'index.twig' %}
+
+
+{% block body %}
+{{ include ('partials/header-secondary-single.twig') }}
+
+<main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex relative justify-between pt-24 ">
+    <section class="w-full ml-2 md:ml-8">
+        {% if post.post_type == 'bot' %}
+            {{ include ('partials/setups/setup-card_full--bot.twig') }}
+        {% else %}
+            {{ include ('partials/setups/setup-card_full.twig') }}
+        {% endif %}
+    </section>
+</main>
+
+{% endblock body %}

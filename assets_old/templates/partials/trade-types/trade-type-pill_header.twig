@@ -1,0 +1,43 @@
+{% if ptype == ('trade-setup-tac') %}
+    <span
+    class="
+        pill mr-1 bg-gray-light
+        text-accent-red
+        border
+        border-accent-red"
+    >
+    TAC
+    </span>
+{% elseif ptype == ('bot') %}
+    <span
+        class="
+            pill mr-1 bg-accent-blue-fade
+            text-accent-blue
+            border
+            border-accent-blue"
+        >
+    {{ptype}}
+    </span>
+{% elseif ptype == ('lto') %}
+    <span
+    class="
+    pill mr-1 bg-gray-light
+    text-gray-dark
+    border
+    border-gray-dark "
+    >
+    {{ptype}}
+    </span>
+{% elseif ptype == ('ofi') %}
+    <span
+    class="
+        pill mr-1 accent-gold-light
+        text-accent-gold
+        border
+        border-accent-gold"
+    >
+    {{ptype}}
+    </span>
+{% else %}
+
+{% endif %}

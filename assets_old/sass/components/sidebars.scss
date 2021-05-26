@@ -1,0 +1,12 @@
+.yearly-archives {
+
+    list-style-type: none;
+    li {
+        display: inline-block;
+        padding-bottom:2px;
+    }
+    a {
+        @apply text-brand-primary-medium ml-2;
+
+    }
+}

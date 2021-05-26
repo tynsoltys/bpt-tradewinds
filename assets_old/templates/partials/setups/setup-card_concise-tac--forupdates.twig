@@ -1,0 +1,30 @@
+
+
+
+    <article class="trade-card rounded-lg shadow p-3 px-5 mb-4 bg-brand-white grid grid-cols-concise">
+
+            <div class="setup-details col-span-1 flex items-center">
+                <h2 class="flex items-center" title="{{trade.underlying_name}}"><a href="" class="mr-2 symbol text-3xl font-black tracking-wide">{{trade.ticker_symbol}}</a>
+                    <span class="pill pill_small text-accent-red border border-accent-red flex">  TAC</span>
+                </h2>
+            </div>
+            <div class="col-span-1">
+                {{ include ('partials/metabits/meta-last-update-date.twig') }}
+            </div>
+
+            <div class="col-span-1">
+                {{ include ('partials/metabits/meta-outlook.twig') }}
+            </div>
+            <div class="col-span-1">
+                {{ include ('partials/metabits/asset-class.twig') }}
+            </div>
+            <div class="col-span-1">
+                {{ include ('partials/metabits/meta-allocation.twig') }}
+            </div>
+            <div class="col-span-1 flex justify-end items-center">
+                {{ include ('partials/metabits/meta-trade-flag.twig') }}
+            </div>
+            <a href="{{trade.link}}" target="_blank" title="Go To Trade Details" aria-label="Go to Trade Details" class="col-span-1 block ml-5 flex items-center text-gray-medium hover:text-gray-dark">
+                <i class="fas fa-ellipsis-h"></i>
+            </a>
+    </article>

@@ -1,0 +1,109 @@
+
+<div class="mt-8" >
+    <article class="asset-container grid grid-cols-5 m-2 text-center p-4 rounded rounded-lg" id="equity">
+        <div class="col-span-5 md:col-span-1 flex flex-row md:flex-col flex-wrap items-center justify-center md:mr-4 py-8 ">
+            <h3 class="block w-full uppercase text-center font-semibold tracking-widest text-2xl">Long Term Equity</h3>
+            <div class="pie-chart rounded-full h-16 w-16 md:h-32 md:w-32 mr-4 md:mx-auto my-4">
+                <img src="{{theme.link}}/../assets/images/piecharts/pie-equity.png" alt="">
+            </div>
+            <div>
+                <p class="text-center font-semibold mt-1 text-5xl">25%</p>
+                <p class="subheading">target</p>
+            </div>
+
+        </div>
+
+        <div class="col-span-5 md:col-span-4 flex flex-col justify-center">
+            {% for trade in tac %}
+            {% if trade.asset_class.slug == ('equity') %}
+                {{ include ('partials/setups/setup-card_concise-tac.twig') }}
+            {% endif %}
+        {% endfor %}
+        </div>
+    </article>
+    <article class="asset-container grid grid-cols-5 m-2 text-center p-4 rounded rounded-lg" id="bonds">
+        <div class="col-span-5 md:col-span-1 flex flex-row md:flex-col flex-wrap items-center justify-center md:mr-4 py-8 ">
+            <h3 class="block w-full uppercase text-center font-semibold tracking-widest text-2xl">Income & Bonds</h3>
+            <div class="pie-chart rounded-full h-16 w-16 md:h-32 md:w-32 mr-4 md:mx-auto my-4">
+                <img src="{{theme.link}}/../assets/images/piecharts/pie-bonds.png" alt="">
+            </div>
+            <div>
+                <p class="text-center font-semibold mt-1 text-5xl">20%</p>
+                <p class="subheading">target</p>
+            </div>
+        </div>
+
+        <div class="col-span-5 md:col-span-4 flex flex-col justify-center">
+
+            {% for trade in tac %}
+            {% if trade.asset_class.slug == ('bonds') %}
+                {{ include ('partials/setups/setup-card_concise-tac.twig') }}
+            {% endif %}
+        {% endfor %}
+        </div>
+    </article>
+    <article class="asset-container grid grid-cols-5 m-2 text-center p-4 rounded rounded-lg" id="metals">
+        <div class="col-span-5 md:col-span-1 flex flex-row md:flex-col flex-wrap items-center justify-center md:mr-4 py-8 ">
+            <h3 class="block w-full uppercase text-center font-semibold tracking-widest text-2xl">Precious Metals</h3>
+            <div class="pie-chart rounded-full h-16 w-16 md:h-32 md:w-32 mr-4 md:mx-auto my-4">
+                <img src="{{theme.link}}/../assets/images/piecharts/pie-metals.png" alt="">
+            </div>
+            <div>
+                <p class="text-center font-semibold mt-1 text-5xl">15%</p>
+                <p class="subheading">target</p>
+            </div>
+        </div>
+
+        <div class="col-span-5 md:col-span-4 flex flex-col justify-center">
+            {% for trade in tac %}
+            {% if trade.asset_class.slug == ('gold') %}
+                {{ include ('partials/setups/setup-card_concise-tac.twig') }}
+            {% endif %}
+        {% endfor %}
+        </div>
+    </article>
+    <article class="asset-container grid grid-cols-5 m-2 text-center p-4 rounded rounded-lg" id="commodities">
+        <div class="col-span-5 md:col-span-1 flex flex-row md:flex-col flex-wrap items-center justify-center md:mr-4 py-8 ">
+            <h3 class="block w-full uppercase text-center font-semibold tracking-widest text-2xl">Commodity Trend</h3>
+            <div class="pie-chart rounded-full h-16 w-16 md:h-32 md:w-32 mr-4 md:mx-auto my-4">
+                <img src="{{theme.link}}/../assets/images/piecharts/pie-commodity.png" alt="">
+            </div>
+            <div>
+                <p class="text-center font-semibold mt-1 text-5xl">15%</p>
+                <p class="subheading">target</p>
+            </div>
+        </div>
+
+        <div class="col-span-5 md:col-span-4 flex flex-col justify-center">
+
+            {% for trade in tac %}
+            {% if trade.asset_class.slug == ('commodity') %}
+                {{ include ('partials/setups/setup-card_concise-tac.twig') }}
+            {% endif %}
+        {% endfor %}
+        </div>
+    </article>
+    <article class="asset-container grid grid-cols-5 m-2 text-center p-4 rounded rounded-lg" id="volatility">
+        <div class="col-span-5 md:col-span-1 flex flex-row md:flex-col flex-wrap items-center justify-center md:mr-4 py-8 ">
+            <h3 class="block w-full uppercase text-center font-semibold tracking-widest text-2xl">Volatility</h3>
+            <div class="pie-chart rounded-full h-16 w-16 md:h-32 md:w-32 mr-4 md:mx-auto my-4">
+                <img src="{{theme.link}}/../assets/images/piecharts/pie-volatility.png" alt="">
+            </div>
+            <div>
+                <p class="text-center font-semibold mt-1 text-5xl">25%</p>
+                <p class="subheading">target</p>
+            </div>
+        </div>
+
+        <div class="col-span-5 md:col-span-4 flex flex-col justify-center">
+
+            {% for trade in tac %}
+            {% if trade.asset_class.slug == ('volatility') %}
+                {{ include ('partials/setups/setup-card_concise-tac.twig') }}
+            {% endif %}
+        {% endfor %}
+        </div>
+    </article>
+
+</div>
+

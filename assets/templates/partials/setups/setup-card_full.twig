@@ -1,96 +1,373 @@
 
 
 
-<article class="trade-card rounded-lg shadow-lg p-8 mb-4 bg-brand-white grid grow-rows-full grid-cols-12">
+<article class="trade-card p-2 md:p-4 lg:rounded-lg lg:shadow-lg lg:p-8 lg:mb-4 lg:bg-brand-white grid grid-cols-12">
     {# TRADE SETUP  #}
-
-    <div class="grid grid-cols-full col-span-12 ">
-
+    <div class="col-span-12 grid grid-cols-4 lg:grid-cols-full">
         {# SECURITY INFO #}
-        <div class="col-span-1 row-span-2 flex flex-wrap items-center">
+        <div class=" m-1 col-span-3 order-1 lg:col-span-1 lg:row-span-2 mb-4">
             {{ include ('partials/metabits/meta-security-info.twig') }}
         </div>
 
         {# LATEST UPDATE DATE #}
-        <div class="col-span-1 ellipsis">
+        <div class=" m-1 col-span-2 lg:col-span-1 ellipsis order-4">
             {{ include ('partials/metabits/meta-latest-update-date.twig') }}
         </div>
 
         {# OUTLOOK  #}
-        <div class="col-span-1 ellipsis">
+        <div class=" m-1 col-span-2 lg:col-span-1 ellipsis order-4">
             {{ include ('partials/metabits/meta-outlook.twig') }}
         </div>
 
         {# AVERAGE COST BASE  #}
-        <div class="col-span-1 ellipsis">
+        <div class=" m-1 col-span-2 lg:col-span-1 ellipsis order-4 mt-4 lg:mt-0">
             {{ include ('partials/metabits/meta-acb.twig') }}
         </div>
 
         {# STRATEGY  #}
-        <div class="ellipsis">
+        <div class=" m-1 col-span-2 lg:col-span-1 ellipsis order-4 mt-4 lg:mt-0">
             {{ include ('partials/metabits/meta-strategy.twig') }}
         </div>
 
         {# TRADE FLAG #}
-        <div class="col-span-1 flex justify-end items-center ellipsis">
+        <div class=" m-1 col-span-1 lg:col-span-1 flex justify-end lg:items-center ellipsis order-2 lg:order-4">
             {{ include ('partials/metabits/meta-trade-flag.twig') }}
         </div>
 
         {# DESCRIPTION #}
-        <div class="col-start-2 col-span-5 flex items-start ">
-            <div class="mt-8">{{trade.meta('trade_description')}}</div>
+        <div class=" m-1 col-span-4 lg:col-start-2 lg:col-span-5 flex items-start order-7">
+            <div class="mt-6 md:mt-8 text-sm md:text-base">{{trade.meta('trade_description')}}</div>
         </div>
     </div>
 
 
 
+    {# LEGS FOR FULL-WIDTH #}
+    <div class="legs mt-6 col-span-12 hidden lg:block">
+        {# CURRENT LEGS  #}
+            {% if hasCurrent == true %}
+            <div class="legs mt-6 col-span-12 ">
+                <h3 class="text-lg uppercase mt-6 text-brand-primary font-semibold tracking-widest">current legs</h3>
+                {{ include ('partials/legs/legs-headers.twig') }}
+                <ul class="">
+                    {% for leg in post.legs %}
+                        {% if leg.display == ('Current') %}
 
+                                {{ include ('partials/legs/leg--default.twig') }}
 
-
-       {# CURRENT LEGS  #}
-       {% if hasCurrent == true %}
-        <div class="legs mt-6 col-span-12 ">
-            <h3 class="text-lg uppercase mt-6 text-brand-primary font-semibold tracking-widest">current legs</h3>
-            {{ include ('partials/legs/legs-headers.twig') }}
-            <ul class="">
-                {% for leg in post.legs %}
-                    {% if leg.display == ('Current') %}
-                        {% if leg.type_of_update.value == ('update') %}
-                            {{ include ('partials/legs/leg--update.twig') }}
-                        {% else %}
-                            {{ include ('partials/legs/leg--default.twig') }}
                         {% endif %}
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-        {% endif %}
-        {% if hasPast == true %}
-            <div class="legs mt-6 col-span-12 p-2 px-4 bg-background-main rounded-lg" x-data="{ open: false }">
-                <div class="flex justify-between legs-header" @click="open = !open">
-                    <h3 class="text-md uppercase text-gray-dark font-semibold tracking-widest">past positions</h3>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            {% if hasPast == true %}
+                <div class="legs mt-6 col-span-12 p-2 px-4 bg-background-main rounded-lg" x-data="{ open: false }">
+                    <div class="flex justify-between legs-header" @click="open = !open">
+                        <h3 class="text-md uppercase text-gray-dark font-semibold tracking-widest">past positions</h3>
 
-                    {# //  THIS CONTROLS THE VISIBILITY #}
-                    <div aria-label="expand list" class="" >
-                        <i class="rotate-0 fas fa-chevron-down " x-bind:class="open == 1 ? 'rotate-180 transition-all duration-100 rotate-180 transform' : ''"></i>
+                        {# //  THIS CONTROLS THE VISIBILITY #}
+                        <div aria-label="expand list" class="" >
+                            <i class="rotate-0 fas fa-chevron-down " x-bind:class="open == 1 ? 'rotate-180 transition-all duration-100 rotate-180 transform' : ''"></i>
+                        </div>
+                    </div>
+                    <div class="legs-section" x-show="open" >
+                        {{ include ('partials/legs/legs-headers_past.twig') }}
+                        <ul class="">
+                            {% for leg in post.legs %}
+                                {% if leg.display == ('Past') %}
+
+                                        {{ include ('partials/legs/leg--default.twig') }}
+
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
                     </div>
                 </div>
-                <div class="legs-section" x-show="open" >
-                    {{ include ('partials/legs/legs-headers_past.twig') }}
-                    <ul class="">
-                        {% for leg in post.legs %}
-                            {% if leg.display == ('Past') %}
-                                {% if leg.type_of_update.value == ('update') %}
-                                    {{ include ('partials/legs/leg--update.twig') }}
-                                {% else %}
-                                    {{ include ('partials/legs/leg--default.twig') }}
-                                {% endif %}
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </div>
+            {% endif %}
+
+    </div>
+
+    {# LEGS MOBILE #}
+
+    <div class="legs mt-6 col-span-12 lg:hidden ">
+        {# CURRENT LEGS  #}
+            {% if hasCurrent == true %}
+            <div class="legs mt-6 col-span-12 ">
+                <h3 class="text-lg uppercase mt-6 text-brand-primary font-semibold tracking-widest mb-4">current legs</h3>
+                <ul class="">
+                    {% for leg in post.legs %}
+                        {% if leg.display == ('Current') %}
+                        <li class="leg leg{{leg.index}} shadow bg-gray-light mb-2 rounded" x-data="{selected:null}">
+                            <div class="uppercase font-medium tracking-wide leg-main flex justify-between p-2 px-4 text-sm text-center font-semibold">
+                                <p class="col-span-3 {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} entry date">{{leg.entry_date}}</p>
+                                <p class="col-span-3 {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} name">{{leg.leg_name}}</p>
+                                <p class="col-span-3 {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} strategy">{{leg.leg_strategy}}</p>
+
+                                <div aria-label="{{leg.leg_name}} unit ratio" class="col-span-1 dropdowner" @click="selected !== 1 ? selected = 1 : selected = null" >
+                                    <i class="rotate-0 fas fa-chevron-down " x-ref="toggle-icon " x-bind:class="selected == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''"></i>
+                                </div>
+
+                            </div>
+
+                            <div class="leg-detail p-0 text-sm overflow-hidden transform transition-all max-h-0 duration-900 " x-ref="leg1" x-bind:style="selected == 1 ? 'max-height: ' + ($refs.leg1.scrollHeight + 20 ) + 'px' : ''" x-bind:style="selected == 1 ? 'p-6 pb-12' : ''">
+
+                                <div class="bg-brand-white rounded p-4 m-4 my-2 md:pl-6 ml-4 uppercase">
+                                    <div class="flex flex-wrap mb-1">
+                                        <h4 class="w-1/4 uppercase font-semibold text-sm">ENTRY DATE</h4>
+                                        <p class="w-3/4 text-sm {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} entry date">{{leg.entry_date}}</p>
+                                    </div>
+                                    <div class="flex flex-wrap mb-1">
+                                        <h4 class="w-1/4 uppercase font-semibold text-sm">NAME</h4>
+                                        <p class="col-span-3 {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} name">{{leg.leg_name}}</p>
+                                    </div>
+                                    <div class="flex flex-wrap mb-1">
+                                        <h4 class="w-1/4 uppercase font-semibold text-sm">STRATEGY</h4>
+                                        <p class="col-span-3 {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} strategy">{{leg.leg_strategy}}</p>
+                                    </div>
+                                    <div class="flex flex-wrap mb-1">
+                                        <h4 class="w-1/4 uppercase font-semibold text-sm">UNIT RATIO</h4>
+                                        <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} unit ratio">{{leg.unit_ratio}}</p>
+                                    </div>
+                                    <div class="flex flex-wrap mb-1">
+                                        <h4 class="w-1/4 uppercase font-semibold text-sm">ACTION</h4>
+                                        <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} action">{{leg.action}}</p>
+                                    </div>
+                                    <div class="flex flex-wrap mb-1">
+                                        <h4 class="w-1/4 uppercase font-semibold text-sm">STRIKE</h4>
+                                        <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} strike price">
+
+                                            {% if leg.strike is not empty %}
+                                                ${{leg.strike}}
+                                            {% else %}
+                                                <span class="text-gray-medium">--</span>
+                                            {% endif %}
+
+                                        </p>
+                                    </div>
+                                    <div class="flex flex-wrap mb-1">
+                                        <h4 class="w-1/4 uppercase font-semibold text-sm">EXPIRY</h4>
+                                        <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} expiry">
+                                            {% if leg.expiry is not empty %}
+                                                {{leg.expiry}}
+                                            {% else %}
+                                                <span class="text-gray-medium">--</span>
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                    <div class="flex flex-wrap mb-1">
+                                        <h4 class="w-1/4 uppercase font-semibold text-sm">ENTRY PRICE</h4>
+                                        <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} entry price">
+                                            {% if leg.entry_price is not empty %}
+                                                ${{leg.entry_price}}
+                                            {% else %}
+                                                <span class="text-gray-medium">--</span>
+                                            {% endif %}
+                                        </p>
+                                    </div>
+
+                                    <div class="flex flex-wrap mb-1">
+                                        <h4 class="w-1/4 uppercase font-semibold text-sm">ENTRY DATE</h4>
+                                        <p class="w-3/4 text-sm {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} entry date">{{leg.entry_date}}</p>
+                                    </div>
+
+                                    <div class="w-full py-4" >
+                                            <p class="normal-case">
+                                                {{leg.leg_description}}
+                                            </p>
+                                    </div>
+
+                                    <div class="w-full flex items-center">
+
+                                        {% if leg.learn_links is not empty %}
+                                            <ul class="list-disc pl-6">
+                                                {% for link in leg.learn_links %}
+                                                <li class="underline tracking-wide text-brand-primary-medium text-xs leading-5">
+                                                    <a href="{{link.learn_link_url.url}}" class="learn-link"> {{link.learn_link_url.title}}</a>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% else %}
+                                            <span class="text-gray-medium italic tect-center block">--</span>
+                                        {% endif %}
+
+
+                                    </div>
+                                    <div class="w-full leg-witt flex">
+
+                                        {{include ('partials/witt-leg.twig')}}
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </li>
+
+                        {% endif %}
+                    {% endfor %}
+                </ul>
             </div>
-        {% endif %}
+            {% endif %}
+
+
+
+
+
+            {% if hasPast == true %}
+                <div class="legs mt-6 col-span-12" x-data="{ open: false }">
+                    <div class="flex justify-between legs-header" @click="open = !open">
+                        <h3 class="text-md uppercase text-gray-dark font-semibold tracking-widest mb-2">past positions</h3>
+
+                        {# //  THIS CONTROLS THE VISIBILITY #}
+                        <div aria-label="expand list" class="" >
+                            <i class="rotate-0 fas text-gray-dark mr-3" x-bind:class="open == 1 ? 'rotate-180 transition-all duration-100 rotate-180 transform fa-eye-slash text-gray-medium' : 'fa-eye'"></i>
+                        </div>
+                    </div>
+                    <div class="legs-section" x-show="open" >
+                        <ul class="">
+                            {% for leg in post.legs %}
+                                {% if leg.display == ('Past') %}
+
+                                <li class="leg leg{{leg.index}} shadow bg-gray-light mb-2 rounded" x-data="{selected:null}">
+                                    <div class="uppercase font-medium tracking-wide leg-main flex justify-between p-2 px-4 text-sm text-center font-semibold">
+                                        <p class="col-span-3 {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} entry date">{{leg.entry_date}}</p>
+                                        <p class="col-span-3 {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} name">{{leg.leg_name}}</p>
+                                        <p class="col-span-3 {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} strategy">{{leg.leg_strategy}}</p>
+
+                                        <div aria-label="{{leg.leg_name}} unit ratio" class="col-span-1 dropdowner" @click="selected !== 1 ? selected = 1 : selected = null" >
+                                            <i class="rotate-0 fas fa-chevron-down " x-ref="toggle-icon " x-bind:class="selected == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''"></i>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="leg-detail p-0 text-sm overflow-hidden transform transition-all max-h-0 duration-900 " x-ref="leg1" x-bind:style="selected == 1 ? 'max-height: ' + ($refs.leg1.scrollHeight + 20 ) + 'px' : ''" x-bind:style="selected == 1 ? 'p-6 pb-12' : ''">
+
+                                        <div class="bg-brand-white rounded p-4 m-4 my-2 md:pl-6 ml-4 uppercase">
+                                            <div class="flex flex-wrap mb-1">
+                                                <h4 class="w-1/4 uppercase font-semibold text-sm">ENTRY DATE</h4>
+                                                <p class="w-3/4 text-sm {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} entry date">{{leg.entry_date}}</p>
+                                            </div>
+                                            <div class="flex flex-wrap mb-1">
+                                                <h4 class="w-1/4 uppercase font-semibold text-sm">NAME</h4>
+                                                <p class="col-span-3 {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} name">{{leg.leg_name}}</p>
+                                            </div>
+                                            <div class="flex flex-wrap mb-1">
+                                                <h4 class="w-1/4 uppercase font-semibold text-sm">STRATEGY</h4>
+                                                <p class="col-span-3 {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} strategy">{{leg.leg_strategy}}</p>
+                                            </div>
+                                            <div class="flex flex-wrap mb-1">
+                                                <h4 class="w-1/4 uppercase font-semibold text-sm">UNIT RATIO</h4>
+                                                <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} unit ratio">{{leg.unit_ratio}}</p>
+                                            </div>
+                                            <div class="flex flex-wrap mb-1">
+                                                <h4 class="w-1/4 uppercase font-semibold text-sm">ACTION</h4>
+                                                <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} action">{{leg.action}}</p>
+                                            </div>
+                                            <div class="flex flex-wrap mb-1">
+                                                <h4 class="w-1/4 uppercase font-semibold text-sm">STRIKE</h4>
+                                                <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} strike price">
+
+                                                    {% if leg.strike is not empty %}
+                                                        ${{leg.strike}}
+                                                    {% else %}
+                                                        <span class="text-gray-medium">--</span>
+                                                    {% endif %}
+
+                                                </p>
+                                            </div>
+                                            <div class="flex flex-wrap mb-1">
+                                                <h4 class="w-1/4 uppercase font-semibold text-sm">EXPIRY</h4>
+                                                <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} expiry">
+                                                    {% if leg.expiry is not empty %}
+                                                        {{leg.expiry}}
+                                                    {% else %}
+                                                        <span class="text-gray-medium">--</span>
+                                                    {% endif %}
+                                                </p>
+                                            </div>
+                                            <div class="flex flex-wrap mb-1">
+                                                <h4 class="w-1/4 uppercase font-semibold text-sm">ENTRY PRICE</h4>
+                                                <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} entry price">
+                                                    {% if leg.entry_price is not empty %}
+                                                        ${{leg.entry_price}}
+                                                    {% else %}
+                                                        <span class="text-gray-medium">--</span>
+                                                    {% endif %}
+                                                </p>
+                                            </div>
+                                            <div class="flex flex-wrap mb-1">
+                                                <h4 class="w-1/4 uppercase font-semibold text-sm">ENTRY DATE</h4>
+                                                <p class="w-3/4 text-sm {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} entry date">{{leg.entry_date}}</p>
+                                            </div>
+
+                                            {% if leg.exit_date %}
+                                                <div class="ml-4 mt-6 uppercase font-medium tracking-wide leg-main grid grid-rows-1 grid-cols-leg gap-x-2 p-2 text-xs text-gray-dark text-center pt-0">
+                                                    <div class="flex flex-wrap mb-1">
+                                                        <h4 class="text-accent-red col-start-1" aria-label="exit information"><i class="fas fa-sign-out-alt"></i> EXIT DATE</h4>
+                                                        <p class="w-3/4 text-sm {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} entry date">{{leg.exit_date}}</p>
+                                                    </div>
+                                                    <div class="flex flex-wrap mb-1">
+                                                        <h4 class="text-accent-red col-start-1" aria-label="exit information"><i class="fas fa-sign-out-alt"></i> EXIT ACTION</h4>
+                                                        <p class="w-3/4 text-sm {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} entry date">{{leg.exit_action}}</p>
+                                                    </div>
+                                                    <div class="flex flex-wrap mb-1">
+                                                        <h4 class="text-accent-red col-start-1" aria-label="exit information"><i class="fas fa-sign-out-alt"></i> EXIT PRICE</h4>
+                                                        <p class="w-3/4 text-sm {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} entry date">{{leg.exit_price}}</p>
+                                                    </div>
+
+                                                </div>
+                                            {% endif %}
+
+
+
+
+
+
+
+                                            <div class="w-full py-4" >
+                                                    <p class="normal-case">
+                                                        {{leg.leg_description}}
+                                                    </p>
+                                            </div>
+
+                                            <div class="w-full flex items-center">
+
+                                                {% if leg.learn_links is not empty %}
+                                                    <ul class="list-disc pl-6">
+                                                        {% for link in leg.learn_links %}
+                                                        <li class="underline tracking-wide text-brand-primary-medium text-xs leading-5">
+                                                            <a href="{{link.learn_link_url.url}}" class="learn-link"> {{link.learn_link_url.title}}</a>
+                                                        </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                {% else %}
+                                                    <span class="text-gray-medium italic tect-center block">--</span>
+                                                {% endif %}
+
+
+                                            </div>
+                                            <div class="w-full leg-witt flex">
+
+                                                {{include ('partials/witt-leg.twig')}}
+
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                </li>
+
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endif %}
+
+    </div>
+
 
 
 
