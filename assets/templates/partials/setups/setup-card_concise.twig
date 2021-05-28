@@ -5,12 +5,9 @@
 
             <div class="setup-details col-span-1 flex items-center order-1 ellipsis">
                 <h2 class="flex items-center" title="{{trade.underlying_name}}"><a href="" class="mr-2 symbol text-3xl font-black tracking-wide">{{trade.ticker_symbol}}</a>
-                    <div class="hidden sm:inline-block">
-                        {{ include ('partials/trade-types/trade-type-pill_medium.twig') }}
-                    </div>
-                    <div class="sm:hidden inline-block">
+
                         {{ include ('partials/trade-types/trade-type-pill_small.twig') }}
-                    </div>
+
                 </h2>
             </div>
             <div class="col-span-1 ellipsis order-2">

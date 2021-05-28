@@ -5,10 +5,7 @@
 {{ include ('partials/header-secondary-search.twig') }}
 
 <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex relative justify-between pt-12 md:pt-24 ">
-    <aside class=" pt-16 pl-1 fixed">
-        {{ include ('partials/menu-trade-updates-sidebar.twig') }}
-    </aside>
-    <section class="w-full pt-24 ml-48 pl-48">
+    <section class="w-full px-2">
         {% if posts is not empty %}
             {% include 'partials/setups-list.twig' %}
         {% else %}

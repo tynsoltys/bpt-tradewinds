@@ -4,8 +4,8 @@
 {% block body %}
 {{ include ('partials/header-secondary-single.twig') }}
 
-<main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex relative justify-between pt-12 md:pt-24 ">
-    <section class="w-full mx-2 md:mx-8">
+<main class="max-w-7xl mx-auto relative pt-12 md:pt-24 ">
+    <section class="w-full px-2">
         {% if post.post_type == 'bot' %}
             {{ include ('partials/setups/setup-card_full--bot.twig') }}
         {% else %}

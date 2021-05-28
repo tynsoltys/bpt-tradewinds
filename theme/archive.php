@@ -98,7 +98,7 @@ $orderbyupdate = array(
 
 global $paged;
 if (!isset($paged) || !$paged){
-    $paged = 5;
+    $paged = 10;
 }
 
 Timber::render( $templates, $context );

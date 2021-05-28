@@ -4,8 +4,8 @@
 
 {% block body %}
     {{ include ('partials/header-secondary-tactical.twig') }}
-    <nav class="tac-nav w-full fixed pt-16 bg-brand-secondary-light border-b border-gray-medium z-20 md:pl-32">
-        <ul class="flex-grow w-full max-w-7xl mx-auto xl:px-0 flex-wrap flex-row flex justify-center md:justify-start">
+    <nav class="tac-nav w-full fixed pt-10 md:pt-16 bg-brand-secondary-light border-b border-gray-medium z-20 ">
+        <ul class="flex-grow w-full max-w-7xl mx-auto xl:px-0 flex-wrap flex-row flex justify-center md:justify-start z-50 md:pl-8">
             <li ><a class="text-xs md:text-base uppercase p-2 md:px-4 inline-block font-semibold bg-" href="#equity">Equity</a></li>
             <li ><a class="text-xs md:text-base uppercase p-2 md:px-4 inline-block font-semibold bg-" href="#bonds">Bonds</a></li>
             <li ><a class="text-xs md:text-base uppercase p-2 md:px-4 inline-block font-semibold bg-" href="#metals">Metals</a></li>
@@ -14,8 +14,8 @@
 
         </ul>
     </nav>
-    <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex relative justify-between pt-24 ">
-        <section class="w-full mx-2 mr-4 md:mx-8">
+    <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex relative justify-between pt-10 md:pt-24 ">
+        <section class="w-full mx-2">
             {% include './partials/setups-list-tac.twig' %}
         </section>
     </main>
