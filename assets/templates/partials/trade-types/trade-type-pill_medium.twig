@@ -8,6 +8,16 @@
         >
     {{trade.post_type}}
     </span>
+{% elseif trade.post_type == ('cct') %}
+    <span
+        class="
+            pill mr-1 bg-gray-light
+        text-accent-red
+        border
+        border-accent-red"
+        >
+    {{trade.post_type}}
+    </span>
 {% elseif trade.post_type == ('lto') %}
     <span
     class="

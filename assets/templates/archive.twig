@@ -6,8 +6,21 @@
     {{ include ('partials/header-secondary-trades.twig') }}
 
 
-    <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex relative justify-between mt-2 pt-24 md:pt-32">
-        <section class="w-full px-2">
+    <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex relative justify-between mt-4 pt-16">
+        <aside class="pl-1 lg:w-56 lg:ml-4 lg:fixed">
+            {% if ptype == 'bot' %}
+                {{ include ('partials/sidebars/sidebar-bot.twig') }}
+            {% elseif ptype == 'lto' %}
+                {{ include ('partials/sidebars/sidebar-lto.twig') }}
+            {% elseif ptype == 'ofi' %}
+                {{ include ('partials/sidebars/sidebar-ofi.twig') }}
+            {% elseif ptype == 'cct' %}
+                {{ include ('partials/sidebars/sidebar-cct.twig') }}
+            {% else %}
+            {% endif %}
+
+        </aside>
+        <section class="w-full lg:ml-56 lg:pl-16 px-2">
             <div class="open-trades">
                 {% for trade in posts %}
                     {{ include ('partials/setups/setup-card_concise.twig') }}

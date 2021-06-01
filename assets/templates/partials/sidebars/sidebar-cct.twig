@@ -1,0 +1,38 @@
+{{ include ('partials/sidebars/sidebar-status.twig') }}
+
+<div class="yearly-archives mt-4">
+    <div class="uppercase font-semibold tracking-wide py-2 block hover:text-brand-primary-medium flex items-center">
+        <div class="bg-brand-primary h-10 w-10 block rounded-full mr-3 flex items-center justify-center">
+
+            <i class="fas fa-archive text-brand-white text-xl"></i>
+
+        </div>
+        <p>ARCHIVES</p>
+    </div>
+    <div class="ml-12 text-sm mr-8">
+        {{ years }}
+        {% for ar in options.sidebar_cct.old_archive_links %}
+            <a href="{{ ar.archive_link.url }}" >{{ ar.archive_link.title }}</a>
+        {% endfor %}
+        </div>
+
+</div>
+<div class="mt-4" x-data="{infoOpen : null}">
+    <div class="flex items-center" @click="infoOpen !== 1 ? infoOpen = 1 : infoOpen = null">
+        <span class="mr-2 uppercase font-semibold tracking-wide py-2 block hover:text-brand-primary-medium flex items-center">
+            <div class="bg-brand-primary h-10 w-10 block rounded-full hover:bg-brand-primary-medium mr-3 flex items-center justify-center">
+                <i class="fas fa-question-circle text-brand-white text-xl"></i>
+            </div>
+            <span>
+                ABOUT {{ptype}}
+            </span>
+
+        </span>
+        <i class="rotate-0 fas fa-chevron-down " x-ref="toggle-icon " x-bind:class="infoOpen == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''"></i>
+    </div>
+    <div x-ref="infochunk" class="ml-4 prose text-sm prose p-0 overflow-hidden transform transition-all max-h-0 duration-900 " x-bind:style="infoOpen == 1 ? 'max-height: ' + ($refs.infochunk.scrollHeight + 20 ) + 'px' : ''" x-bind:class="infoOpen == 1 ? '' : ''">
+        <p class="">
+            {{ options.sidebar_cct.sidebar_area }}
+        </p>
+    </div>
+</div>

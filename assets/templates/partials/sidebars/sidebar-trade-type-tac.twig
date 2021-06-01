@@ -1,0 +1,16 @@
+
+<div class="yearly-archives">
+    <label for="" class="text-gray-dark text-sm mr-1 mb-2 block">ARCHIVES </label>
+    {{ years }}
+    {% for ar in options.sidebar_trade-type-tac.old_archive_links %}
+        <a href="{{ ar.archive_link.url }}" >{{ ar.archive_link.title }}</a>
+    {% endfor %}
+
+</div>
+<div class="">
+
+    <p class="text-xs">
+        {{ options.sidebar_trade-type-tac.sidebar_area }}
+    </p>
+
+</div>

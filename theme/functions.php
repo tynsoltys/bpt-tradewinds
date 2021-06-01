@@ -102,11 +102,18 @@ function my_acf_op_init() {
 
         // Add sub page.
         $child = acf_add_options_page(array(
-            'page_title'  => __('Old Archives'),
-            'menu_title'  => __('Old Archives'),
+            'page_title'  => __('Trade Sidebars'),
+            'menu_title'  => __('Trade Sidebars'),
             'parent_slug' => $parent['menu_slug'],
         ));
     }
+}
+
+add_filter( 'timber_context', 'mytheme_timber_context'  );
+
+function mytheme_timber_context( $context ) {
+    $context['options'] = get_fields('option');
+    return $context;
 }
 
 
@@ -134,3 +141,5 @@ function sort_by_date_my_cpt( $query ) {
  }
 
  add_filter( 'pre_get_posts', 'sort_by_date_my_cpt', 1);
+
+

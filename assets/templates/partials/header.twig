@@ -37,10 +37,21 @@ pt-7
                 BOT
                 </span>
                 </a>
+                <a href="{{ site.url }}/cct/trade_status/active/">
+                    <span
+                    class="
+                        mx-1 pill bg-gray-light
+                        text-accent-red
+                        border
+                        border-accent-red"
+                    >
+                    CCT
+                    </span>
+                </a>
                 <a href="{{ site.url }}/lto/trade_status/active/">
                     <span
                     class="
-                    mx-1 pill bg-gray-light
+                    pill bg-gray-light
                     text-gray-dark
                     border
                     border-gray-dark"
@@ -51,9 +62,9 @@ pt-7
                 <a href="{{ site.url }}/ofi/trade_status/active/">
                     <span
                     class="
-                        mx-1 pill accent-gold-light
+                        pill accent-gold-light
                         text-accent-gold
-                        border
+                        border ml-1
                         border-accent-gold"
                     >
                     OFI
@@ -62,10 +73,11 @@ pt-7
                 <a href="{{ site.url }}/tactical-portfolio/">
                     <span
                     class="
-                        mx-1 pill bg-gray-light
-                        text-accent-red
+                        ml-1 pl-1 inline-block bg-gray-light
+                        text-gray-dark
                         border
-                        border-accent-red"
+                        border-gray-dark
+                        px-1"
                     >
                     TAC
                     </span>
@@ -132,16 +144,19 @@ pt-7
             </a>
             <ul class="top-nav-secondary">
               <li>
-                <a target="blank" href="{{ site.url }}/bot/">BreakOut Trades</a>
+                <a target="blank" href="{{ site.url }}/bot/trade_status/active/">BreakOut Trades</a>
+              </li>
+              <li>
+                <a target="blank" href="{{ site.url }}/cct/trade_status/active/">Commodity Cycle Trades</a>
+              </li>
+              <li>
+                <a target="blank" href="{{ site.url }}/lto/trade_status/active/">Long Term Options</a>
+              </li>
+              <li>
+                <a target="blank" href="{{ site.url }}/ofi/trade_status/active/">Options for Income</a>
               </li>
               <li>
                 <a target="blank" href="{{ site.url }}/tactical-portfolio/">Tactical Portfolio</a>
-              </li>
-              <li>
-                <a target="blank" href="{{ site.url }}/lto/">Long Term Options</a>
-              </li>
-              <li>
-                <a target="blank" href="{{ site.url }}/ofi/">Options for Income</a>
               </li>
             </ul>
           </li>
