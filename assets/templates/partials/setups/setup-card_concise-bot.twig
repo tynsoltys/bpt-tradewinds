@@ -21,11 +21,7 @@
                 {{ include ('partials/metabits/meta-strategy.twig') }}
             </div>
             <div class="ellipsis order-5 hidden md:block">
-            {% if trade.post_type == 'bot' %}
                 {{ include ('partials/metabits/meta-last-traded.twig') }}
-            {% else %}
-                {{ include ('partials/metabits/meta-acb.twig') }}
-            {% endif %}
             </div>
             <div class="col-span-1 ellipsis flex justify-end items-center order-2 sm:order-5">
                 <div class="hidden md:block">

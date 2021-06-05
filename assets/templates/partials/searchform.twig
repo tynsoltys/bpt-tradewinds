@@ -4,15 +4,17 @@
     <input type="hidden" name="post_type" value="post">
 </form>
 
-{# <div x-data="{ searchOpen: false }" class="hidden"></div>
-<button @click="{searchOpen = !searchOpen}"><i class="fas fa-search ml-2" ></i></button>
-    <form method="get" role="search" action="{{ site.url }}" class="hidden flex-end justify-end items-center" x-bind:class="{ searchOpen == true ? 'bg-accent-green' : 'bg-accent-red' }">
+<div x-data="{searchOpen:null}" class="lg:hidden flex justify-end items-center w-16" x-bind:class="searchOpen == 1 ? 'bg-brand-white' : ''">
+
+    <form method="get" role="search" action="{{ site.url }}" class="overflow-hidden transform transition-all max-h-0 duration-900 flex-end justify-end items-center" x-ref="searchSlide" x-bind:style="searchOpen == 1 ? 'max-height: ' + ($refs.searchSlide.scrollHeight + 40 ) + 'px' : ''" x-bind:class="searchOpen == 1 ? 'bg-brand-white w-full absolute left-0 pl-2 z-40' : ''">
         <div class="bg-brand-white w-full justify-end items-center">
-            <input type="text" placeholder="Search..." name="s" class="rounded text-sm tracking-widest">
+            <input type="text" placeholder="Search..." name="s" class="rounded text-sm tracking-widest p-1 px-2">
             <input type="submit" value="Search" class="submit btn ml-2 px-2 py-1 text-sm md:py-2 md:px-4 md:text-md bg-accent-blue mt-1 ">
             <input type="hidden" name="post_type" value="post">
-            <i class="fas fa-times ml-2 mt-1"></i>
         </div>
-
     </form>
-</div> #}
+    <button @click="{searchOpen = !searchOpen}">
+        <i class="fas fa-search " x-bind:class="searchOpen == 1 ? 'fa-times absolute r-4 t-0 z-50' : ''"></i>
+    </button>
+
+</div>

@@ -1,38 +1,186 @@
-{{ include ('partials/sidebars/sidebar-status.twig') }}
+<div class="hidden lg:block lg:ml-5">
+    <div class="trade-status">
 
-<div class="yearly-archives mt-4">
-    <div class="uppercase font-semibold tracking-wide py-2 block hover:text-brand-primary-medium flex items-center">
-        <div class="bg-brand-primary h-10 w-10 block rounded-full mr-3 flex items-center justify-center">
+        <div class="flex justify-between items-center" @click="infoOpen !== 1 ? infoOpen = 1 : infoOpen = null">
+            <span class="uppercase font-semibold tracking-wide py-2 block hover:text-brand-primary-medium flex items-center">
+                {# <div class="bg-brand-primary h-10 w-10 block rounded-full hover:bg-brand-primary-medium mr-3 flex items-center justify-center">
+                    <i class="fas fa-check text-brand-white text-xl"></i>
+                </div> #}
+                <div class="block rounded-full mr-3 flex items-center justify-center">
 
-            <i class="fas fa-archive text-brand-white text-xl"></i>
+                    <i class="fas fa-check-circle text-brand-primary text-xl"></i>
 
+                </div>
+                <span>
+                    STATUS
+                </span>
+
+            </span>
         </div>
-        <p>ARCHIVES</p>
+
+        <div class="ml-12 pl-1">
+            {% if trade_status == 'active' %}
+                <a class="uppercase font-semibold py-1 text-sm py-1 text-accent-green" href="{{ site.link }}/{{ptype}}/trade_status/active"><i class="fas fa-check mr-1"></i>ACTIVE</a>
+            {% else %}
+                <a class="uppercase font-semibold py-1 text-sm py-1 text-accent-green" href="{{ site.link }}/{{ptype}}/trade_status/active">ACTIVE</a>
+            {% endif %}
+                <br/>
+            {% if trade_status == 'closed' %}
+                <a class="uppercase font-semibold py-1 text-sm py-1 text-accent-red" href="{{ site.link }}/{{ptype}}/trade_status/closed"><i class="fas fa-check mr-1"></i>CLOSED</a>
+            {% else %}
+                <a class="uppercase font-semibold py-1 text-sm py-1 text-accent-red" href="{{ site.link }}/{{ptype}}/trade_status/closed">CLOSED</a>
+            {% endif %}
+
+                <br/>
+            {% if trade_status != '' %}
+                <a class="uppercase font-semibold py-1 text-sm py-1 text-accent-blue" href="{{ site.link }}/{{ptype}}/">ALL</a>
+            {% else %}
+                <a class="uppercase font-semibold py-1 text-sm py-1 text-accent-blue" href="{{ site.link }}/{{ptype}}/"><i class="fas fa-check mr-1"></i>ALL</a>
+            {% endif %}
+        </div>
+
     </div>
-    <div class="ml-12 text-sm mr-8">
-        {{ years }}
-        {% for ar in options.sidebar_cct.old_archive_links %}
-            <a href="{{ ar.archive_link.url }}" >{{ ar.archive_link.title }}</a>
-        {% endfor %}
+
+    <div class="yearly-archives mt-4">
+        <div class="uppercase font-semibold tracking-wide py-2 block flex items-center">
+            <div class="block rounded-full mr-3 flex items-center justify-center">
+
+                <i class="fas fa-archive text-brand-primary text-xl"></i>
+
+            </div>
+            <p>ARCHIVES</p>
         </div>
+        <div class="ml-12 text-sm mr-8">
+            {{ years }}
+            {% for ar in options.sidebar_cct.old_archive_links %}
+                <a href="{{ ar.archive_link.url }}" >{{ ar.archive_link.title }}</a>
+            {% endfor %}
+        </div>
+
+    </div>
+    <div class="mt-4" x-data="{infoOpen : null}">
+        <div class="flex items-center" @click="infoOpen !== 1 ? infoOpen = 1 : infoOpen = null">
+            <span class="mr-2 uppercase font-semibold tracking-wide py-2 block hover:text-brand-primary-medium flex items-center">
+                <div class="block rounded-full mr-3 flex items-center justify-center">
+
+                    <i class="fas fa-question-circle text-brand-primary text-xl"></i>
+
+                </div>
+                <span>
+                    ABOUT {{ptype}}
+                </span>
+
+            </span>
+            <i class="rotate-0 fas fa-chevron-down " x-ref="toggle-icon " x-bind:class="infoOpen == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''"></i>
+        </div>
+        <div x-ref="infochunk" class="ml-4 prose text-sm prose p-0 overflow-hidden transform transition-all max-h-0 duration-900 " x-bind:style="infoOpen == 1 ? 'max-height: ' + ($refs.infochunk.scrollHeight + 20 ) + 'px' : ''" x-bind:class="infoOpen == 1 ? '' : ''">
+            <p class="">
+                {{ options.sidebar_cct.sidebar_area }}
+            </p>
+        </div>
+    </div>
 
 </div>
-<div class="mt-4" x-data="{infoOpen : null}">
-    <div class="flex items-center" @click="infoOpen !== 1 ? infoOpen = 1 : infoOpen = null">
-        <span class="mr-2 uppercase font-semibold tracking-wide py-2 block hover:text-brand-primary-medium flex items-center">
-            <div class="bg-brand-primary h-10 w-10 block rounded-full hover:bg-brand-primary-medium mr-3 flex items-center justify-center">
-                <i class="fas fa-question-circle text-brand-white text-xl"></i>
-            </div>
-            <span>
-                ABOUT {{ptype}}
-            </span>
 
-        </span>
-        <i class="rotate-0 fas fa-chevron-down " x-ref="toggle-icon " x-bind:class="infoOpen == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''"></i>
+<div class="lg:hidden flex justify-center mb-4 -mt-4">
+    <div class="status flex relative flex-wrap" x-data="{statusOpen:null}">
+        <div class="flex items-center justify-center mr-2 w-full"
+        @click="statusOpen !== 1 ? statusOpen = 1 : statusOpen = null">
+
+            <p class="inline-block uppercase font-semibold tracking-wide">STATUS</p>
+
+            <i class="fas fa-chevron-down text-base ml-1" x-ref="toggle-icon"
+
+            x-bind:class="statusOpen == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''">
+            </i>
+        </div>
+        <div x-ref="statuschunk"
+            class="ml-4 prose text-sm prose p-0 overflow-hidden transform transition-all max-h-0 duration-900 absolute top-8 left-0 w-full z-50"
+
+            x-bind:style="statusOpen == 1 ? 'max-height: ' + ($refs.statuschunk.scrollHeight + 100 ) + 'px' : ''"
+
+            x-bind:class="statusOpen == 1 ? 'bg-brand-white border border-brand-blue rounded-xl p-4 overflow-none' : ''">
+
+            <div class="">
+                {% if trade_status == 'active' %}
+                    <a class="ml-2 uppercase font-semibold py-1 text-sm py-1 text-accent-green" href="{{ site.link }}/{{ptype}}/trade_status/active"><i class="fas fa-check mr-1"></i>ACTIVE</a>
+                {% else %}
+                    <a class="ml-2 uppercase font-semibold py-1 text-sm py-1 text-accent-green" href="{{ site.link }}/{{ptype}}/trade_status/active">ACTIVE</a>
+                {% endif %}
+
+                {% if trade_status == 'closed' %}
+                    <a class="ml-1 uppercase font-semibold py-1 text-sm py-1 text-accent-red" href="{{ site.link }}/{{ptype}}/trade_status/closed"><i class="fas fa-check mr-1"></i>CLOSED</a>
+                {% else %}
+                    <a class="ml-1 uppercase font-semibold py-1 text-sm py-1 text-accent-red" href="{{ site.link }}/{{ptype}}/trade_status/closed">CLOSED</a>
+                {% endif %}
+                {% if trade_status != '' %}
+                    <a class="ml-1 uppercase font-semibold py-1 text-sm py-1 text-accent-blue" href="{{ site.link }}/{{ptype}}/">ALL</a>
+                {% else %}
+                    <a class="ml-1 uppercase font-semibold py-1 text-sm py-1 text-accent-blue" href="{{ site.link }}/{{ptype}}/"><i class="fas fa-check mr-1"></i>ALL</a>
+                {% endif %}
+            </div>
+        </div>
+
+
     </div>
-    <div x-ref="infochunk" class="ml-4 prose text-sm prose p-0 overflow-hidden transform transition-all max-h-0 duration-900 " x-bind:style="infoOpen == 1 ? 'max-height: ' + ($refs.infochunk.scrollHeight + 20 ) + 'px' : ''" x-bind:class="infoOpen == 1 ? '' : ''">
-        <p class="">
-            {{ options.sidebar_cct.sidebar_area }}
-        </p>
+
+
+
+    <div class="relative yearly-archives flex" x-data="{archiveOpen:null}">
+        <div class="flex items-center justify-center mr-2 w-full"
+
+        @click="archiveOpen !== 1 ? archiveOpen = 1 : archiveOpen = null">
+            <p class="inline-block uppercase font-semibold tracking-wide">ARCHIVES</p>
+            <i class="fas fa-chevron-down text-base ml-1" x-ref="toggle-icon"
+
+            x-bind:class="archiveOpen == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''">
+            </i>
+        </div>
+
+
+
+        <div x-ref="archivechunk"
+            class="ml-4 prose text-sm prose p-0 overflow-hidden transform transition-all max-h-0 duration-900 absolute top-8 left-0 w-full z-50"
+
+            x-bind:style="archiveOpen == 1 ? 'max-height: ' + ($refs.archivechunk.scrollHeight + 100 ) + 'px' : ''"
+
+            x-bind:class="archiveOpen == 1 ? 'bg-brand-white rounded-xl p-4 mt-2 overflow-none border-accent-blue border' : ''">
+
+            <div class="block">
+                {{ years }}
+                {% for ar in options.sidebar_cct.old_archive_links %}
+                    <a href="{{ ar.archive_link.url }}" >{{ ar.archive_link.title }}</a>
+                {% endfor %}
+            </div>
+        </div>
+
+
+
     </div>
+
+
+
+    <div class="relative" x-data="{infoOpen : null}">
+        <div class="flex items-center justify-center mr-2 w-full"
+
+        @click="infoOpen !== 1 ? infoOpen = 1 : infoOpen = null">
+
+            <i class="fas fa-question-circle text-xl ml-1" x-ref="toggle-icon"
+
+            x-bind:class="infoOpen == 1 ? 'transition-all duration-500 rotate-80 transform fa-times' : ''">
+            </i>
+        </div>
+
+        <div x-ref="infochunk"
+            class="prose text-sm prose p-0 overflow-hidden transform transition-all max-h-0 duration-900 absolute top-8 left-0 w-full z-50"
+
+            x-bind:style="infoOpen == 1 ? 'max-height: ' + ($refs.infochunk.scrollHeight + 100 ) + 'px' : ''"
+
+            x-bind:class="infoOpen == 1 ? 'bg-brand-white rounded-xl p-4 mt-2 overflow-none border-accent-blue border' : ''">
+
+              {{ options.sidebar_cct.sidebar_area }}
+
+        </div>
+    </div>
+
 </div>

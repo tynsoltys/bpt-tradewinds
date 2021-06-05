@@ -13,10 +13,12 @@
  <!-- Breadcrumb -->
 
 
-<div class="relative {% if function( 'is_user_logged_in') %}
+<div class="relative
+
+{% if function( 'is_user_logged_in') %}
 pt-10 md:pt-14
 {% else %}
-pt-10 md:pt-14
+pt-14 md:pt-18
 {% endif %}">
 {# <div class="absolute xs t-4 l-4 bg-accent-red text-brand-white uppercase rounded-full p-2 px-4 z-50">
     XSMALL
