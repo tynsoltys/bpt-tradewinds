@@ -21,10 +21,10 @@ $context = Timber::context();
 $post = new Post();
 
 $templates = [
-    'wiki-pages/page-' . $post->ID . '.twig',
-    'wiki-pages/page-' . $post->slug . '.twig',
-    'wiki-pages/page-' . $post->post_type . '.twig',
-    'wiki-pages/page.twig',
+    'pages/page-' . $post->ID . '.twig',
+    'pages/page-' . $post->slug . '.twig',
+    'pages/page-' . $post->post_type . '.twig',
+    'pages/page.twig',
 ];
 
 if ( post_password_required() ) {

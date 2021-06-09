@@ -146,15 +146,17 @@ function sort_by_date_my_cpt( $query ) {
     }
  }
 
+
+// REGISTERING MENUS
+
  add_filter( 'timber/context', 'add_menu_to_context' );
 
  function add_menu_to_context( $context ) {
-     // So here you are adding data to Timber's context object, i.e...
-     $context['foo'] = 'I am some other typical value set in your functions.php file, unrelated to the menu';
 
-     // Now, in similar fashion, you add a Timber Menu and send it along to the context.
+
      $context['primary_menu'] = new \Timber\Menu( 'primary' );
      $context['mobile_menu'] = new \Timber\Menu( 'mobile' );
+     $context['wiki_menu'] = new \Timber\Menu( 'wiki' );
 
      return $context;
  }

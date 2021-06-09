@@ -2,9 +2,7 @@
 
 {% block body %}
 
-
-    {{ include ('partials/header-secondary-wiki.twig') }}
-    <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex pt-24 ">
+    <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex pt-12 ">
         <section class="w-full lg:rounded-lg lg:shadow-lg mb-4 lg:bg-brand-white p-4 lg:p-12">
             <article class="flex justify-between flex-wrap row-wrap">
                 <header class="w-full">
@@ -25,24 +23,6 @@
 
                 <aside class="lg:w-1/4" id="videos">
 
-                    {% if wiki_videos|length >= 0 %}
-                    <div class="mt-8">
-                        <h3 class="text-2xl mb-6 text-brand-primary-medium tracking-wider font-semibold">VIDEO TUTORIALS</h3>
-                    <div class="wiki-videos">
-                        <ul>
-                            {% for video in post.meta('wiki_videos') %}
-                                <li class="mb-8 md:w-1/2 lg:w-full flex flex-wrap row-wrap">
-                                    <h4 class="font-semibold uppercase mb-4">{{ video.video_title }}</h4>
-                                    <iframe src="https://player.vimeo.com/video/{{video.vimeo_id}}" width="100%" height="100%" frameborder="0" allowfullscreen="allowfullscreen"></iframe class="my-8 block">
-                                    <p class="text-xs prose mt-3">{{ video.video_caption }}</p>
-
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    </div>
-
-                    {% endif %}
                 </aside>
             </article>
 
