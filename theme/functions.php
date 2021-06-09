@@ -118,7 +118,7 @@ function mytheme_timber_context( $context ) {
 
 
 // PRE GET POSTS FOR ARCHIVES SO THAT THEY ARE ORDERED BY ACF
-
+add_filter( 'pre_get_posts', 'sort_by_date_my_cpt', 1);
 function sort_by_date_my_cpt( $query ) {
     if ( is_post_type_archive( 'bot') && $query->is_main_query() ) {
        $query->set('meta_key', 'latest_update_date');
@@ -138,8 +138,25 @@ function sort_by_date_my_cpt( $query ) {
         $query->set('order', 'DESC');
         return;
     }
+    if ( is_post_type_archive( 'cct') && $query->is_main_query() ) {
+        $query->set('meta_key', 'latest_update_date');
+        $query->set('orderby', 'meta_value');
+        $query->set('order', 'DESC');
+        return;
+    }
  }
 
- add_filter( 'pre_get_posts', 'sort_by_date_my_cpt', 1);
+ add_filter( 'timber/context', 'add_menu_to_context' );
+
+ function add_menu_to_context( $context ) {
+     // So here you are adding data to Timber's context object, i.e...
+     $context['foo'] = 'I am some other typical value set in your functions.php file, unrelated to the menu';
+
+     // Now, in similar fashion, you add a Timber Menu and send it along to the context.
+     $context['primary_menu'] = new \Timber\Menu( 'primary' );
+     $context['mobile_menu'] = new \Timber\Menu( 'mobile' );
+
+     return $context;
+ }
 
 

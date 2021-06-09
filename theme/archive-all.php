@@ -9,7 +9,7 @@ if ( ! isset( $paged ) || ! $paged ) {
 $context = Timber::context();
 
 $context['posts'] = Timber::get_posts( [
-    'post_type' => array('ofi','lto','bot','trade-setup-tac'),
+    'post_type' => array('ofi','lto','bot','cct','trade-setup-tac'),
     'posts_per_page'	=> 5,
     'order'          => 'DESC',
     'orderby'        => 'meta_value',
