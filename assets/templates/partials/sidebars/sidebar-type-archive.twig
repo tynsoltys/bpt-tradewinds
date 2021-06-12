@@ -1,0 +1,39 @@
+<aside class=" pt-16 pl-1 fixed">
+
+    <div class="trade-status">
+        <label for="" class="text-gray-dark text-sm mr-1 mb-2 w-full block">STATUS </label>
+
+        {% if trade_status == 'active' %}
+            <a class="uppercase font-semibold rounded-full border py-1 px-2 text-sm py-1 text-brand-white bg-accent-green border-accent-green" href="{{ site.link }}/{{ptype}}/trade_status/active">ACTIVE</a>
+        {% else %}
+            <a class="uppercase font-semibold rounded-full border py-1 px-2 text-sm py-1 text-accent-green" href="{{ site.link }}/{{ptype}}/trade_status/active">ACTIVE</a>
+        {% endif %}
+
+        {% if trade_status == 'closed' %}
+            <a class="uppercase font-semibold rounded-full border py-1 px-2 text-sm py-1 text-brand-white bg-accent-red border-accent-red" href="{{ site.link }}/{{ptype}}/trade_status/closed">CLOSED</a>
+        {% else %}
+            <a class="uppercase font-semibold rounded-full border py-1 px-2 text-sm py-1 text-accent-red" href="{{ site.link }}/{{ptype}}/trade_status/closed">CLOSED</a>
+        {% endif %}
+
+
+        {% if trade_status != '' %}
+            <a class="uppercase font-semibold rounded-full border py-1 px-2 text-sm py-1 " href="{{ site.link }}/{{ptype}}/">ALL</a>
+        {% else %}
+            <a class="uppercase font-semibold rounded-full border py-1 px-2 text-sm py-1 text-brand-white bg-accent-blue border-accent-blue" href="{{ site.link }}/{{ptype}}/">ALL</a>
+        {% endif %}
+
+
+
+<!--
+        <a class="uppercase font-semibold rounded-full border py-1 px-2 text-sm py-1 text-accent-red" href="{{ site.link }}/{{ptype}}/trade_status/closed">CLOSED</a>
+
+
+        <a class="uppercase font-semibold rounded-full border py-1 px-2 text-sm py-1 text-accent-blue" href="{{ site.link }}/{{ptype}}">ALL</a> -->
+    </div>
+
+    <div class="yearly-archives mt-4">
+        <label for="" class="text-gray-dark text-sm mr-1  mb-2">ARCHIVES </label>
+        {{ years }}
+    </div>
+
+</aside>

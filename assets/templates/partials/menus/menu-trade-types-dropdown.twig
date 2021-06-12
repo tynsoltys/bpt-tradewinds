@@ -4,7 +4,7 @@
     {% if items|default(trade_types_select.items) %}
         <select name="" id="" class="rounded-full px-8">
             {% for item in items|default(trade_types_select.items) %}
-                <option value="" class="uppercase">
+                <option value="" class="uppercase" {% if ptype == %}>
                     <a href="{{ item.link }}">
                         {{ item.slug}}
                     </a>

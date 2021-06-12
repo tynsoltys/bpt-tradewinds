@@ -1,41 +1,48 @@
-<div class="trade-status">
+<div class="mt-4" x-data="{statusOpen : 1}">
 
-    <div class="flex justify-between items-center" @click="infoOpen !== 1 ? infoOpen = 1 : infoOpen = null">
-        <span class="uppercase font-semibold tracking-wide py-2 block hover:text-brand-primary-medium flex items-center">
+
+    <div class="flex items-center" >
+        <span class="mr-2 uppercase font-semibold tracking-wide py-2 block hover:text-brand-primary-medium flex items-center">
             <div class="bg-brand-primary h-10 w-10 block rounded-full hover:bg-brand-primary-medium mr-3 flex items-center justify-center">
-                <i class="fas fa-check text-brand-white text-xl"></i>
+                <i class="fas fa-ballot-check text-brand-white text-xl"></i>
             </div>
-            {# <div class="block rounded-full mr-3 flex items-center justify-center">
-
-                <i class="fas fa-check-circle text-brand-primary text-xl"></i>
-
-            </div> #}
             <span>
                 STATUS
             </span>
 
         </span>
+
     </div>
 
-    <div class="ml-12 pl-1">
-        {% if trade_status == 'active' %}
-            <a class="uppercase font-semibold py-1 text-sm py-1 text-accent-green" href="{{ site.link }}/{{ptype}}/trade_status/active"><i class="fas fa-check mr-1"></i>ACTIVE</a>
-        {% else %}
-            <a class="uppercase font-semibold py-1 text-sm py-1 text-accent-green" href="{{ site.link }}/{{ptype}}/trade_status/active">ACTIVE</a>
-        {% endif %}
-            <br/>
-        {% if trade_status == 'closed' %}
-            <a class="uppercase font-semibold py-1 text-sm py-1 text-accent-red" href="{{ site.link }}/{{ptype}}/trade_status/closed"><i class="fas fa-check mr-1"></i>CLOSED</a>
-        {% else %}
-            <a class="uppercase font-semibold py-1 text-sm py-1 text-accent-red" href="{{ site.link }}/{{ptype}}/trade_status/closed">CLOSED</a>
-        {% endif %}
 
-            <br/>
-        {% if trade_status != '' %}
-            <a class="uppercase font-semibold py-1 text-sm py-1 text-accent-blue" href="{{ site.link }}/{{ptype}}/">ALL</a>
-        {% else %}
-            <a class="uppercase font-semibold py-1 text-sm py-1 text-accent-blue" href="{{ site.link }}/{{ptype}}/"><i class="fas fa-check mr-1"></i>ALL</a>
-        {% endif %}
+
+    <div x-ref="statuschunk" class="text-sm p-0 overflow-hidden transform transition-all max-h-0 duration-900 " x-bind:style="statusOpen == 1 ? 'max-height: ' + ($refs.statuschunk.scrollHeight + 20 ) + 'px' : ''" x-bind:class="statusOpen == 1 ? '' : ''">
+        <ul class="ml-12 pl-0">
+            <li>
+            {% if trade_status == 'active' %}
+                <a class="uppercase font-semibold py-1 text-sm py-1 block text-accent-green" href="{{ site.link }}/{{ptype}}/trade_status/active"><i class="fas fa-check mr-1"></i>ACTIVE</a>
+            {% else %}
+                <a class="uppercase font-semibold py-1 text-sm py-1 block text-accent-green" href="{{ site.link }}/{{ptype}}/trade_status/active">ACTIVE</a>
+            {% endif %}
+            </li>
+            <li>
+            {% if trade_status == 'closed' %}
+                <a class="uppercase font-semibold py-1 text-sm py-1 block text-accent-red" href="{{ site.link }}/{{ptype}}/trade_status/closed"><i class="fas fa-check mr-1"></i>CLOSED</a>
+            {% else %}
+                <a class="uppercase font-semibold py-1 text-sm py-1 block text-accent-red" href="{{ site.link }}/{{ptype}}/trade_status/closed">CLOSED</a>
+            {% endif %}
+            </li>
+            <li>
+            {% if trade_status != '' %}
+                <a class="uppercase font-semibold py-1 text-sm py-1 block text-accent-blue" href="{{ site.link }}/{{ptype}}/">ALL</a>
+            {% else %}
+                <a class="uppercase font-semibold py-1 text-sm py-1 block text-accent-blue" href="{{ site.link }}/{{ptype}}/"><i class="fas fa-check mr-1"></i>ALL</a>
+            {% endif %}
+            </li>
+        </ul>
     </div>
 
 </div>
+
+
+

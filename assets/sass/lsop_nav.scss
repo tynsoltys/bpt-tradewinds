@@ -34,7 +34,7 @@ header.top-header.lsop-header {
         height: 44px;
         display: inline-block;
         overflow: hidden;
-        margin-left: 40px;
+        // margin-left: 40px;
         margin-top: 10px;
         img {
           height: 44px;
@@ -45,8 +45,8 @@ header.top-header.lsop-header {
         // border:1px solid green;
         // padding: calc(1 * var(--space)) calc(1 * var(--space));
         .top-nav-left {
+         text-align: left;
           a {
-            margin-left: 25px;
           }
         }
       }
@@ -54,7 +54,7 @@ header.top-header.lsop-header {
         max-width: $bp-xl;
         // border:1px solid hotpink;
       }
-      @media (max-width: $bp-md) {
+      @media (max-width: $bp-lg) {
         // border:1px solid goldenrod;
         justify-content: space-between;
         align-items: center;

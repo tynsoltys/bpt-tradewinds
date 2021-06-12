@@ -1,0 +1,80 @@
+<div class="trade-type" x-data="{typeOpen : 1}">
+
+
+    <div class="flex items-center" >
+        <span class="mr-2 uppercase font-semibold tracking-wide py-2 block hover:text-brand-primary-medium flex items-center">
+            <div class="bg-brand-primary h-10 w-10 block rounded-full hover:bg-brand-primary-medium mr-3 flex items-center justify-center">
+                <i class="fas fa-chart-line text-brand-white text-xl"></i>
+            </div>
+            <span>
+                TRADE TYPE
+            </span>
+
+        </span>
+    </div>
+
+
+
+    <div x-ref="typechunk" class="ml-12 text-sm p-0 overflow-hidden transform transition-all max-h-0 duration-900 " x-bind:style="typeOpen == 1 ? 'max-height: ' + ($refs.typechunk.scrollHeight + 20 ) + 'px' : ''" x-bind:class="typeOpen == 1 ? '' : ''">
+
+    <ul class="text-brand-primary-medium ">
+        <li class="mb-4">
+
+                <a class="uppercase font-semibold py-1 text-sm hover:text-brand-secondary  block" href="{{ site.link }}/">Recent Activity</a>
+
+
+        </li>
+
+        <li>
+            {% if ptype == 'bot' %}
+                <a class="uppercase font-semibold py-1 text-sm hover:text-brand-secondary  block" href="{{ site.link }}/bot/trade_status/active"><span class="text-accent-blue mr-1">•</span>
+                    BreakOut Trades</a>
+            {% else %}
+                <a class="uppercase font-semibold py-1 text-sm hover:text-brand-secondary  block" href="{{ site.link }}/bot/trade_status/active">BreakOut Trades</a>
+            {% endif %}
+
+        </li>
+        <li>
+            {% if ptype == 'cct' %}
+                <a class="uppercase font-semibold py-1 text-sm hover:text-brand-secondary  block" href="{{ site.link }}/cct/trade_status/active"><span class="text-accent-blue mr-1">•</span>
+                    Commodity Cycle</a>
+            {% else %}
+                <a class="uppercase font-semibold py-1 text-sm hover:text-brand-secondary  block" href="{{ site.link }}/cct/trade_status/active">Commodity Cycle
+                </span></a>
+            {% endif %}
+
+        </li>
+        <li>
+            {% if ptype == 'lto' %}
+                <a class="uppercase font-semibold py-1 text-sm hover:text-brand-secondary  block" href="{{ site.link }}/lto/trade_status/active"><span class="text-accent-blue mr-1">•</span>
+                    Long Term Option</a>
+            {% else %}
+                <a class="uppercase font-semibold py-1 text-sm hover:text-brand-secondary  block" href="{{ site.link }}/lto/trade_status/active">Long Term Option
+                </span></a>
+            {% endif %}
+        </li>
+        <li>
+            {% if ptype == 'ofi' %}
+                <a class="uppercase font-semibold py-1 text-sm hover:text-brand-secondary  block" href="{{ site.link }}/ofi/trade_status/active"><span class="text-accent-blue mr-1">•</span>
+                    Options for Income</a>
+            {% else %}
+                <a class="uppercase font-semibold py-1 text-sm hover:text-brand-secondary block" href="{{ site.link }}/ofi/trade_status/active">Options for Income
+                </span></a>
+            {% endif %}
+
+        </li>
+        <li class="mt-4">
+                <a class="uppercase font-semibold py-1 text-sm hover:text-brand-secondary  block" href="{{ site.link }}/tactical-portfolio">
+                    Tactical Portfolio</a>
+
+        </li>
+
+    </ul>
+
+
+
+    </div>
+</div>
+
+
+

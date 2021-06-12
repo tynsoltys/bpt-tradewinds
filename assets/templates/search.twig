@@ -4,17 +4,19 @@
 
 {{ include ('partials/header-secondary-search.twig') }}
 
-<main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex relative justify-between pt-12 md:pt-24 ">
-    <section class="w-full px-2">
+<main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex relative justify-between mt-4 pt-10 lg:pt-16">
+    <section class="w-full px-2 lg:px-8">
         {% if posts is not empty %}
             {% include 'partials/setups-list.twig' %}
         {% else %}
-            <div class="h-48 p-48 mb-24">
-                <p class="text-3xl text-center tracking-wide uppercase text-gray-medium">NOTHING FOUND</p>
-            </div>
+        <div class="flex items-center justify-center h-64">
+            <p class="text-3xl text-center tracking-wide text-gray-medium p-4 ">Sorry, we're bearish on your search term.</p>
+        </div>
         {% endif %}
+        {{ include ('partials/pagination.twig') }}
     </section>
 </main>
 
     {{ parent() }}
 {% endblock body %}
+

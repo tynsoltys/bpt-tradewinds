@@ -1,11 +1,11 @@
 <!-- HEADER/TOP NAV START-->
-<header class="top-header lsop-header bg-brand-primary relative z-40  {% if function( 'is_user_logged_in') %}
-pt-7
+<header class="top-header lsop-header bg-brand-primary relative z-40
+{% if function( 'is_user_logged_in') %}
+    pt-7
 {% else %}
-
 {% endif %}">
 
-{{ include('partials/menus/menu-primary-dynamic.twig')}}
+    {{ include('partials/menus/menu-primary-dynamic.twig')}}
 
-  </header>
+</header>
 <!-- HEADER/TOP NAV END-->

@@ -2,15 +2,15 @@
 
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="flex flex-col flex-grow pb-4 overflow-y-auto">
-    <div class="mt-5 flex-grow flex flex-col">
-      <nav class="flex-1 px-2 space-y-1 bg-white" aria-label="Sidebar">
+    <div class="mt-0 flex-grow flex flex-col">
+      <nav class="flex-1 pb-2 pl-2 space-y-1 bg-white" aria-label="Sidebar">
     {% if items|default(trade_types_select.items) %}
         {% for item in items|default(trade_types_select.items) %}
             {% if item.children %}
 
             <div class="space-y-1">
                 <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
-                <a id="menu-item-{{ item.id }}" href="{{ item.link }}" class="{{item.current}} mx-4 uppercase font-semibold tracking-wide py-2 block hover:text-brand-primary-medium flex items-center" aria-controls="sub-menu-1" aria-expanded="false">
+                <a id="menu-item-{{ item.id }}" href="{{ item.link }}" class="{{item.current}} mb-2 mx-4 mr-1 uppercase font-semibold tracking-wide py-2 block hover:text-brand-primary-medium flex items-center" aria-controls="sub-menu-1" aria-expanded="false">
                     {# <i class="fal fa-bell text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6" aria-hidden="true"></i> #}
                     <p>{{ item.name }}</p>
                 </a>
@@ -28,7 +28,7 @@
 
             <div class="space-y-1">
                 <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
-                <a id="menu-item-{{ item.id }}" href="{{ item.link }}" class="{{item.current}} mx-4 uppercase font-semibold tracking-wide py-2 block hover:text-brand-primary-medium flex items-center" aria-controls="sub-menu-1" aria-expanded="false">
+                <a id="menu-item-{{ item.id }}" href="{{ item.link }}" class="{{item.current}} my-2 mx-4 mr-1 uppercase font-semibold tracking-wide py-2 block hover:text-brand-primary-medium flex items-center" aria-controls="sub-menu-1" aria-expanded="false">
                     {# <i class="fal fa-bell text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6" aria-hidden="true"></i> #}
 
                     <p>{{ item.name }}</p>

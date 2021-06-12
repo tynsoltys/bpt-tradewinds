@@ -1,4 +1,5 @@
-<h2 class="flex items-center" title="{{trade.ticker_symbol.underlying_name}}"><a href="" class="mr-2 symbol text-5xl font-black tracking-wide">{{trade.ticker_symbol}}</a>
+<h2 class="flex items-center mr-2 symbol text-5xl font-black tracking-wide" title="{{trade.ticker_symbol.underlying_name}}">
+    <span class="mr-2">{{trade.ticker_symbol}}</span>
     {{ include ('partials/trade-types/trade-type-pill_small.twig') }}
 </h2>
 <p class="w-full text-xl font-semibold block mt-2">{{trade.ticker_symbol.underlying_name}}</p>

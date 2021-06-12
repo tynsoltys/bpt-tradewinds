@@ -4,21 +4,15 @@
 
 
 
-    <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex relative justify-between mt-4 pt-16">
-        <aside class="pl-1 lg:w-64 lg:fixed hidden lg:block">
-            {{ include ('partials/menu-trade-updates-sidebar.twig') }}
+    <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex relative justify-between mt-4 pt-10 md:pt-10 md:mt-8 lg:mt-4 lg:pt-16">
+        <aside class="ml-4 lg:w-64 lg:fixed hidden lg:block">
+            {% include 'partials/sidebars/sidebar-trade-updates.twig' %}
         </aside>
-        <section class="w-full lg:ml-72 lg:pl-8 px-2">
+        <section class="w-full lg:ml-72 lg:pl-2 px-2">
             {% include 'partials/setups-list.twig' %}
         </section>
 
     </main>
-
-
-
-
-
-
 
 
 

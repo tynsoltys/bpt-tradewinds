@@ -2,8 +2,11 @@
     {% for trade in posts %}
         {% if trade.post_type == ('trade-setup-tac') %}
             {{ include ('partials/setups/setup-card_concise-tac--forupdates.twig') }}
-        {% else %}
+
+            {% else %}
             {{ include ('partials/setups/setup-card_concise.twig') }}
+
+
     {% endif %}
 
     {% endfor %}

@@ -1,6 +1,7 @@
 <header class="page-header w-full bg-brand-white border-b border-gray-medium shadow fixed z-30 pr-2 md:pr-8">
-    <div class='flex-grow w-full max-w-7xl mx-auto flex items-center justify-between relative'>
-        <h2 class="flex-grow flex items-center text-base md:text-2xl uppercase text-brand-primary p-2 md:py-4 lg:px-10 items-center tracking-widest font-semibold"><i class="hidden lg:inline-block fas fa-bell mr-2 md:mr-2 lg:mr-3 pl-4"></i>
+    <div class='flex-grow w-full max-w-7xl mx-auto flex items-center justify-between relative h-10 lg:h-16'>
+        <h2 class="ellipsis flex-grow flex items-center text-sm md:text-2xl uppercase text-brand-primary p-2 py-1 md:py-4 lg:px-10 items-center tracking-widest font-semibold">
+        <i class="hidden lg:inline-block fas fa-bell mr-2 md:mr-2 lg:mr-3 pl-1 lg:pl-4"></i>
 
         {% if fn('is_day') %}
             {{ title }}
@@ -11,9 +12,9 @@
             {{ title }}
 
         {% elseif fn('is_year') %}
-            <a class="hover:text-brand-primary-medium" href="{{ site.link }}/trade-updates">TRADES</a>
+            {# <a class="hover:text-brand-primary-medium" href="{{ site.link }}/trade-updates">TRADES</a>
 
-            <i class="far fa-chevron-double-right m-2 text-sm"></i>
+            <i class="far fa-chevron-double-right m-2 text-sm"></i> #}
             <a class="" href="{{ site.link }}/{{ptype}}">{{title}}</a>
 
             {% if year %}
@@ -32,9 +33,9 @@
 
 
         {% elseif fn('is_tax') %}
-            <a class="hover:text-brand-primary-medium" href="{{ site.link }}/trade-updates">TRADES</a>
+            {# <a class="hidden lg:inline-block hover:text-brand-primary-medium" href="{{ site.link }}/">TRADES</a>
 
-            <i class="far fa-chevron-double-right m-2 text-sm"></i>
+            <i class="far fa-chevron-double-right m-2 text-sm hidden lg:inline-block"></i> #}
             <a class="" href="{{ site.link }}/{{ptype}}">{{title}}</a>
 
             {% if trade_status %}
@@ -44,9 +45,9 @@
 
 
         {% elseif fn('is_post_type_archive') %}
-            <a class="hover:text-brand-primary-medium" href="{{ site.link }}/trade-updates">TRADES</a>
+            {# <a class="hidden lg:inline-block hover:text-brand-primary-medium" href="{{ site.link }}/trade-updates">TRADES</a>
 
-            <i class="far fa-chevron-double-right m-2 text-sm"></i>
+            <i class="hidden lg:inline-block far fa-chevron-double-right m-2 text-sm"></i> #}
             <a class="" href="{{ site.link }}/{{ptype}}">{{title}}</a>
 
             {% if year %}
@@ -67,7 +68,9 @@
 
         </h2>
 
-        {{ include ('partials/searchform.twig') }}
+            {{ include ('partials/searchform.twig') }}
+
+
     </div>
     {# {{ include ('partials/header-tertiary-trades.twig') }} #}
 </header>

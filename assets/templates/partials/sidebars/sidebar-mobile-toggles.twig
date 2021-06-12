@@ -1,0 +1,53 @@
+<div class="lg:hidden flex justify-between flex-wrap mb-2 md:mt-2 -mt-6 mx-4 mr-1 text-gray-dark" x-data="{typeOpen:null, statusOpen:null, archiveOpen:null,infoOpen:null}">
+    <div class="type flex relative flex-wrap" >
+        <div class="flex items-center justify-center mr-2 w-full"
+        @click="typeOpen !== 1 ? typeOpen = 1 : typeOpen = null">
+
+            <p class="inline-block uppercase font-semibold tracking-wide text-xs">TYPE</p>
+
+            <i class="fas fa-chevron-down text-sm ml-1" x-ref="toggle-icon"
+
+            x-bind:class="typeOpen == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''">
+            </i>
+        </div>
+
+
+
+    </div>
+    <div class="status flex relative flex-wrap" >
+        <div class="flex items-center justify-center mr-2 w-full"
+        @click="statusOpen !== 1 ? statusOpen = 1 : statusOpen = null">
+
+            <p class="inline-block uppercase font-semibold tracking-wide text-xs">STATUS</p>
+
+            <i class="fas fa-chevron-down text-sm ml-1" x-ref="toggle-icon"
+
+            x-bind:class="statusOpen == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''">
+            </i>
+        </div>
+
+
+
+    </div>
+    <div class="relative yearly-archives flex flex-wrap">
+        <div class="flex items-center justify-center mr-2 w-full text-xs"
+
+        @click="archiveOpen !== 1 ? archiveOpen = 1 : archiveOpen = null">
+            <p class="inline-block uppercase font-semibold tracking-wide">ARCHIVES</p>
+            <i class="fas fa-chevron-down text-sm ml-1" x-ref="toggle-icon"
+
+            x-bind:class="archiveOpen == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''">
+            </i>
+        </div>
+    </div>
+    <div class="relative flex flex-wrap">
+        <div class="flex items-center justify-center mr-2 w-full"
+
+        @click="infoOpen !== 1 ? infoOpen = 1 : infoOpen = null">
+            <p class="inline-block uppercase font-semibold tracking-wide text-xs">ABOUT {{ptype}}</p>
+            <i class="fas fa-chevron-down text-sm ml-1" x-ref="toggle-icon"
+
+            x-bind:class="infoOpen == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''">
+            </i>
+        </div>
+    </div>

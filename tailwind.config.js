@@ -46,7 +46,7 @@ module.exports = {
              'concisetac': '100px 1fr 1fr 1fr 1fr 1fr 30px',
              'full': '250px 1fr 1fr 1fr 1fr 1fr',
              'bot': '250px 1fr 1fr 1fr 1fr 1fr 1fr',
-             'leg': '50px 120px 80px 2fr 1fr 2fr 1fr 1fr 1fr 30px',
+             'leg': '20px 2fr 2fr  2fr 1fr 2fr 1fr 1fr 1fr 30px',
             },
             gridTemplateRows: {
              'full': '60px auto auto',

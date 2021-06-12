@@ -1,9 +1,9 @@
 
-
+<a href="{{trade.link}}" target="_blank" title="Go To Trade Details" aria-label="Go to Trade Details">
     <article class="trade-card rounded-lg shadow p-2 pl-3 pr-1 md:px-5 mb-4 bg-brand-white grid grid-cols-12 md:grid-cols-12 lg:grid-cols-concise text-left">
 
         <div class="col-span-5 sm:col-span-4 md:col-span-3 lg:col-span-1 flex items-center ellipsis">
-            <h2 class="flex items-center" title="{{trade.underlying_name}}"><a href="" class="mr-2 symbol text-3xl font-black tracking-wide">{{trade.ticker_symbol}}</a>
+            <h2 class="flex items-center" title="{{trade.underlying_name}}"><span class="mr-2 symbol text-3xl font-black tracking-wide">{{trade.ticker_symbol}}</span>
 
             </h2>
         </div>
@@ -28,7 +28,8 @@
                 {{ include ('partials/trade-flags/trade-flag-pill_icon.twig') }}
             </div>
         </div>
-        <a href="{{trade.link}}" target="_blank" title="Go To Trade Details" aria-label="Go to Trade Details" class="col-span-1 block ml-5 flex items-center text-gray-medium hover:text-gray-dark">
+        <div  class="col-span-1 block ml-5 flex items-center text-gray-medium hover:text-gray-dark">
             <i class="fas fa-ellipsis-h"></i>
-        </a>
+        </div>
 </article>
+</a>

@@ -1,20 +1,24 @@
+<div class="w-6" x-bind:style="searchOpen == 1 ? 'w-full' : ''">
+
 <form method="get" role="search" action="{{ site.url }}" class="hidden lg:flex flex-end justify-end items-center">
     <input type="text" placeholder="Search by Ticker..." name="s" class="rounded pl-4 text-sm tracking-widest">
     <input type="submit" value="Search" class="submit btn ml-2 px-3 text-sm  md:px-4 md:text-md bg-accent-blue">
     <input type="hidden" name="post_type" value="post">
 </form>
 
-<div x-data="{searchOpen:null}" class="lg:hidden flex justify-end items-center w-16" x-bind:class="searchOpen == 1 ? 'bg-brand-white' : ''">
+<div x-data="{searchOpen:null}" class="lg:hidden flex justify-end items-center" x-bind:class="searchOpen == 1 ? 'bg-brand-white' : ''">
 
-    <form method="get" role="search" action="{{ site.url }}" class="overflow-hidden transform transition-all max-h-0 duration-900 flex-end justify-end items-center" x-ref="searchSlide" x-bind:style="searchOpen == 1 ? 'max-height: ' + ($refs.searchSlide.scrollHeight + 40 ) + 'px' : ''" x-bind:class="searchOpen == 1 ? 'bg-brand-white w-full absolute right-8 pl-2 z-40' : ''">
-        <div class="bg-brand-white w-full justify-end items-center flex mr-12">
-            <input type="text" placeholder="Search..." name="s" class="rounded text-sm tracking-widest p-1 px-2">
-            <input type="submit" value="Search" class="submit btn ml-2 px-2 py-1 text-sm md:py-2 md:px-4 md:text-md bg-accent-blue mt-1 ">
+    <form method="get" role="search" action="{{ site.url }}" class="overflow-hidden transform transition-all max-h-0 duration-900 flex-end justify-end items-center" x-ref="searchSlide" x-bind:style="searchOpen == 1 ? 'max-height: ' + ($refs.searchSlide.scrollHeight + 40 ) + 'px' : ''" x-bind:class="searchOpen == 1 ? 'bg-brand-white w-full absolute right-8 top-1 pl-2 z-40' : ''">
+        <div class="bg-brand-white w-full justify-end items-center flex mr-12 transform scale-90">
+            <input type="text" placeholder="Search by Ticker..." name="s" class="rounded pl-4 py-2 text-sm tracking-widest">
+            <input type="submit" value="Search" class="submit btn ml-2 px-3 text-sm  md:px-4 md:text-md bg-accent-blue">
             <input type="hidden" name="post_type" value="post">
         </div>
     </form>
-    <button @click="{searchOpen = !searchOpen}" class="flex items-center">
-        <i class="fas fa-search " x-bind:class="searchOpen == 1 ? 'fa-times z-50' : ''"></i>
+    <button @click="{searchOpen = !searchOpen}" class="flex items-center justify-end w-10">
+        <i class="fas fa-search" x-bind:class="searchOpen == 1 ? 'fa-times z-50 text-right' : ''"></i>
     </button>
+
+</div>
 
 </div>

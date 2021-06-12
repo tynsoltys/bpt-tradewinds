@@ -1,0 +1,38 @@
+    {# //MOBILE  #}
+    <div class="hamburger">
+
+        <input type="checkbox" name="menuCheck" class="menuCheck" id="">
+        <i class="fas fa-bars"></i>
+        <div class="mobile-menu">
+          <ul>
+            {% if items|default(mobile_menu.items) %}
+                {% for item in items|default(mobile_menu.items) %}
+                    {% if item.children %}
+                        <li class="">
+                            <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
+                            <a href="{{item.link}}">{{item.title}}</a>
+
+
+                            <ul id="menu-item-list-{{ item.id }}" class="my-2">
+                                {% for child in item.children %}
+                                    <li id="menu-item-child-{{ child.id }}" class="inline-block">
+                                        <a href="{{ child.link }}" class="">{{ child.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+
+                    {%  else %}
+
+                        <li>
+                            <a href="{{item.link}}">{{item.title}}</a>
+                        </li>
+
+
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+          </ul>
+        </div>
+      </div>
