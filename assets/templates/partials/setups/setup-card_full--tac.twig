@@ -37,9 +37,9 @@
 
         <div class="col-span-4 flex items-start lg:col-start-2 flex-wrap order-8">
 
-            {% if tac_url is not empty %}
+            {% if trade.linked_trade %}
                 <div class="w-full">
-                    <a href="{{tac_url}} " class="mt-8 right btn uppercase rounded shadow text-white bg-accent-blue"> See ASSOCIATED Position</a>
+                    <a href="{{tac_url}}" class="mt-8 right btn uppercase rounded shadow text-white bg-accent-blue"> See ASSOCIATED Position</a>
                 </div>
             {% endif %}
             {{include ('partials/witt-trade.twig')}}

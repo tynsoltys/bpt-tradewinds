@@ -23,9 +23,9 @@
                     {% if item.children %}
                         <li class="top-menu-account-li h-16 flex items-center" x-data="{ item{{item.id}}: false}">
                             <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
-                            <div id="menu-item-{{ item.id }}" href="{{ item.link }}" class="{{item.current}} top-level-side-nav relative" aria-controls="sub-menu-1" aria-expanded="{ item{{item.id}} }" @click="item{{item.id}} = !item{{item.id}}">
+                            <div id="menu-item-{{ item.id }}" href="{{ item.link }}" class="{{item.current}} w-full h-full top-level-side-nav relative flex justify-center items-center" aria-controls="sub-menu-1" aria-expanded="{ item{{item.id}} }" @click="item{{item.id}} = !item{{item.id}}">
                                 {# <i class="fal fa-bell text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6" aria-hidden="true"></i> #}
-                                <p class="text-sm uppercase pl-6 w-full h-full"><span>{{ item.name }}</span>
+                                <p class="text-sm uppercase pl-6 w-full h-full inline-block flex items-center"><span>{{ item.name }}</span>
                                     {# <i class="text-brand-secondary ml-2 rotate-0 fas fa-chevron-down " x-ref="toggle-icon" x-bind:class="item{{item.id}} == true ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''"></i> #}
                                 </p>
                             </div>
@@ -49,9 +49,9 @@
 
                     {%  else %}
 
-                        <li class="top-menu-account-li">
+                        <li class="top-menu-account-li flex items-center w-full h-full">
                             <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
-                            <a id="menu-item-{{ item.id }}" href="{{ item.link }}" class="{{item.current}} top-level-side-nav" aria-controls="sub-menu-1" aria-expanded="false">
+                            <a id="menu-item-{{ item.id }}" href="{{ item.link }}" class="{{item.current}} flex items-center inline-block w-full h-full top-level-side-nav" aria-controls="sub-menu-1" aria-expanded="false">
                                 {# <i class="fal fa-bell text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6" aria-hidden="true"></i> #}
                                 <p>{{ item.name }}</p>
                             </a>

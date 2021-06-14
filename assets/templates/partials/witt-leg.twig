@@ -1,9 +1,12 @@
 <div class="flex my-8 justify-end items-center">
-    {% if leg.witt_fields.display == "link" %}
+
+    {% if leg.witt_fields.display == "link" and leg.witt_fields.witt_link.url|length > 0 %}
+
         <a href="{{leg.witt_fields.witt_link.url}}" target="_blank" class="btn btn-accent text-center w-full">
             <i class="fas fa-video ml-1"></i> WITT SEGMENT
         </a>
-    {% elseif leg.witt_fields.display == "embed" %}
+    {% elseif leg.witt_fields.display == "embed" and leg.witt_fields.vimeo_id|length > 0 %}
+    embedmeee
         <iframe src="https://player.vimeo.com/video/
             {{leg.witt_fields.vimeo_id}}
             {% if leg.witt_fields.timestamp is not empty %}
@@ -13,4 +16,9 @@
     {% else %}
         <span class="text-gray-medium italic tect-center block">WITT not available.</span>
     {% endif %}
+
+
+
 </div>
+
+

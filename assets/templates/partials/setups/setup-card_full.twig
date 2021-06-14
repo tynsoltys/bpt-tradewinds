@@ -97,13 +97,13 @@
                 <ul class="">
                     {% for leg in post.legs %}
                         {% if leg.display == ('Current') %}
-                        <li class="leg leg{{leg.index}} shadow bg-gray-light mb-2 rounded" x-data="{selected:null}">
+                        <li class="leg leg{{leg.index}} shadow bg-gray-light mb-2 rounded cursor-pointer" x-data="{selected:null}" @click="selected !== 1 ? selected = 1 : selected = null">
                             <div class="uppercase font-medium tracking-wide leg-main flex justify-between p-2 px-4 text-sm text-center font-semibold">
                                 <p class="col-span-3 {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} entry date">{{leg.entry_date}}</p>
                                 <p class="col-span-3 {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} name">{{leg.leg_name}}</p>
                                 <p class="col-span-3 {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} strategy">{{leg.leg_strategy}}</p>
 
-                                <div aria-label="{{leg.leg_name}} unit ratio" class="col-span-1 dropdowner" @click="selected !== 1 ? selected = 1 : selected = null" >
+                                <div aria-label="{{leg.leg_name}} unit ratio" class="col-span-1 dropdowner"  >
                                     <i class="rotate-0 fas fa-chevron-down " x-ref="toggle-icon " x-bind:class="selected == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''"></i>
                                 </div>
 
@@ -217,13 +217,13 @@
                             {% for leg in post.legs %}
                                 {% if leg.display == ('Past') %}
 
-                                <li class="leg leg{{leg.index}} shadow bg-gray-light mb-2 rounded" x-data="{selected:null}">
+                                <li class="leg leg{{leg.index}} shadow bg-gray-light mb-2 rounded cursor-pointer" x-data="{selected:null}" @click="selected !== 1 ? selected = 1 : selected = null" >
                                     <div class="uppercase font-medium tracking-wide leg-main flex justify-between p-2 px-4 text-sm text-center font-semibold">
                                         <p class="col-span-3 {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} entry date">{{leg.entry_date}}</p>
                                         <p class="col-span-3 {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} name">{{leg.leg_name}}</p>
                                         <p class="col-span-3 {{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} strategy">{{leg.leg_strategy}}</p>
 
-                                        <div aria-label="{{leg.leg_name}} unit ratio" class="col-span-1 dropdowner" @click="selected !== 1 ? selected = 1 : selected = null" >
+                                        <div aria-label="{{leg.leg_name}} unit ratio" class="col-span-1 dropdowner"  >
                                             <i class="rotate-0 fas fa-chevron-down " x-ref="toggle-icon " x-bind:class="selected == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''"></i>
                                         </div>
 

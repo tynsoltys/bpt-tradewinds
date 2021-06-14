@@ -6,13 +6,16 @@
 
             <i class="far fa-chevron-double-right m-2 text-sm"></i> #}
             <a class="" href="{{ site.link }}/{{post.post_type}}/trade_status/active">
-                <p class="flex hidden md:inline-block">
-                    {{post.type.labels.name}}
-                </p>
-                <p class="flex md:hidden">
-                    {{post.type}}
-                </p>
+                    <p class="flex hidden md:inline-block">
+                        {{post.type.labels.name}}
+                    </p>
+                    <p class="flex md:hidden">
+                        TAC
+                    </p>
             </a>
+
+            <i class="far fa-chevron-double-right m-2 text-sm text-gray-dark"></i>
+            {{post.asset_class}}
 
             <i class="far fa-chevron-double-right m-2 text-sm text-gray-dark"></i>
             {{post.ticker_symbol}}

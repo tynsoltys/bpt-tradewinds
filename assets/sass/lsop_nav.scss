@@ -163,6 +163,7 @@ header.top-header.lsop-header {
         right: 0;
         height: 100%;
         &:hover {
+        cursor: pointer;
           background-color: var(--brand-primary-medium);
           ul.top-nav-secondary {
             display: block;
@@ -190,6 +191,7 @@ header.top-header.lsop-header {
           align-items: center;
           justify-content: flex-start;
           height: 100%;
+          width: 100%;
           color: var(--brand-secondary-light);
           text-transform: uppercase;
           position: relative;

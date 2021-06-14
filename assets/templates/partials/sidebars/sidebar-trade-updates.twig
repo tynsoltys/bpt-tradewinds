@@ -53,7 +53,7 @@
                     <a class="uppercase font-semibold py-1 text-sm hover:text-brand-secondary  block" href="{{ site.link }}/lto/trade_status/active"><span class="text-accent-blue mr-1">•</span>
                         Long Term Option</a>
                 {% else %}
-                    <a class="uppercase font-semibold py-1 text-sm hover:text-brand-secondary  block" href="{{ site.link }}/lto/trade_status/active">Long Term Option
+                    <a class="uppercase font-semibold py-1 text-sm hover:text-brand-secondary  block" href="{{ site.link }}/lto/trade_status/active">Long Term Options
                     </span></a>
                 {% endif %}
             </li>
@@ -79,8 +79,27 @@
 
         </div>
     </div>
-    {{ include ('partials/sidebars/sidebar-status.twig') }}
 
 
+</div>
 
+
+{# MOBILE VERSION #}
+
+
+<div class="lg:hidden flex justify-between flex-wrap mb-2 md:mt-2 -mt-6 mx-4 mr-1 text-gray-dark" x-data="{typeOpen:null}">
+    <div class="type flex relative flex-wrap" >
+        <div class="flex items-center justify-center mr-2 w-full"
+        @click="typeOpen !== 1 ? typeOpen = 1 : typeOpen = null">
+
+            <p class="inline-block uppercase font-semibold tracking-wide text-xs">TYPE</p>
+
+            <i class="fas fa-chevron-down text-sm ml-1" x-ref="toggle-icon"
+
+            x-bind:class="typeOpen == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''">
+            </i>
+        </div>
+    </div>
+
+{{include('partials/sidebars/sidebar-mobile-typechunk.twig')}}
 </div>

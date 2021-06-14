@@ -1,0 +1,286 @@
+<header class="top-header lsop-header bg-brand-primary relative z-40
+">
+
+    <!-- This example requires Tailwind CSS v2.0+ -->
+
+
+<nav class="top-nav">
+    <div class="top-nav-left ml-2 lg:ml-12">
+      <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/?" class="logo">
+        <img
+          src="https://members.bigpicturetrading.com/wp-content/themes/tradewinds/theme/../assets/images/logo-circle.png"
+          alt="big picture trading logo"
+
+      /></a>
+    </div>
+
+
+            <div class="hamburger">
+
+        <input type="checkbox" name="menuCheck" class="menuCheck" id="">
+        <i class="fas fa-bars"></i>
+        <div class="mobile-menu">
+          <ul>
+
+                        <li>
+                            <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/#daily-analytics">Daily Analytics</a>
+                        </li>
+
+
+                                                                                <li class="">
+                            <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
+                            <a href="https://members.bigpicturetrading.com/trade-updates">Trades & Portfolios</a>
+
+
+                            <ul id="menu-item-list-834" class="my-2">
+                                                                    <li id="menu-item-child-835" class="inline-block">
+                                        <a href="https://members.bigpicturetrading.com/bot/trade_status/active/" class=""><span                     class="                         mx-1 pill bg-accent-blue-fade                         text-accent-blue                         border                         border-accent-blue"                     >                 BOT                 </span></a>
+                                    </li>
+                                                                    <li id="menu-item-child-836" class="inline-block">
+                                        <a href="https://members.bigpicturetrading.com/cct/trade_status/active/" class=""><span                     class="                         mx-1 pill bg-gray-light                         text-accent-red                         border                         border-accent-red"                     >                     CCT                     </span></a>
+                                    </li>
+                                                                    <li id="menu-item-child-837" class="inline-block">
+                                        <a href="https://members.bigpicturetrading.com/lto/trade_status/active/" class=""><span                     class="                     pill bg-gray-light                     text-accent-green                     border                     border-accent-green"                     >                     LTO                     </span></a>
+                                    </li>
+                                                                    <li id="menu-item-child-838" class="inline-block">
+                                        <a href="https://members.bigpicturetrading.com/ofi/trade_status/active/" class=""><span                     class="                         pill accent-gold-light                         text-accent-gold                         border ml-1                         border-accent-gold"                     >                     OFI                     </span></a>
+                                    </li>
+                                                                    <li id="menu-item-child-839" class="inline-block">
+                                        <a href="https://members.bigpicturetrading.com/tactical-portfolio/" class=""><span                     class="                         ml-1 pl-1 inline-block bg-gray-light                         text-gray-dark                         border                         border-gray-dark                         px-1"                     >                     TAC                     </span></a>
+                                    </li>
+                                                            </ul>
+                        </li>
+
+
+                        <li>
+                            <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/#master-programs">Master Programs</a>
+                        </li>
+
+
+
+                        <li>
+                            <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/#upcoming-events">Upcoming Events</a>
+                        </li>
+
+
+
+                        <li>
+                            <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/#resources">Resources</a>
+                        </li>
+
+
+
+                        <li>
+                            <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/#tools">Tools</a>
+                        </li>
+
+
+
+                        <li>
+                            <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/#twitter">Twitter Feed</a>
+                        </li>
+
+
+
+                        <li>
+                            <a href="http://secure.bigpicturetrading.com/membership/profile">Account</a>
+                        </li>
+
+
+
+          </ul>
+        </div>
+      </div>
+
+
+
+        <div class="top-nav-right">
+        <ul class="text-brand-white font-normal top-menu top-nav-primary">
+                 <li class="top-menu-account-li h-16 flex items-center" x-data="{ item807: false}">
+                            <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
+                            <div id="menu-item-807" href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/#daily-analytics" class=" top-level-side-nav relative" aria-controls="sub-menu-1" aria-expanded="{ item807 }" @click="item807 = !item807">
+                            <p class="text-sm uppercase pl-6 w-full h-full"><span>Daily Analytics</span>
+                                                                    </p>
+                            </div>
+
+                            <ul id="menu-item-list-807" class="top-nav-secondary top-14 absolute"
+                            x-show="item807"
+                            x-transition:enter-start="opacity-0 scale-90"
+                            x-transition:enter-end="opacity-100 scale-100"
+                            x-transition:leave="ease-in transition-slow"
+                            x-transition:leave-start="opacity-100 scale-100"
+                            x-transition:leave-end="opacity-0 scale-90"
+                            @click.away="item807 = false"
+                            >
+           <li id="menu-item-child-808">
+                                        <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/#daily-analytics" class="">Macro Outlook</a>
+                                    </li>
+         <li id="menu-item-child-809">
+                                        <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/#daily-analytics" class="">Where is the Trade?</a>
+                                    </li>
+         <li id="menu-item-child-810">
+                                        <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/recording_archives.php" class="">Recording Archive</a>
+                                    </li>
+        </ul>
+    </li>
+
+                                                                                <li class="top-menu-account-li h-16 flex items-center" x-data="{ item811: false}">
+                            <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
+                            <div id="menu-item-811" href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/" class=" top-level-side-nav relative" aria-controls="sub-menu-1" aria-expanded="{ item811 }" @click="item811 = !item811">
+                            
+                            <p class="text-sm uppercase pl-6 w-full h-full"><span>Trades & Portfolios</span>
+                                                                    </p>
+                            </div>
+
+                            <ul id="menu-item-list-811" class="top-nav-secondary top-14 absolute"
+                            x-show="item811"
+                            x-transition:enter-start="opacity-0 scale-90"
+                            x-transition:enter-end="opacity-100 scale-100"
+                            x-transition:leave="ease-in transition-slow"
+                            x-transition:leave-start="opacity-100 scale-100"
+                            x-transition:leave-end="opacity-0 scale-90"
+                            @click.away="item811 = false"
+                            >
+                                                                    <li id="menu-item-child-910">
+                                        <a href="https://members.bigpicturetrading.com/" class="">Recent Activity</a>
+                                    </li>
+                                                                    <li id="menu-item-child-813">
+                                        <a href="https://members.bigpicturetrading.com/bot/trade_status/active/" class="">BreakOut Trades</a>
+                                    </li>
+                                                                    <li id="menu-item-child-814">
+                                        <a href="https://members.bigpicturetrading.com/cct/trade_status/active/" class="">Commodity Cycle Trades</a>
+                                    </li>
+                                                                    <li id="menu-item-child-816">
+                                        <a href="https://members.bigpicturetrading.com/ofi/trade_status/active/" class="">Options for Income</a>
+                                    </li>
+                                                                    <li id="menu-item-child-817">
+                                        <a href="https://members.bigpicturetrading.com/lto/trade_status/active/" class="">Long Term Options</a>
+                                    </li>
+                                                                    <li id="menu-item-child-818">
+                                        <a href="https://members.bigpicturetrading.com/tactical-portfolio/" class="">Tactical Portfolio</a>
+                                    </li>
+                                                            </ul>
+                        </li>
+
+                                                                                <li class="top-menu-account-li h-16 flex items-center" x-data="{ item819: false}">
+                            <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
+                            <div id="menu-item-819" href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/#master-programs" class=" top-level-side-nav relative" aria-controls="sub-menu-1" aria-expanded="{ item819 }" @click="item819 = !item819">
+                                                                <p class="text-sm uppercase pl-6 w-full h-full"><span>Master Programs</span>
+                                                                    </p>
+                            </div>
+
+                            <ul id="menu-item-list-819" class="top-nav-secondary top-14 absolute"
+                            x-show="item819"
+                            x-transition:enter-start="opacity-0 scale-90"
+                            x-transition:enter-end="opacity-100 scale-100"
+                            x-transition:leave="ease-in transition-slow"
+                            x-transition:leave-start="opacity-100 scale-100"
+                            x-transition:leave-end="opacity-0 scale-90"
+                            @click.away="item819 = false"
+                            >
+                                                                    <li id="menu-item-child-820">
+                                        <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/macro_fundamentals/" class="">Macro Master</a>
+                                    </li>
+                                                                    <li id="menu-item-child-821">
+                                        <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/Technical_Masters/" class="">Technical Master</a>
+                                    </li>
+                                                                    <li id="menu-item-child-822">
+                                        <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/learntotradeglobal.options_week/" class="">Options Master</a>
+                                    </li>
+                                                                    <li id="menu-item-child-823">
+                                        <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/Trading_Master/" class="">Trading Master</a>
+                                    </li>
+                                                            </ul>
+                        </li>
+
+                                                                                <li class="top-menu-account-li h-16 flex items-center" x-data="{ item824: false}">
+                            <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
+                            <div id="menu-item-824" href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/#resources" class=" top-level-side-nav relative" aria-controls="sub-menu-1" aria-expanded="{ item824 }" @click="item824 = !item824">
+                                                                <p class="text-sm uppercase pl-6 w-full h-full"><span>Resources</span>
+                                                                    </p>
+                            </div>
+
+                            <ul id="menu-item-list-824" class="top-nav-secondary top-14 absolute"
+                            x-show="item824"
+                            x-transition:enter-start="opacity-0 scale-90"
+                            x-transition:enter-end="opacity-100 scale-100"
+                            x-transition:leave="ease-in transition-slow"
+                            x-transition:leave-start="opacity-100 scale-100"
+                            x-transition:leave-end="opacity-0 scale-90"
+                            @click.away="item824 = false"
+                            >
+                                                                    <li id="menu-item-child-825">
+                                        <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/memberseducation.php" class="">Members Bonus Content</a>
+                                    </li>
+                                                                    <li id="menu-item-child-826">
+                                        <a href="https://www.macrovoices.com/" class="">MacroVoices</a>
+                                    </li>
+                                                                    <li id="menu-item-child-827">
+                                        <a href="https://markethuddle.com/" class="">Market Huddle</a>
+                                    </li>
+                                                            </ul>
+                        </li>
+
+                                                                                <li class="top-menu-account-li h-16 flex items-center" x-data="{ item828: false}">
+                            <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
+                            <div id="menu-item-828" href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/members_home/#tools" class=" top-level-side-nav relative" aria-controls="sub-menu-1" aria-expanded="{ item828 }" @click="item828 = !item828">
+                                                                <p class="text-sm uppercase pl-6 w-full h-full"><span>Tools</span>
+                                                                    </p>
+                            </div>
+
+                            <ul id="menu-item-list-828" class="top-nav-secondary top-14 absolute"
+                            x-show="item828"
+                            x-transition:enter-start="opacity-0 scale-90"
+                            x-transition:enter-end="opacity-100 scale-100"
+                            x-transition:leave="ease-in transition-slow"
+                            x-transition:leave-start="opacity-100 scale-100"
+                            x-transition:leave-end="opacity-0 scale-90"
+                            @click.away="item828 = false"
+                            >
+                                                                    <li id="menu-item-child-829">
+                                        <a href="https://secure.bigpicturetrading.com/option.simulator/position_simulator.php" class="">Options Trading Simulator</a>
+                                    </li>
+                                                                    <li id="menu-item-child-830">
+                                        <a href="https://bigpicturetrading.com/wp-content/uploads/2020/05/TrackingtheCalendarPutWrite.xlsx" class="">Put Write Calendar Spreadsheet</a>
+                                    </li>
+                                                                    <li id="menu-item-child-831">
+                                        <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/portfolio_strategies/calculators/calc1.html" class="">Covered Call Calculator</a>
+                                    </li>
+                                                                    <li id="menu-item-child-832">
+                                        <a href="https://secure.bigpicturetrading.com/membership/bigpictureanalytics/portfolio_strategies/calculators/calc2.html" class="">Naked Put Calculator</a>
+                                    </li>
+                                                            </ul>
+                        </li>
+
+                                                            <li class="top-menu-account-li" x-data="{ accountLi: false}">
+                <div class="top-level-side-nav top-menu-account-link" target="_blank" href="http://secure.bigpicturetrading.com/membership/profile" aria-expanded="{ accountLi }" @click="accountLi = !accountLi">
+
+                    <i class="fas fa-user mt-6"></i><span class="hidden">Account</span>
+                                    </div>
+                <ul class="top-nav-secondary top-14 absolute"
+                x-show="account"
+                            x-transition:enter-start="opacity-0 scale-90"
+                            x-transition:enter-end="opacity-100 scale-100"
+                            x-transition:leave="ease-in transition-slow"
+                            x-transition:leave-start="opacity-100 scale-100"
+                            x-transition:leave-end="opacity-0 scale-90"
+                            @click.away="accountLi = false"
+                >
+                <li>
+                    <a href="http://secure.bigpicturetrading.com/membership/profile">Edit Profile</a>
+                </li>
+                <li>
+                    <a href="http://secure.bigpicturetrading.com/membership/logout">Log Out</a>
+                </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+  </nav>
+
+
+
+</header>
+<!-- HEADER/TOP NAV END-->

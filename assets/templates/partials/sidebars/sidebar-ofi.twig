@@ -19,8 +19,6 @@
             <i class="rotate-0 fas fa-chevron-down " x-ref="toggle-icon " x-bind:class="archiveOpen == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''"></i>
         </div>
 
-
-
         <div x-ref="archivechunk" class="ml-10 prose text-sm prose p-0 overflow-hidden transform transition-all max-h-0 duration-900 " x-bind:style="archiveOpen == 1 ? 'max-height: ' + ($refs.archivechunk.scrollHeight + 20 ) + 'px' : ''" x-bind:class="archiveOpen == 1 ? '' : ''">
             {{ years }}
 

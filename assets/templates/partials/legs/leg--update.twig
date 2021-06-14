@@ -4,7 +4,7 @@
 
 
 
-<li class="leg leg{{leg.index}} border-b border-gray-light even:bg-gray-light rounded" x-data="{selected:null}">
+<li class="leg leg{{leg.index}} border-b border-gray-light even:bg-gray-light rounded" x-data="{selected:null}" @click="selected !== 1 ? selected = 1 : selected = null">
     <div class="text-sm tracking-wide leg-main grid grid-rows-1 grid-cols-leg gap-x-2 p-2  text-center pt-2 font-semibold">
         <div class="leg-indicator">
 
@@ -15,7 +15,7 @@
             {{leg.update_description_title}}
         </p>
 
-        <div aria-label="{{leg.leg_name}} unit ratio" class="col-span-1 dropdowner" @click="selected !== 1 ? selected = 1 : selected = null" >
+        <div aria-label="{{leg.leg_name}} unit ratio" class="col-span-1 dropdowner"  >
             <i class="rotate-0 fas fa-chevron-down " x-ref="toggle-icon " x-bind:class="selected == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''"></i>
         </div>
 
