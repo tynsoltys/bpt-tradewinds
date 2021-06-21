@@ -41,7 +41,7 @@ $alltrades = array(
     'date_query' => array(
         array(
         'after' => '-7 days',
-        'column' => 'post_date',
+        'column' => 'latest_update_date',
         ),
         ),
     'paged'          =>  $paged,

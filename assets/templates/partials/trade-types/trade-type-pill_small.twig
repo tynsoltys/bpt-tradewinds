@@ -1,11 +1,11 @@
-{% if trade.post_type == ('trade-setup-tac') %}
+{% if trade.type == ('trade-setup-tac') %}
     <span
     class="
         mx-1 border border-gray-dark text-gray-dark bg-gray-light"
     >
     TAC
     </span>
-{% elseif trade.post_type == ('cct') %}
+{% elseif trade.type == ('cct') %}
     <span
         class="
             pill pill_small mr-1 bg-gray-light
@@ -13,9 +13,9 @@
         border
         border-accent-red"
         >
-    {{trade.post_type}}
+    {{trade.type}}
     </span>
-{% elseif trade.post_type == ('bot') %}
+{% elseif trade.type == ('bot') %}
     <span
         class="
             pill pill_small mr-1 bg-accent-blue-fade
@@ -23,9 +23,9 @@
             border
             border-accent-blue"
         >
-    {{trade.post_type}}
+    {{trade.type}}
     </span>
-{% elseif trade.post_type == ('lto') %}
+{% elseif trade.type == ('lto') %}
     <span
     class="
     pill pill_small mr-1 bg-gray-light
@@ -35,7 +35,7 @@
     >
     {{trade.post_type}}
     </span>
-{% elseif trade.post_type == ('ofi') %}
+{% elseif trade.type == ('ofi') %}
     <span
     class="
         pill pill_small mr-1 accent-gold-light
@@ -43,7 +43,18 @@
         border
         border-accent-gold"
     >
-    {{trade.post_type}}
+    {{trade.type}}
+    </span>
+{% elseif trade.type == ('trade-setup-tac') %}
+    <span
+    class="
+        pill pill_small mr-1 bg-gray-light
+        text-gray-dark
+        text-xs py-1
+        border
+        border-gray-dark"
+    >
+    TAC
     </span>
 {% else %}
 

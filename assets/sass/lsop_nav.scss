@@ -22,7 +22,7 @@ header.top-header.lsop-header {
     box-shadow: var(--shadow);
 
     .top-nav {
-      max-width: var(--page-width);
+    //   max-width: var(--page-width);
       margin: auto;
       display: flex;
       flex-flow: row wrap;
@@ -41,7 +41,7 @@ header.top-header.lsop-header {
         }
       }
       @media (max-width: $bp-xl) {
-        max-width: $bp-xl;
+
         // border:1px solid green;
         // padding: calc(1 * var(--space)) calc(1 * var(--space));
         .top-nav-left {

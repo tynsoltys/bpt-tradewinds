@@ -3,28 +3,23 @@
 
 {% block body %}
 
-    {{ include ('partials/header-secondary-trades.twig') }}
+    {{ include ('partials/headers/header-secondary-trades.twig') }}
 
 
     <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex relative justify-between mt-16 pt-2 md:pt-0 md:mt-12 lg:mt-16 lg:pt-4">
-        <aside class="lg:w-64 lg:fixed lg:block">
-            {% if ptype == 'bot' %}
-                {{ include ('partials/sidebars/sidebar-bot.twig') }}
-            {% elseif ptype == 'lto' %}
-                {{ include ('partials/sidebars/sidebar-lto.twig') }}
-            {% elseif ptype == 'ofi' %}
-                {{ include ('partials/sidebars/sidebar-ofi.twig') }}
-            {% elseif ptype == 'cct' %}
-                {{ include ('partials/sidebars/sidebar-cct.twig') }}
-            {% else %}
-            {% endif %}
 
-        </aside>
-        <section class="w-full lg:ml-72 lg:pl-2 px-2">
-            <div class="open-trades">
+        <section class="w-full">
+            <div class="trades-list" x-data='{ openall: false }'>
+            <button
+            @click="$dispatch('toggleall')"
+            x-bind:class=" openall ? 'bg-accent-blue' : 'bg-accent-red'"
+            x-on:toggleall="{ openall = !openall }">
+            <span x-show="!openall">EXPAND </span>
+            <span x-show="openall">COLLAPSE </span>
+            ALL</button>
                 {% if posts|length > 0 %}
                     {% for trade in posts %}
-                        {{ include ('partials/setups/setup-card_concise.twig') }}
+                        {{ include ('partials/setups/setup-card_accordion.twig') }}
                     {% endfor %}
                 {% else %}
                     <div class="flex items-center justify-center flex-wrap h-64">

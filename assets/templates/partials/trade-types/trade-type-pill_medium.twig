@@ -1,4 +1,4 @@
-{% if trade.post_type == ('bot') %}
+{% if trade.type == ('bot') %}
     <span
         class="
             pill mr-1 bg-accent-blue-fade
@@ -6,9 +6,9 @@
             border
             border-accent-blue"
         >
-    {{trade.post_type}}
+    {{trade.type}}
     </span>
-{% elseif trade.post_type == ('cct') %}
+{% elseif trade.type == ('cct') %}
     <span
         class="
             pill mr-1 bg-gray-light
@@ -16,9 +16,9 @@
         border
         border-accent-red"
         >
-    {{trade.post_type}}
+    {{trade.type}}
     </span>
-{% elseif trade.post_type == ('lto') %}
+{% elseif trade.type == ('lto') %}
     <span
     class="
     pill mr-1 bg-gray-light
@@ -26,17 +26,27 @@
     border
     border-accent-green "
     >
-    {{trade.post_type}}
+    {{trade.type}}
     </span>
-{% elseif trade.post_type == ('ofi') %}
+{% elseif trade.type == ('ofi') %}
     <span
     class="
-        pill mr-1 accent-gold-light
+        pill mr-1 bg-accent-gold-light
         text-accent-gold
         border
         border-accent-gold"
     >
-    {{trade.post_type}}
+    {{trade.type}}
+    </span>
+{% elseif trade.type == ('trade-setup-tac') %}
+    <span
+    class="
+        pill mr-1 bg-gray-light
+        text-gray-dark
+        border rounded-none
+        border-gray-dark"
+    >
+    {{trade.type}}
     </span>
 {% else %}
 

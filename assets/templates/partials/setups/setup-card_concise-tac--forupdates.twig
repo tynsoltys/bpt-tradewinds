@@ -4,7 +4,7 @@
 
         <div class="setup-details col-span-1 flex items-center order-1 ellipsis">
             <h2 class="flex items-center" title="{{trade.underlying_name}}"><span class="mr-2 symbol text-3xl font-black tracking-wide">{{trade.ticker_symbol}}</span>
-
+                {{ include ('partials/trade-types/trade-type-pill_small.twig') }}
             </h2>
         </div>
 

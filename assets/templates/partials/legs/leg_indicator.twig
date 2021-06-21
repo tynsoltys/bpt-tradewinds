@@ -1,0 +1,16 @@
+
+<span class="
+{% if leg.leg_indicator == "new" %}
+    text-accent-gold
+{% elseif leg.leg_indicator == "updated" %}
+    text-brand-secondary
+{% elseif leg.leg_indicator == "adjusted" %}
+    text-gray-medium
+{% elseif leg.leg_indicator == "closing" %}
+    text-accent-red
+{% else %}
+    hidden
+{% endif %}
+">
+<i class="text-xs fas fa-circle"></i>
+</span>

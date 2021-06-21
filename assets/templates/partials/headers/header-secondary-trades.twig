@@ -1,7 +1,12 @@
-<header class="page-header w-full bg-brand-white border-b border-gray-medium shadow fixed z-30 pr-2 md:pr-8">
-    <div class='flex-grow w-full max-w-7xl mx-auto flex items-center justify-between relative h-10 lg:h-16'>
-        <h2 class="ellipsis flex-grow flex items-center text-sm md:text-2xl uppercase text-brand-primary p-2 py-1 md:py-4 lg:px-10 items-center tracking-widest font-semibold">
-        <i class="hidden lg:inline-block fas fa-bell mr-2 md:mr-2 lg:mr-3 pl-1 lg:pl-4"></i>
+{% extends "partials/headers/header-secondary.twig" %}
+
+{% block icon %}
+    fa-bell
+{% endblock %}
+
+{% block title %}
+
+
 
         {% if fn('is_day') %}
             {{ title }}
@@ -65,14 +70,4 @@
 
         {% endif %}
 
-
-        </h2>
-
-            {{ include ('partials/searchform.twig') }}
-
-
-    </div>
-    {# {{ include ('partials/header-tertiary-trades.twig') }} #}
-</header>
-
-
+{% endblock %}

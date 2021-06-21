@@ -8,6 +8,14 @@
         <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} strategy">{{leg.leg_strategy}}</p>
         <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} unit ratio">{{leg.unit_ratio}}</p>
         <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} action">{{leg.action}}</p>
+
+        <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} expiry">
+            {% if leg.expiry is not empty %}
+                {{leg.expiry}}
+            {% else %}
+                <span class="text-gray-medium">--</span>
+            {% endif %}
+        </p>
         <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} strike price">
 
             {% if leg.strike is not empty %}
@@ -16,13 +24,6 @@
                 <span class="text-gray-medium">--</span>
             {% endif %}
 
-        </p>
-        <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} expiry">
-            {% if leg.expiry is not empty %}
-                {{leg.expiry}}
-            {% else %}
-                <span class="text-gray-medium">--</span>
-            {% endif %}
         </p>
         <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} entry price">
             {% if leg.entry_price is not empty %}

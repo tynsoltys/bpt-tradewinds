@@ -1,0 +1,20 @@
+{% extends "partials/headers/header-secondary.twig" %}
+
+{% block icon %}
+    fa-bell
+{% endblock %}
+
+{% block title %}
+    <a class="" href="{{ site.link }}/{{post.post_type}}/trade_status/active">
+        <p class="flex hidden md:inline-block">
+            {{post.type.labels.name}}
+        </p>
+        <p class="flex md:hidden">
+            {{post.type}}
+        </p>
+    </a>
+
+    <i class="far fa-chevron-double-right m-2 text-sm text-gray-dark"></i>
+    {{post.ticker_symbol}}
+{% endblock %}
+
