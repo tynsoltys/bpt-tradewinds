@@ -3,7 +3,27 @@
     {{ include ('partials/headers/header-secondary-pages.twig') }}
     <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex relative justify-between mt-16 pt-2 md:pt-0 md:mt-12 lg:mt-16 lg:pt-4">
         <section class="w-full lg:ml-0 lg:pl-2 px-2">
-            {% include 'partials/setups-list.twig' %}
+
+            {% if posts|length > 0 %}
+                    {% for trade in posts %}
+                        {% if trade.type == 'bot' %}
+                            {{ include ('partials/setups/setup-card_accordion-bot.twig') }}
+                        {% elseif trade.type =='trade-setup-tac' %}
+                            {{ include ('partials/setups/setup-card_accordion-tac.twig') }}
+                        {% else %}
+                            {{ include ('partials/setups/setup-card_accordion.twig') }}
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <div class="flex items-center justify-center flex-wrap h-64">
+                        <div class="flex justify-center flex-wrap">
+                            <p class="text-xl text-center w-full tracking-wide text-accent-blue italic">There are no trades of this type and status currently posted.</p>
+                            <p class="text-gray-dark">Try checking the archives for past trades.</p>
+                        </div>
+
+                    </div>
+
+                {% endif %}
         </section>
 
     </main>

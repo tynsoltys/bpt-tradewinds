@@ -1,12 +1,23 @@
 
+
+{% if posts|length > 0 %}
     {% for trade in posts %}
-        {% if trade.post_type == ('trade-setup-tac') %}
+        {% if trade.type == 'bot' %}
+            {{ include ('partials/setups/setup-card_accordion-bot.twig') }}
+        {% elseif trade.type =='trade-type-tac' %}
+            {#{{ include ('partials/setups/setup-card_accordion-tac.twig') }}#}
             {{ include ('partials/setups/setup-card_concise-tac--forupdates.twig') }}
-
-            {% else %}
-            {{ include ('partials/setups/setup-card_concise.twig') }}
-
-    {% endif %}
-
+        {% else %}
+            {{ include ('partials/setups/setup-card_accordion.twig') }}
+        {% endif %}
     {% endfor %}
+{% else %}
+    <div class="flex items-center justify-center flex-wrap h-64">
+        <div class="flex justify-center flex-wrap">
+            <p class="text-xl text-center w-full tracking-wide text-accent-blue italic">There have been no trade updates in the past week.</p>
+            <p class="text-gray-dark">Try checking the archives for past trades.</p>
+        </div>
 
+    </div>
+
+{% endif %}

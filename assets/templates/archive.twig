@@ -12,7 +12,13 @@
 
                 {% if posts|length > 0 %}
                     {% for trade in posts %}
-                        {{ include ('partials/setups/setup-card_accordion.twig') }}
+                        {% if trade.type == 'bot' %}
+                            {{ include ('partials/setups/setup-card_accordion-bot.twig') }}
+                        {% elseif trade.type =='trade-type-tac' %}
+                            {{ include ('partials/setups/setup-card_accordion-tac.twig') }}
+                        {% else %}
+                            {{ include ('partials/setups/setup-card_accordion.twig') }}
+                        {% endif %}
                     {% endfor %}
                 {% else %}
                     <div class="flex items-center justify-center flex-wrap h-64">

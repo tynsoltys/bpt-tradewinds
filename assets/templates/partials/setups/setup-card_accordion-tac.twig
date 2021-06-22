@@ -16,14 +16,10 @@
                     {{ include ('partials/metabits/meta-outlook.twig') }}
                 </div>
                 <div class="ellipsis order-5 hidden md:block">
-                    {% if trade.post_type == 'bot' %}
-                        {{ include ('partials/metabits/meta-last-traded.twig') }}
-                    {% else %}
-                        {{ include ('partials/metabits/meta-acb.twig') }}
-                    {% endif %}
+                    {{ include ('partials/metabits/meta-asset-class.twig') }}
                 </div>
                 <div class="col-span-1 ellipsis order-5 hidden sm:block">
-                    {{ include ('partials/metabits/meta-strategy.twig') }}
+                    {{ include ('partials/metabits/meta-allocation.twig') }}
                 </div>
 
                 <div class="col-span-1 ellipsis flex justify-end items-center order-2 sm:order-5">
@@ -44,25 +40,34 @@
                 {# href="{{trade.link}}" target="_blank" title="Go To Trade Details" aria-label="Go to Trade Details" #}
             </div>
             <div div class="setup-expansion p-2 px-4 md:p-3 md:px-6 pt-0 md:pt-0  grid grid-cols-acc-xs xs:grid-cols-acc-xs sm:grid-cols-acc-sm md:grid-cols-acc-md lg:grid-cols-acc border-box p-0 text-sm overflow-hidden transform transition-all duration-200" x-show="open">
-                <div class="col-span-5 mb-4">
+                <div class="col-span-1 mb-4">
                     <p class="w-full text-lg mt-1 font-semibold block pr-8 leading-5">{{trade.ticker_symbol.underlying_name}}</p>
                     <p class="w-full text-xs tracking-wide uppercase text-gray-dark mr-4 mt-2">{{trade.ticker_symbol.sector}}</p>
 
                 </div>
-                <div class="col-span-7 col-start-1">
+                <div class="col-span-5 mt-3">
+                    {{ include ('partials/metabits/meta-strategy.twig') }}
 
-                    {# LEGS FOR FULL-WIDTH #}
-                        {{ include('partials/legs/legs-headers.twig')}}
-                        <ul class="px-1">
-                           {% for leg in trade.legs %}
-                              {{ include('partials/legs/leg--default.twig')}}
-                            {% endfor %}
-                        </ul>
+                </div>
+                <div class="col-span-6 col-start-2 flex justify-center items-center">
+                    {% if trade.linked_trade %}
+                        <div class="w-full">
+                            <a href="{{tac_url}}" class="mt-8 right btn uppercase rounded shadow text-white bg-accent-blue"> See ASSOCIATED Position</a>
+                        </div>
+                    {% endif %}
+                    {{include ('partials/witt-trade.twig')}}
+                </div>
+                <div class="col-span-6 col-start-2">
+                    {% if trade.alternatives is not empty %}
+                        <div class="col-span-4 flex items-start col-start-2">
+                            {{ include ('partials/alternatives/alternatives.twig') }}
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="flex justify-end col-span-7 pr-2 mt-4">
                 <a href="{{trade.link}}" title="See full {{trade.ticker_symbol}} position history font-semibold text-2xl" class="italic underline text-accent-blue">
                     <i class="fa fa-clock mr-1"></i>
-                    See Full Position History..
+                    See Full Position
                 </a>
                 </div>
             </div>

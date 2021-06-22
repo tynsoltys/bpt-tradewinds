@@ -44,7 +44,7 @@ module.exports = {
              'concise-sm': '160px 1fr 1fr 1fr 50px 50px',
              'concise-md': '160px 1fr 1fr 1fr 1fr 1fr 50px',
              'concisetac': '100px 1fr 1fr 1fr 1fr 1fr 30px',
-             'acc': '220px 150px 150px 160px 1fr 120px 50px',
+             'acc': '2.5fr 1.5fr 1.5fr 1.5fr 2fr 1.2fr 50px',
              'acc-xs': '150px 1fr 50px 50px',
              'acc-sm': '160px 1fr 1fr 1fr 50px 50px',
              'acc-md': '160px 1fr 1fr 1fr 1fr 1fr 50px',

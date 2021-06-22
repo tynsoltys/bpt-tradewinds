@@ -82,7 +82,7 @@
 {# MOBILE VERSION #}
 
 
-    <div class="flex justify-between flex-wrap text-gray-dark max-w-7xl mx-auto pl-6 relative" x-data="{typeOpen:null, statusOpen:null, archiveOpen:null,infoOpen:null}" >
+    <div class=" py-2 flex justify-between flex-wrap text-gray-dark max-w-7xl mx-auto pl-6 relative" x-data="{typeOpen:null, statusOpen:null, archiveOpen:null,infoOpen:null}" >
         <div class="status flex relative flex-wrap" >
             <div class="flex items-center justify-center mr-2 w-full"
             @click="statusOpen !== 1 ? statusOpen = 1 : statusOpen = null">
@@ -121,15 +121,22 @@
             </div>
         </div>
         <div class="relative flex flex-wrap">
-            <div class="trades-list" x-data='{ openall: false }'>
+            <div class="flex items-center justify-center mr-2 w-full"
+            x-data='{ openall: false }'
+            >
             <button
+            class="text-xs"
             @click="$dispatch('toggleall')"
-            x-bind:class=" openall ? 'bg-accent-blue' : 'bg-accent-red'"
+            x-bind:class=" openall ? '' : ''"
             x-on:toggleall="{ openall = !openall }">
             <span x-show="!openall">EXPAND </span>
             <span x-show="openall">COLLAPSE </span>
-            ALL</button>
+            ALL
+                        <i class="fas" class="ml-1" x-bind:class="openall == 1 ? ' transition-all duration-200 rotate-180 transform fa-minus-square' : 'fa-plus-square'"></i>
+            </button>
+
             </div>
+
         </div>
 
 
