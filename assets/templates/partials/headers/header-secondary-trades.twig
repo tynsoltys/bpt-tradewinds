@@ -71,3 +71,169 @@
         {% endif %}
 
 {% endblock %}
+
+{% block tertiary %}
+
+
+<div class="page-header w-full bg-gray-light  z-20 border-t border-gray-medium pr-2 md:pr-8 fixed relative">
+
+
+
+{# MOBILE VERSION #}
+
+
+    <div class="flex justify-between flex-wrap text-gray-dark max-w-7xl mx-auto pl-6 relative" x-data="{typeOpen:null, statusOpen:null, archiveOpen:null,infoOpen:null}" >
+        <div class="status flex relative flex-wrap" >
+            <div class="flex items-center justify-center mr-2 w-full"
+            @click="statusOpen !== 1 ? statusOpen = 1 : statusOpen = null">
+
+                <p class="inline-block uppercase font-semibold tracking-wide text-xs">STATUS</p>
+
+                <i class="fas fa-chevron-down text-sm ml-1" x-ref="toggle-icon"
+
+                x-bind:class="statusOpen == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''">
+                </i>
+            </div>
+
+
+
+        </div>
+        <div class="relative yearly-archives flex flex-wrap">
+            <div class="flex items-center justify-center mr-2 w-full text-xs"
+
+            @click="archiveOpen !== 1 ? archiveOpen = 1 : archiveOpen = null">
+                <p class="inline-block uppercase font-semibold tracking-wide">ARCHIVES</p>
+                <i class="fas fa-chevron-down text-sm ml-1" x-ref="toggle-icon"
+
+                x-bind:class="archiveOpen == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''">
+                </i>
+            </div>
+        </div>
+        <div class="relative flex flex-wrap">
+            <div class="flex items-center justify-center mr-2 w-full"
+
+            @click="infoOpen !== 1 ? infoOpen = 1 : infoOpen = null">
+                <p class="inline-block uppercase font-semibold tracking-wide text-xs">ABOUT {{ptype}}</p>
+                <i class="fas fa-chevron-down text-sm ml-1" x-ref="toggle-icon"
+
+                x-bind:class="infoOpen == 1 ? 'rotate-180 transition-all duration-500 rotate-180 transform' : ''">
+                </i>
+            </div>
+        </div>
+        <div class="relative flex flex-wrap">
+            <div class="trades-list" x-data='{ openall: false }'>
+            <button
+            @click="$dispatch('toggleall')"
+            x-bind:class=" openall ? 'bg-accent-blue' : 'bg-accent-red'"
+            x-on:toggleall="{ openall = !openall }">
+            <span x-show="!openall">EXPAND </span>
+            <span x-show="openall">COLLAPSE </span>
+            ALL</button>
+            </div>
+        </div>
+
+
+        <div x-ref="statuschunk"
+        class="text-sm transform transition-all duration-900 w-full z-50"
+            x-show="statusOpen">
+
+            <ul class="flex mr-4">
+                <li class="inline-block  mr-3 mb-2">
+                {% if trade_status == 'active' %}
+                    <a class="ml-2 uppercase font-semibold py-1 text-sm py-1 text-accent-green" href="{{ site.link }}/{{ptype}}/trade_status/active"><i class="fas fa-check mr-1"></i>ACTIVE</a>
+                {% else %}
+                    <a class="ml-2 uppercase font-semibold py-1 text-sm py-1 text-accent-green" href="{{ site.link }}/{{ptype}}/trade_status/active">ACTIVE</a>
+                {% endif %}
+                </li>
+                <li class="inline-block mr-3 mb-2">
+                {% if trade_status == 'closed' %}
+                    <a class="ml-1 uppercase font-semibold py-1 text-sm py-1 text-accent-red" href="{{ site.link }}/{{ptype}}/trade_status/closed"><i class="fas fa-check mr-1"></i>CLOSED</a>
+                {% else %}
+                    <a class="ml-1 uppercase font-semibold py-1 text-sm py-1 text-accent-red" href="{{ site.link }}/{{ptype}}/trade_status/closed">CLOSED</a>
+                {% endif %}
+                </li>
+                <li class="inline-block mr-3 mb-2">
+                {% if trade_status != '' %}
+                    <a class="ml-1 uppercase font-semibold py-1 text-sm py-1 text-accent-blue" href="{{ site.link }}/{{ptype}}/">ALL</a>
+                {% else %}
+                    <a class="ml-1 uppercase font-semibold py-1 text-sm py-1 text-accent-blue" href="{{ site.link }}/{{ptype}}/"><i class="fas fa-check mr-1"></i>ALL</a>
+                {% endif %}
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div x-ref="archivechunk"
+            class="ml-4 text-sm p-0 overflow-hidden transform transition-all max-h-0 duration-900 w-full z-50"
+
+            x-bind:style="archiveOpen == 1 ? 'max-height: ' + ($refs.archivechunk.scrollHeight + 100 ) + 'px' : ''"
+
+            x-bind:class="archiveOpen == 1 ? 'pb-2 listkiller' : ''"
+
+            >
+
+            <div class="block">
+                <ul class="ml-0 pl-0 flex yearly-archives justify-between flex-wrap underline-none mt-0">
+                    {{ years }}
+                    {% if ptype == "bot" %}
+                        {% for ar in options.sidebar_bot.old_archive_links %}
+                            <li><a href="{{ ar.archive_link.url }}" >{{ ar.archive_link.title }}</a></li>
+                        {% endfor %}
+                    {% elseif ptype == "cct" %}
+                        {% for ar in options.sidebar_cct.old_archive_links %}
+                            <li><a href="{{ ar.archive_link.url }}" >{{ ar.archive_link.title }}</a></li>
+                        {% endfor %}
+                    {% elseif ptype == "lto" %}
+                        {% for ar in options.sidebar_lto.old_archive_links %}
+                            <li><a href="{{ ar.archive_link.url }}" >{{ ar.archive_link.title }}</a></li>
+                        {% endfor %}
+                    {% elseif ptype == "ofi" %}
+                        {% for ar in options.sidebar_ofi.old_archive_links %}
+                            <li><a href="{{ ar.archive_link.url }}" >{{ ar.archive_link.title }}</a></li>
+                        {% endfor %}
+                    {% elseif ptype == "trade-type-tac" %}
+                        {% for ar in options.sidebar_tac.old_archive_links %}
+                            <li><a href="{{ ar.archive_link.url }}" >{{ ar.archive_link.title }}</a></li>
+                        {% endfor %}
+                    {% else %}
+
+                    {% endif %}
+                </ul>
+
+            </div>
+        </div>
+
+
+
+        <div x-ref="infochunk"
+            class="text-xs prose p-0 overflow-hidden transform transition-all max-h-0 duration-900 top-16 right-2 z-50 flex items-center"
+
+            x-bind:style="infoOpen == 1 ? 'max-height: ' + ($refs.infochunk.scrollHeight + 100 ) + 'px' : ''"
+
+            x-bind:class="infoOpen == 1 ? 'p-2 px-4 bg-brand-white mb-2 mx-auto rounded-lg' : ''">
+            {% if ptype == "bot" %}
+                {{ options.sidebar_bot.sidebar_area }}
+            {% elseif ptype == "cct" %}
+                {{ options.sidebar_cct.sidebar_area }}
+            {% elseif ptype == "lto" %}
+                {{ options.sidebar_lto.sidebar_area }}
+            {% elseif ptype == "ofi" %}
+                {{ options.sidebar_ofi.sidebar_area }}
+            {% elseif ptype == "trade-type-tac" %}
+                {{ options.sidebar_tac.sidebar_area }}
+            {% else %}
+
+            {% endif %}
+        </div>
+
+    </div>
+
+
+</div>
+</div>
+
+
+
+
+{% endblock %}

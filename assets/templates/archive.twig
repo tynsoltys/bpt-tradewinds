@@ -6,17 +6,10 @@
     {{ include ('partials/headers/header-secondary-trades.twig') }}
 
 
-    <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex relative justify-between mt-16 pt-2 md:pt-0 md:mt-12 lg:mt-16 lg:pt-4">
+    <main class="flex-grow w-full max-w-7xl mx-auto xl:px-0 lg:flex relative justify-between mt-16 pt-2 md:pt-0 md:mt-16 lg:mt-16 lg:pt-8">
 
         <section class="w-full">
-            <div class="trades-list" x-data='{ openall: false }'>
-            <button
-            @click="$dispatch('toggleall')"
-            x-bind:class=" openall ? 'bg-accent-blue' : 'bg-accent-red'"
-            x-on:toggleall="{ openall = !openall }">
-            <span x-show="!openall">EXPAND </span>
-            <span x-show="openall">COLLAPSE </span>
-            ALL</button>
+
                 {% if posts|length > 0 %}
                     {% for trade in posts %}
                         {{ include ('partials/setups/setup-card_accordion.twig') }}
@@ -32,7 +25,7 @@
 
                 {% endif %}
 
-            </div>
+
             {{ include ('partials/pagination.twig') }}
         </section>
 

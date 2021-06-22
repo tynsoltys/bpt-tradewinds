@@ -2,11 +2,11 @@
 
     list-style-type: none;
     li {
-        // display: inline-block;
-        // padding-bottom:2px;
+        @apply my-2;
     }
     a {
-        @apply text-brand-primary-medium ml-2;
+        @apply px-4 py-2 bg-brand-white rounded-lg text-brand-primary-medium ;
+        text-decoration: none !important;
 
     }
 }

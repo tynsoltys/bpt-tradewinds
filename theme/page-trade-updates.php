@@ -31,20 +31,33 @@ $paged = $page;
 $context = Timber::context();
 
 //ALL TRADES
+// $alltrades = array(
+//     'post_type' => array('ofi','lto','bot','cct','trade-setup-tac'),
+//     'posts_per_page'	=> -1,
+//     'order'          => 'DESC',
+//     'orderby'        => 'meta_value',
+//     'meta_key'       => 'latest_update_date',
+//     'meta_type'      => 'DATETIME',
+//     'date_query' => array(
+//         array(
+//         'after' => '-7 days',
+//         'column' => 'latest_update_date',
+//         ),
+//         ),
+//     'paged'          =>  $paged,
+// );
+
 $alltrades = array(
     'post_type' => array('ofi','lto','bot','cct','trade-setup-tac'),
     'posts_per_page'	=> -1,
     'order'          => 'DESC',
-    'orderby'        => 'meta_value',
-    'meta_key'       => 'latest_update_date',
-    'meta_type'      => 'DATETIME',
+    'orderby'        => 'modified',
     'date_query' => array(
-        array(
-        'after' => '-7 days',
-        'column' => 'latest_update_date',
-        ),
-        ),
-    'paged'          =>  $paged,
+    array(
+    'after' => '-7 days',
+    'column' => 'modified',
+    ),
+    ),
 );
 
 //TAC
