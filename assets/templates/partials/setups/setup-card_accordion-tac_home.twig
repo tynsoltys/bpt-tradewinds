@@ -1,5 +1,5 @@
-        <div x-data='{ open: false }' x-on:toggleall.window="{ open = !open }"x-ref="trade" class="cursor-pointer trade-card block rounded-lg shadow bg-brand-white mb-3">
-            <div title="Expand {{trade.ticker_symbol}} Details" aria-label="Expand {{trade.ticker_symbol}} Details" class="p-2 px-4 md:p-3 md:px-6 pb-0 md:pb-0 grid grid-cols-acc-xs xs:grid-cols-acc-xs sm:grid-cols-acc-sm md:grid-cols-acc-md lg:grid-cols-acc border-box" @click="open = !open" x-bind:class="open == true ? 'pb-0 md:pb-0' : 'p-2 px-4 md:p-3 md:px-6 pb-3 md:pb-3'">
+        <div x-data='{ open: false }' x-on:toggleall.window="{ open = !open }"x-ref="trade" class="text-left cursor-pointer trade-card block rounded-lg shadow bg-brand-white mb-3">
+            <div title="Expand {{trade.ticker_symbol}} Details" aria-label="Expand {{trade.ticker_symbol}} Details" class="p-2 px-4 md:p-3 md:px-6 pb-0 md:pb-0 grid grid-cols-acc-xs xs:grid-cols-acc-xs sm:grid-cols-acc-sm md:grid-cols-acc-md lg:grid-cols-acctachome border-box" @click="open = !open" x-bind:class="open == true ? 'pb-0 md:pb-0' : 'p-2 px-4 md:p-3 md:px-6 pb-3 md:pb-3'">
 
                 <div class="setup-details col-span-1 flex items-center order-1 ellipsis">
                     <h2 class="flex items-center mr-2 symbol text-3xl font-black tracking-wide" title="{{trade.underlying_name}}"><span class="mr-2 text-4xl">{{trade.ticker_symbol}}</span>
@@ -8,18 +8,15 @@
 
                     </h2>
                 </div>
+                <div class="col-span-1 ellipsis order-2 block">
+                    {{ include ('partials/metabits/meta-allocation.twig') }}
+                </div>
+
                 <div class="col-span-1 ellipsis order-2">
                     {{ include ('partials/metabits/meta-latest-update-date.twig') }}
                 </div>
-
                 <div class="col-span-1 ellipsis hidden sm:block order-5">
                     {{ include ('partials/metabits/meta-outlook.twig') }}
-                </div>
-                <div class="ellipsis order-5 hidden md:block">
-                    {{ include ('partials/metabits/meta-asset-class.twig') }}
-                </div>
-                <div class="col-span-1 ellipsis order-5 hidden sm:block">
-                    {{ include ('partials/metabits/meta-allocation.twig') }}
                 </div>
 
                 <div class="col-span-1 ellipsis flex justify-end items-center order-2 sm:order-5">
@@ -39,37 +36,37 @@
 
                 {# href="{{trade.link}}" target="_blank" title="Go To Trade Details" aria-label="Go to Trade Details" #}
             </div>
-            <div class="setup-expansion p-2 px-4 md:p-3 md:px-6 pt-0 md:pt-0  grid grid-cols-acc-xs xs:grid-cols-acc-xs sm:grid-cols-acc-sm md:grid-cols-acc-md lg:grid-cols-acc border-box p-0 text-sm overflow-hidden transform transition-all duration-200" x-show="open">
+            <div div class="setup-expansion p-2 px-4 md:p-3 md:px-6 pt-0 md:pt-0  grid grid-cols-acc-xs xs:grid-cols-acc-xs sm:grid-cols-acc-sm md:grid-cols-acc-md lg:grid-cols-acctachome border-box p-0 text-sm overflow-hidden transform transition-all duration-200" x-show="open">
                 <div class="col-span-1 mb-4">
                     <p class="w-full text-lg mt-1 font-semibold block pr-8 leading-5">{{trade.ticker_symbol.underlying_name}}</p>
                     <p class="w-full text-xs tracking-wide uppercase text-gray-dark mr-4 mt-2">{{trade.ticker_symbol.sector}}</p>
 
                 </div>
-                <div class="col-span-5 mt-3">
+                <div class="col-span-5 my-3">
                     {{ include ('partials/metabits/meta-strategy.twig') }}
-
                 </div>
-                <div class="col-span-6 col-start-2 flex justify-center items-center">
+                <div class="col-span-6 col-start-2 flex justify-center items-center my-3">
                     {% if trade.linked_trade %}
-                        <div class="w-full">
-                            <a href="{{tac_url}}" class="mt-8 right btn uppercase rounded shadow text-white bg-accent-blue"> See ASSOCIATED Position</a>
+                        <div class="w-1/2 mr-4">
+                            <a href="{{trade.witt_fields.witt_link.url}}" target="_blank" class="btn bg-accent-blue text-center w-full">
+                                <i class="fas fa-video ml-1"></i> See ASSOCIATED Position
+                            </a>
                         </div>
                     {% endif %}
-                    {{include ('partials/witt-trade.twig')}}
+                        <div class="w-1/2 mr-8">
+                            {{include ('partials/witt-plain.twig')}}
+                        </div>
+
                 </div>
-                <div class="col-span-6 col-start-2">
+
                     {% if trade.alternatives is not empty %}
+                     <div class="col-span-6 col-start-2">
                         <div class="col-span-4 flex items-start col-start-2">
                             {{ include ('partials/alternatives/alternatives.twig') }}
                         </div>
+                     </div>
                     {% endif %}
-                </div>
-                <div class="flex justify-end col-span-7 pr-2 mt-4">
-                <a href="{{trade.link}}" title="See full {{trade.ticker_symbol}} position history font-semibold text-2xl" class="italic underline text-accent-blue">
-                    <i class="fa fa-clock mr-1"></i>
-                    See Full Position
-                </a>
-                </div>
+
             </div>
         </div>
 

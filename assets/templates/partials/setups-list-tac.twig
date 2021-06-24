@@ -17,7 +17,7 @@
         <div class="col-span-5 md:col-span-4 flex flex-col justify-center">
             {% for trade in tac %}
             {% if trade.asset_class.slug == ('equity') %}
-                {{ include ('partials/setups/setup-card_concise-tac.twig') }}
+                {{ include ('partials/setups/setup-card_accordion-tac_home.twig') }}
             {% endif %}
         {% endfor %}
         </div>
@@ -38,7 +38,7 @@
 
             {% for trade in tac %}
             {% if trade.asset_class.slug == ('bonds') %}
-                {{ include ('partials/setups/setup-card_concise-tac.twig') }}
+                {{ include ('partials/setups/setup-card_accordion-tac_home.twig') }}
             {% endif %}
         {% endfor %}
         </div>
@@ -58,7 +58,7 @@
         <div class="col-span-5 md:col-span-4 flex flex-col justify-center">
             {% for trade in tac %}
             {% if trade.asset_class.slug == ('gold') %}
-                {{ include ('partials/setups/setup-card_concise-tac.twig') }}
+                {{ include ('partials/setups/setup-card_accordion-tac_home.twig') }}
             {% endif %}
         {% endfor %}
         </div>
@@ -79,7 +79,7 @@
 
             {% for trade in tac %}
             {% if trade.asset_class.slug == ('commodity') %}
-                {{ include ('partials/setups/setup-card_concise-tac.twig') }}
+                {{ include ('partials/setups/setup-card_accordion-tac_home.twig') }}
             {% endif %}
         {% endfor %}
         </div>
@@ -100,7 +100,7 @@
 
             {% for trade in tac %}
             {% if trade.asset_class.slug == ('volatility') %}
-                {{ include ('partials/setups/setup-card_concise-tac.twig') }}
+                {{ include ('partials/setups/setup-card_accordion-tac_home.twig') }}
             {% endif %}
         {% endfor %}
         </div>

@@ -1,6 +1,6 @@
 <li class="leg leg{{leg.index}} border-b border-accent-blue-light  cursor-pointer" x-data="{selected:null}" @click="selected !== 1 ? selected = 1 : selected = null">
     <div class="uppercase font-medium tracking-wide leg-main grid grid-rows-1 grid-cols-leg gap-x-2 p-2 text-sm text-center font-semibold
-    {{ leg.exit_date ? 'text-gray-dark' : 'text-brand-black'}}
+    {{ leg.exit_date ? 'text-gray-medium' : 'text-brand-black'}}
     ">
 
 
@@ -20,7 +20,7 @@
                 <span class="text-gray-medium">--</span>
             {% endif %}
         </p>
-        <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} strike price">
+        <p class="{{ leg.display == 'past' ? 'text-gray-medium' : ''}}" aria-label="{{leg.leg_name}} strike price">
 
             {% if leg.strike is not empty %}
                 ${{leg.strike}}
@@ -29,7 +29,7 @@
             {% endif %}
 
         </p>
-        <p class="{{ leg.display == 'past' ? 'text-gray-dark' : ''}}" aria-label="{{leg.leg_name}} entry price">
+        <p class="{{ leg.display == 'past' ? 'text-gray-medium' : ''}}" aria-label="{{leg.leg_name}} entry price">
             {% if leg.entry_price is not empty %}
                 ${{leg.entry_price}}
             {% else %}
@@ -54,18 +54,10 @@
     </div>
     {% endif %}
 
-    <div class="leg-detail grid grid-rows-1 grid-cols-leg gap-x-2 p-0 text-sm overflow-hidden transform transition-all max-h-0 duration-900 " x-ref="leg1" x-bind:style="selected == 1 ? 'max-height: ' + ($refs.leg1.scrollHeight + 60 ) + 'px' : ''" x-bind:class="selected == 1 ? 'p-6 pb-12' : ''">
+    <div class="leg-detail grid grid-rows-1 grid-cols-leg gap-x-2 p-0 text-sm overflow-hidden transform transition-all max-h-0 duration-900 " x-ref="leg1" x-bind:style="selected == 1 ? 'max-height: ' + ($refs.leg1.scrollHeight + 60 ) + 'px' : ''" x-bind:class="selected == 1 ? 'p-3' : ''">
 
-        <div class="col-span-4 col-start-2 m-4 mr-4 leg-description flex items-center" >
-            {# {% if leg.description is not empty %} #}
-                <p class="">
-                    {{leg.leg_description}}
-                </p>
-            {# {% else %}
-                <span class="text-gray-medium italic tect-center block">No additional details provided.</span>
-            {% endif %} #}
-
-
+        <div class="col-span-4 col-start-2 m-2 mr-4 leg-description flex items-center flex-wrap" >
+            {{leg.leg_description}}
         </div>
 
         <div class="col-span-2 flex items-center">

@@ -82,8 +82,9 @@
 {# MOBILE VERSION #}
 
 
-    <div class=" py-2 flex justify-between flex-wrap text-gray-dark max-w-7xl mx-auto pl-6 relative" x-data="{typeOpen:null, statusOpen:null, archiveOpen:null,infoOpen:null}" >
-        <div class="status flex relative flex-wrap" >
+    <div class=" py-2 flex justify-between flex-wrap text-gray-dark max-w-7xl mx-auto pl-2 md:pl-6 relative" x-data="{typeOpen:null, statusOpen:null, archiveOpen:null,infoOpen:null}" >
+        <div class="flex flex-wrap max-w-sm sm:w-full justify-between">
+            <div class="status flex relative flex-wrap mr-2 sm:mr-3">
             <div class="flex items-center justify-center mr-2 w-full"
             @click="statusOpen !== 1 ? statusOpen = 1 : statusOpen = null">
 
@@ -98,7 +99,7 @@
 
 
         </div>
-        <div class="relative yearly-archives flex flex-wrap">
+        <div class="relative yearly-archives flex flex-wrap mr-2 sm:mr-3">
             <div class="flex items-center justify-center mr-2 w-full text-xs"
 
             @click="archiveOpen !== 1 ? archiveOpen = 1 : archiveOpen = null">
@@ -109,7 +110,7 @@
                 </i>
             </div>
         </div>
-        <div class="relative flex flex-wrap">
+        <div class="relative flex flex-wrap mr-2 sm:mr-3">
             <div class="flex items-center justify-center mr-2 w-full"
 
             @click="infoOpen !== 1 ? infoOpen = 1 : infoOpen = null">
@@ -120,6 +121,10 @@
                 </i>
             </div>
         </div>
+        </div>
+
+
+
         <div class="relative flex flex-wrap">
             <div class="flex items-center justify-center mr-2 w-full"
             x-data='{ openall: false }'
@@ -141,29 +146,29 @@
 
 
         <div x-ref="statuschunk"
-        class="text-sm transform transition-all duration-900 w-full z-50"
+        class="text-sm transform transition-all duration-900 w-full z-50 my-2"
             x-show="statusOpen">
 
-            <ul class="flex mr-4">
-                <li class="inline-block  mr-3 mb-2">
+            <ul class="flex mr-4 mt-2">
+                <li class="inline-block mr-3 ">
                 {% if trade_status == 'active' %}
-                    <a class="ml-2 uppercase font-semibold py-1 text-sm py-1 text-accent-green" href="{{ site.link }}/{{ptype}}/trade_status/active"><i class="fas fa-check mr-1"></i>ACTIVE</a>
+                    <a class="uppercase font-semibold py-1 text-sm py-1 text-accent-green bg-brand-white rounded-lg px-3 py-2" href="{{ site.link }}/{{ptype}}/trade_status/active"><i class="fas fa-check mr-1"></i>ACTIVE</a>
                 {% else %}
-                    <a class="ml-2 uppercase font-semibold py-1 text-sm py-1 text-accent-green" href="{{ site.link }}/{{ptype}}/trade_status/active">ACTIVE</a>
+                    <a class="uppercase font-semibold py-1 text-sm py-1 text-accent-green bg-brand-white rounded-lg px-3 py-2" href="{{ site.link }}/{{ptype}}/trade_status/active">ACTIVE</a>
                 {% endif %}
                 </li>
-                <li class="inline-block mr-3 mb-2">
+                <li class="inline-block mr-3 ">
                 {% if trade_status == 'closed' %}
-                    <a class="ml-1 uppercase font-semibold py-1 text-sm py-1 text-accent-red" href="{{ site.link }}/{{ptype}}/trade_status/closed"><i class="fas fa-check mr-1"></i>CLOSED</a>
+                    <a class="ml-1 uppercase font-semibold py-1 text-sm py-1 text-accent-red bg-brand-white rounded-lg px-3 py-2" href="{{ site.link }}/{{ptype}}/trade_status/closed"><i class="fas fa-check mr-1"></i>CLOSED</a>
                 {% else %}
-                    <a class="ml-1 uppercase font-semibold py-1 text-sm py-1 text-accent-red" href="{{ site.link }}/{{ptype}}/trade_status/closed">CLOSED</a>
+                    <a class="ml-1 uppercase font-semibold py-1 text-sm py-1 text-accent-red bg-brand-white rounded-lg px-3 py-2" href="{{ site.link }}/{{ptype}}/trade_status/closed">CLOSED</a>
                 {% endif %}
                 </li>
-                <li class="inline-block mr-3 mb-2">
+                <li class="inline-block mr-3 ">
                 {% if trade_status != '' %}
-                    <a class="ml-1 uppercase font-semibold py-1 text-sm py-1 text-accent-blue" href="{{ site.link }}/{{ptype}}/">ALL</a>
+                    <a class="ml-1 uppercase font-semibold py-1 text-sm py-1 text-accent-blue bg-brand-white rounded-lg px-3 py-2" href="{{ site.link }}/{{ptype}}/">ALL</a>
                 {% else %}
-                    <a class="ml-1 uppercase font-semibold py-1 text-sm py-1 text-accent-blue" href="{{ site.link }}/{{ptype}}/"><i class="fas fa-check mr-1"></i>ALL</a>
+                    <a class="ml-1 uppercase font-semibold py-1 text-sm py-1 text-accent-blue bg-brand-white rounded-lg px-3 py-2" href="{{ site.link }}/{{ptype}}/"><i class="fas fa-check mr-1"></i>ALL</a>
                 {% endif %}
                 </li>
             </ul>
@@ -172,16 +177,16 @@
 
 
         <div x-ref="archivechunk"
-            class="ml-4 text-sm p-0 overflow-hidden transform transition-all max-h-0 duration-900 w-full z-50"
+            class="text-sm p-0 overflow-hidden transform transition-all max-h-0 duration-900 w-full z-50 "
 
             x-bind:style="archiveOpen == 1 ? 'max-height: ' + ($refs.archivechunk.scrollHeight + 100 ) + 'px' : ''"
 
-            x-bind:class="archiveOpen == 1 ? 'pb-2 listkiller' : ''"
+            x-bind:class="archiveOpen == 1 ? ' mt-2' : ''"
 
             >
 
             <div class="block">
-                <ul class="ml-0 pl-0 flex yearly-archives justify-between flex-wrap underline-none mt-0">
+                <ul class="ml-0 pl-0 flex yearly-archives justify-between flex-wrap underline-none mt-0" x-bind:class="archiveOpen == 1 ? ' listkiller' : ''">
                     {{ years }}
                     {% if ptype == "bot" %}
                         {% for ar in options.sidebar_bot.old_archive_links %}
@@ -214,11 +219,11 @@
 
 
         <div x-ref="infochunk"
-            class="text-xs prose p-0 overflow-hidden transform transition-all max-h-0 duration-900 top-16 right-2 z-50 flex items-center"
+            class="text-xs prose p-0 overflow-hidden transform transition-all max-h-0 duration-900 top-16 right-2 z-50 flex items-center "
 
             x-bind:style="infoOpen == 1 ? 'max-height: ' + ($refs.infochunk.scrollHeight + 100 ) + 'px' : ''"
 
-            x-bind:class="infoOpen == 1 ? 'p-2 px-4 bg-brand-white mb-2 mx-auto rounded-lg' : ''">
+            x-bind:class="infoOpen == 1 ? 'my-2 mt-3 p-2 px-4 bg-brand-white mb-2 mx-auto rounded-lg' : ''">
             {% if ptype == "bot" %}
                 {{ options.sidebar_bot.sidebar_area }}
             {% elseif ptype == "cct" %}
