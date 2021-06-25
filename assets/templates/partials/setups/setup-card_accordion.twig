@@ -43,7 +43,7 @@
 
                 {# href="{{trade.link}}" target="_blank" title="Go To Trade Details" aria-label="Go to Trade Details" #}
             </div>
-            <div div class="setup-expansion p-2 px-4 md:p-3 md:px-6 pt-0 md:pt-0  grid grid-cols-acc-xs xs:grid-cols-acc-xs sm:grid-cols-acc-sm md:grid-cols-acc-md lg:grid-cols-acc border-box p-0 text-sm overflow-hidden transform transition-all duration-200" x-show="open">
+            <div div class="setup-expansion p-2 px-4 md:p-3 md:px-6 pt-0 md:pt-0  grid grid-cols-acc-xs xs:grid-cols-acc-xs sm:grid-cols-acc-sm md:grid-cols-acc-md lg:grid-cols-acc border-box p-0  overflow-hidden transform transition-all duration-200" x-show="open">
                 <div class="col-span-7 lg:col-span-1 mb-4">
                     <p class="w-full text-lg mt-1 font-semibold block pr-8 leading-5">{{trade.ticker_symbol.underlying_name}}</p>
                     <p class="w-full text-xs tracking-wide uppercase text-gray-dark mr-4 mt-2">{{trade.ticker_symbol.sector}}</p>
@@ -51,7 +51,7 @@
                 </div>
 
                 {# mobile details #}
-                <div class="md:col-start-2 col-span-5 grid-cols-2 md:grid-cols-4 grid mb-4" x-bind:class="open == true ? 'block' : 'hidden'">
+                <div class="md:col-start-2 col-span-4 grid-cols-2 md:grid-cols-4 grid mb-4" x-bind:class="open == true ? 'block' : 'hidden'">
                     <div class="">
                         {{ include ('partials/metabits/meta-latest-update-date.twig') }}
                     </div>
@@ -67,7 +67,7 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="mt-3 md:mt-0">
+                    <div class="mt-3 md:mt-0 ">
                         {{ include ('partials/metabits/meta-strategy.twig') }}
                     </div>
 
