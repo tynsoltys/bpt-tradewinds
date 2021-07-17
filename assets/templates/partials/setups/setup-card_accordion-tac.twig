@@ -49,13 +49,19 @@
                     {{ include ('partials/metabits/meta-strategy.twig') }}
 
                 </div>
+                <div class=" col-span-4 lg:col-start-2 lg:col-span-5 flex items-start">
+                    <div class="">{{trade.meta('trade_description')}}</div>
+                </div>
                 <div class="col-span-6 col-start-2 flex justify-center items-center">
                     {% if trade.linked_trade %}
-                        <div class="w-full">
-                            <a href="{{tac_url}}" class="mt-8 right btn uppercase rounded shadow text-white bg-accent-blue"> See ASSOCIATED Position</a>
+                        <div class="w-1/2 mr-4">
+                        {% for link in Post(trade.linked_trade) %}
+                            <a href="{{link.link}}" target="_blank" class="btn bg-accent-blue text-center w-full">
+                                <i class="fas fa-eye ml-1"></i> See ASSOCIATED Position
+                            </a>
+                        {% endfor %}
                         </div>
                     {% endif %}
-                    {{include ('partials/witt-trade.twig')}}
                 </div>
                 <div class="col-span-6 col-start-2">
                     {% if trade.alternatives is not empty %}

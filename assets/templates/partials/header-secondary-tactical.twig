@@ -1,0 +1,33 @@
+<header class="page-header w-full border-b border-gray-medium fixed z-30 ">
+    <div class="w-full ">
+        <div class="bg-brand-white shadow">
+            <div class='flex-grow w-full max-w-7xl mx-auto flex items-center justify-between relative h-10 lg:h-16'>
+                <h2 class="ellipsis flex-grow flex items-center text-sm md:text-2xl uppercase text-brand-primary p-2 py-1 md:py-4 lg:px-10 items-center tracking-widest font-semibold">
+                    <i class="inline-block fas fa-bullseye mr-2 md:mr-2 lg:mr-3 pl-1 lg:pl-4"></i>
+
+                        {{post.title}}
+
+
+                </h2>
+
+                {{ include ('partials/searchform.twig') }}
+            </div>
+        </div>
+        <div class="bg-brand-secondary-light shadow">
+            <nav class="tac-nav w-full flex justify-between border-b border-gray-medium z-20 pr-2 lg:pr-8 pt-1 max-w-7xl mx-auto">
+                <ul class="mx-auto xl:px-0 flex-wrap flex-row flex justify-start lg:ml-12 z-50 md:pl-8">
+                    <li ><a class="text-xs md:text-base uppercase p-2 md:px-4 inline-block font-semibold bg-" href="#equity">Equity</a></li>
+                    <li ><a class="text-xs md:text-base uppercase p-2 md:px-4 inline-block font-semibold bg-" href="#bonds">Bonds</a></li>
+                    <li ><a class="text-xs md:text-base uppercase p-2 md:px-4 inline-block font-semibold bg-" href="#metals">Metals</a></li>
+                    <li ><a class="text-xs md:text-base uppercase p-2 md:px-4 inline-block font-semibold bg-" href="#commodities">Commodities</a></li>
+                    <li ><a class="text-xs md:text-base uppercase p-2 md:px-4 inline-block font-semibold bg-" href="#volatility">Volatility</a></li>
+
+                </ul>
+                <a href="{{site.link}}/wiki/intro-to-tactical-portfolio" class="inline-block flex items-center justify-end italic text-primary-medium text-accent-blue" target="_blank" ><i class="fas fa-question-circle mr-1"></i><span class="hidden underline text-accent-blue lg:inline-block">Learn about TAC</span></a>
+            </nav>
+        </div>
+
+    </div>
+</header>
+
+

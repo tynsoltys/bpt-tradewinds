@@ -41,7 +41,7 @@
         </div>
 
     </div>
-    {% if leg.exit_date %}
+    {% if leg.exit_date or leg.show_exit_fields %}
     <div class="uppercase font-medium tracking-wide leg-main grid grid-rows-1 grid-cols-leg gap-x-2 p-2 text-brand-black font-semibold text-center pt-0 text-sm">
         <p class="text-accent-red col-start-1 font-bold" aria-label="exit information">EXIT</p>
         <p class="" aria-label="{{leg.leg_name}} exit date">{{leg.exit_date}}</p>
@@ -54,9 +54,9 @@
     </div>
     {% endif %}
 
-    <div class="leg-detail grid grid-rows-1 grid-cols-leg gap-x-2 p-0 text-sm overflow-hidden transform transition-all max-h-0 duration-900 " x-ref="leg1" x-bind:style="selected == 1 ? 'max-height: ' + ($refs.leg1.scrollHeight + 60 ) + 'px' : ''" x-bind:class="selected == 1 ? 'p-3' : ''">
+    <div class="leg-detail grid grid-rows-1 grid-cols-leg gap-x-2 p-0 text-sm overflow-hidden transform transition-all  duration-900 " x-ref="leg1" x-show="selected" x-bind:class="selected == 1 ? 'py-2' : ''">
 
-        <div class="col-span-4 col-start-2 m-2 mr-4 leg-description flex items-center flex-wrap" >
+        <div class="col-span-3 col-start-2 m-2 mr-4 leg-description flex flex-wrap p-2 pl-8" >
             {{leg.leg_description}}
         </div>
 
@@ -71,12 +71,12 @@
                     {% endfor %}
                 </ul>
             {% else %}
-                <span class="text-gray-medium italic tect-center block">--</span>
+                <span class="text-gray-medium italic tect-center block"></span>
             {% endif %}
 
 
         </div>
-        <div class="col-span-2 leg-witt flex">
+        <div class="col-span-3 leg-witt flex">
 
             {{include ('partials/witt-leg.twig')}}
 

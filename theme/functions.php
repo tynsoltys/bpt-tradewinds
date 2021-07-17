@@ -38,12 +38,12 @@ function add_to_context( $context ) {
 
 // SEARCH CAPABILITIES
 
-function trade_search_results( $query ) {
-    if ( $query->is_main_query() && $query->is_search() && ! is_admin() ) {
-        $query->set( 'post_type', array( 'trade-setup', 'trade-setup-tac' ) );
-    }
-}
-add_action( 'pre_get_posts', 'trade_search_results' );
+// function trade_search_results( $query ) {
+//     if ( $query->is_main_query() && $query->is_search() && ! is_admin() ) {
+//         $query->set( 'post_type', array( 'trade-setup', 'trade-setup-tac' ) );
+//     }
+// }
+// add_action( 'pre_get_posts', 'trade_search_results' );
 
 
 // CREATING ANNUAL ARCHIVES FOR EACH POST TYPE
@@ -55,10 +55,10 @@ echo str_replace(($blog_url . '/date'), ($blog_url . '<your post type slug>'),$y
 
 
 /*
-* PURPOSE : If there are zero results (or other parameters) in the archive query, get_post_type() isn't reliable for knowing what the archive's post type is. This function gets the post type from the global $wp_query object instead.
-*  PARAMS : n/a
-* RETURNS : boolean / string - the slug for the post type fromm $wp_query, or false if that is not found.
-*   NOTES :
+// * PURPOSE : If there are zero results (or other parameters) in the archive query, get_post_type() isn't reliable for knowing what the archive's post type is. This function gets the post type from the global $wp_query object instead.
+// *  PARAMS : n/a
+// * RETURNS : boolean / string - the slug for the post type fromm $wp_query, or false if that is not found.
+// *   NOTES :
 */
 
 function jp_get_archive_post_type(){
@@ -80,6 +80,7 @@ function wpa_post_types_front_page( $query ) {
             'bot',
             'lto',
             'ofi',
+            'cct',
             'trade-setup-tac'
         ) );
     }
@@ -124,27 +125,47 @@ function sort_by_date_my_cpt( $query ) {
        $query->set('meta_key', 'latest_update_date');
        $query->set('orderby', 'meta_value');
        $query->set('order', 'DESC');
-       return;
+
     }
     if ( is_post_type_archive( 'lto') && $query->is_main_query() ) {
         $query->set('meta_key', 'latest_update_date');
         $query->set('orderby', 'meta_value');
         $query->set('order', 'DESC');
-        return;
+
     }
     if ( is_post_type_archive( 'ofi') && $query->is_main_query() ) {
         $query->set('meta_key', 'latest_update_date');
         $query->set('orderby', 'meta_value');
         $query->set('order', 'DESC');
-        return;
+
     }
     if ( is_post_type_archive( 'cct') && $query->is_main_query() ) {
         $query->set('meta_key', 'latest_update_date');
         $query->set('orderby', 'meta_value');
         $query->set('order', 'DESC');
-        return;
+
+    }
+    if ( is_year() && $query->is_main_query() ) {
+        $query->set('tax_query', array(
+            array(
+                'taxonomy' => 'trade_status',
+                'field' => 'slug',
+                'terms' => array('closed'),
+                'operator' => 'IN'
+                )
+            ) );
     }
  }
+
+//  $query->set('tax_query', array(
+//     array(
+//         'taxonomy' => 'trade_status',
+//         'field' => 'slug',
+//         'terms' => array('closed'),
+//         'operator' => 'IN'
+//         )
+//     ) );
+//    return;
 
 
 // REGISTERING MENUS

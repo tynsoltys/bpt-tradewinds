@@ -53,7 +53,7 @@ module.exports = {
              'acctac': '100px 1fr 1fr 1fr 1fr 1fr 30px',
              'acctac-xs': '150px 1fr 35px 25px',
              'full': '250px 1fr 1fr 1fr 1fr 1fr',
-             'bot': '250px 1fr 1fr 1fr 1fr 1fr 1fr',
+             'bot': '250px 1fr 1fr 1fr 1fr 1fr 1.5fr',
              'leg': '20px 1.7fr 2fr 2fr 50px 2fr 1.7fr 1fr 1fr 30px',
             },
             gridTemplateRows: {

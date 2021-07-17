@@ -39,6 +39,7 @@ $tac_legs = get_field('legs', $tac_id);
 $tac_url = get_permalink($tac_id);
 $GLOBALS['tac_url'] = $tac_url;
 $context['tac_url'] = $GLOBALS['tac_url'];
+var_dump($linked_post);
 
 $templates = [
     'posts/single-' . $post->ID . '.twig',

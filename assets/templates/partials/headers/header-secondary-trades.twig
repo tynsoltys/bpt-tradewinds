@@ -83,8 +83,8 @@
 
 
     <div class=" py-2 flex justify-between flex-wrap text-gray-dark max-w-7xl mx-auto pl-2 md:pl-6 relative" x-data="{typeOpen:null, statusOpen:null, archiveOpen:null,infoOpen:null}" >
-        <div class="flex flex-wrap max-w-sm sm:w-full justify-between">
-            <div class="status flex relative flex-wrap mr-2 sm:mr-3">
+        <div class="flex flex-wrap max-w-sm sm:w-full ">
+         <div class="status flex relative flex-wrap mr-4 sm:mr-3 hidden">
             <div class="flex items-center justify-center mr-2 w-full"
             @click="statusOpen !== 1 ? statusOpen = 1 : statusOpen = null">
 
@@ -102,7 +102,7 @@
         <div class="relative yearly-archives flex flex-wrap mr-2 sm:mr-3">
             <div class="flex items-center justify-center mr-2 w-full text-xs"
 
-            @click="archiveOpen !== 1 ? archiveOpen = 1 : archiveOpen = null">
+            @click="archiveOpen !== 1 ? archiveOpen = 1 : archiveOpen = null; infoOpen = null">
                 <p class="inline-block uppercase font-semibold tracking-wide">ARCHIVES</p>
                 <i class="fas fa-chevron-down text-sm ml-1" x-ref="toggle-icon"
 
@@ -113,7 +113,7 @@
         <div class="relative flex flex-wrap mr-2 sm:mr-3">
             <div class="flex items-center justify-center mr-2 w-full"
 
-            @click="infoOpen !== 1 ? infoOpen = 1 : infoOpen = null">
+            @click="infoOpen !== 1 ? infoOpen = 1 : infoOpen = null; archiveOpen = null">
                 <p class="inline-block uppercase font-semibold tracking-wide text-xs">ABOUT {{ptype}}</p>
                 <i class="fas fa-chevron-down text-sm ml-1" x-ref="toggle-icon"
 
@@ -146,7 +146,7 @@
 
 
         <div x-ref="statuschunk"
-        class="text-sm transform transition-all duration-900 w-full z-50 my-2"
+        class="text-sm transform transition-all duration-900 w-full z-50 my-2 hidden"
             x-show="statusOpen">
 
             <ul class="flex mr-4 mt-2">
@@ -186,7 +186,7 @@
             >
 
             <div class="block">
-                <ul class="ml-0 pl-0 flex yearly-archives justify-between flex-wrap underline-none mt-0" x-bind:class="archiveOpen == 1 ? ' listkiller' : ''">
+                <ul class="ml-0 pl-0 flex yearly-archives flex-wrap underline-none mt-0" x-bind:class="archiveOpen == 1 ? ' listkiller' : ''">
                     {{ years }}
                     {% if ptype == "bot" %}
                         {% for ar in options.sidebar_bot.old_archive_links %}
@@ -219,7 +219,7 @@
 
 
         <div x-ref="infochunk"
-            class="text-xs prose p-0 overflow-hidden transform transition-all max-h-0 duration-900 top-16 right-2 z-50 flex items-center "
+            class="text-xs prose p-0 overflow-hidden transform transition-all max-h-0 duration-900 top-16 right-2 z-50 flex flex-grow"
 
             x-bind:style="infoOpen == 1 ? 'max-height: ' + ($refs.infochunk.scrollHeight + 100 ) + 'px' : ''"
 

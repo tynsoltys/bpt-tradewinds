@@ -1,0 +1,29 @@
+<header class="page-header w-full bg-brand-white border-b border-gray-medium shadow fixed z-30 pr-2 md:pr-8">
+    <div class='flex-grow w-full max-w-7xl mx-auto flex items-center justify-between relative h-10 lg:h-16'>
+        <h2 class="ellipsis flex-grow flex items-center text-sm md:text-2xl uppercase text-brand-primary p-2 py-1 md:py-4 lg:px-10 items-center tracking-widest font-semibold">
+            <i class="inline-block fas fa-bell mr-2 md:mr-2 lg:mr-3 pl-1 lg:pl-4"></i>
+            {# <a class="hover:text-brand-primary-medium" href="{{ site.link }}/">TRADES</a>
+
+            <i class="far fa-chevron-double-right m-2 text-sm"></i> #}
+            <a class="" href="{{ site.link }}/{{post.post_type}}/trade_status/active">
+                    <p class="flex hidden md:inline-block">
+                        {{post.type.labels.name}}
+                    </p>
+                    <p class="flex md:hidden">
+                        TAC
+                    </p>
+            </a>
+
+            <i class="far fa-chevron-double-right m-2 text-sm text-gray-dark"></i>
+            {{post.asset_class}}
+
+            <i class="far fa-chevron-double-right m-2 text-sm text-gray-dark"></i>
+            {{post.ticker_symbol}}
+        </h2>
+
+        {{ include ('partials/searchform.twig') }}
+    </div>
+
+</header>
+
+
